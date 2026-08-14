@@ -12,5 +12,6 @@ services:
     # environment:
     #   POLL_INTERVAL: 60
     #   FORCE_SYNC_HOURS: 6
+    #   # Generate notifications URL here: https://appriseit.com/url-builder/
     #   NOTIFY_URL: ntfy://ntfy.sh/your-topic
     #   NOTIFY_ERROR_URL: ntfy://ntfy.sh/your-error-topic
