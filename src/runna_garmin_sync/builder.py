@@ -138,8 +138,6 @@ def build_workout(day: dict, mapping: Mapping, app_link_base: str | None = None)
             }
             for step in steps:
                 step["childStepId"] = i
-            if steps and steps[-1]["stepType"]["stepTypeKey"] == "rest":
-                group["skipLastRestStep"] = True
             groups.append(group)
         for text in (part.get("partCoach"), part.get("partComment")):
             if text:
@@ -176,10 +174,7 @@ def build_workout(day: dict, mapping: Mapping, app_link_base: str | None = None)
 def _describe_step(step: dict, indent: str) -> list[str]:
     kind = step["stepType"]["stepTypeKey"]
     if step["type"] == "RepeatGroupDTO":
-        head = f"{indent}{step['numberOfIterations']} sets"
-        if step.get("skipLastRestStep"):
-            head += " (skip last rest)"
-        lines = [head + ":"]
+        lines = [f"{indent}{step['numberOfIterations']} sets:"]
         for child in step["workoutSteps"]:
             lines += _describe_step(child, indent + "  ")
         return lines

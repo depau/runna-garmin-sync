@@ -36,7 +36,7 @@ def test_multi_set_part_is_a_repeat_group(workout):
     group = workout["workoutSegments"][0]["workoutSteps"][1]
     assert group["type"] == "RepeatGroupDTO"
     assert group["numberOfIterations"] == 3
-    assert group["skipLastRestStep"] is True  # part ends with TIMED_REST
+    assert "skipLastRestStep" not in group  # Runna performs the rest every round
     assert all(s["childStepId"] == group["childStepId"] for s in group["workoutSteps"])
 
 
@@ -85,6 +85,6 @@ def test_content_hash_changes_with_date_and_content(workout):
 
 def test_describe_workout_smoke(workout):
     text = describe_workout(workout)
-    assert "3 sets (skip last rest):" in text
+    assert "3 sets:" in text
     assert "8+ reps" in text
     assert "@ 10kg" in text
