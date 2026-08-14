@@ -35,9 +35,8 @@ docker compose up -d                 # daemon
 ```
 
 See `docker-compose.yaml`; state persists in `./state`. Images are published to
-`ghcr.io/depau/runna-garmin-sync` — `:edge` tracks `main`, `:latest` and semver
-tags (`:0.1.0`, `:0.1`) are cut on `v*` releases (uncomment `build: .` to build
-locally instead).
+`ghcr.io/depau/runna-garmin-sync` — use `:latest` for the latest stable release,
+`:edge` for the latest development snapshot from the `main` branch.
 
 Other commands: `dump` (print Runna strength days as JSON), `push` (push all
 synced workouts to the primary training device), `garmin-workout <id>` (dump a
