@@ -8,12 +8,15 @@ import json
 import logging
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 import requests
 
 from .state import State
 
 log = logging.getLogger(__name__)
+
+CACHE_FILE = "runna_cache.json"
 
 COGNITO_URL = "https://cognito-idp.eu-west-1.amazonaws.com/"
 CLIENT_ID = "3ge3jbid1uosi52ki4kjhrp747"
@@ -174,22 +177,27 @@ class RunnaClient:
         r.raise_for_status()
         return True, r.headers.get("ETag")
 
+    def _week_day_ids(self, week_index: int) -> tuple[bool, list[str]]:
+        """Returns (week_has_days, strength ids) for one week."""
+        try:
+            data = self.gql(WEEK_QUERY, {"weekIndex": week_index})
+            days = ((data.get("getActiveOrderWeek") or {}).get("week") or {}).get("days") or []
+        except RunnaError as e:
+            log.debug("week %d: %s", week_index, e)
+            days = []
+        return bool(days), [d["id"] for d in days if d.get("__typename") == "DayStrength"]
+
     def strength_day_ids(self, max_weeks: int = 60) -> list[str]:
-        """Walk plan weeks and collect all DayStrength ids."""
+        """Walk plan weeks (parallel chunks) and collect all DayStrength ids."""
+        self._id_token = self._authenticate()  # mint once, not from 8 threads at once
         ids: list[str] = []
-        empty_streak = 0
-        for w in range(max_weeks):
-            try:
-                data = self.gql(WEEK_QUERY, {"weekIndex": w})
-                days = ((data.get("getActiveOrderWeek") or {}).get("week") or {}).get("days") or []
-            except RunnaError as e:
-                log.debug("week %d: %s", w, e)
-                days = []
-            strength = [d["id"] for d in days if d.get("__typename") == "DayStrength"]
-            ids.extend(strength)
-            empty_streak = 0 if days else empty_streak + 1
-            if empty_streak >= 4:  # ponytail: plan length unknown; 4 empty weeks = past the end
-                break
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            for start in range(0, max_weeks, 8):
+                chunk = list(ex.map(self._week_day_ids, range(start, start + 8)))
+                for _, week_ids in chunk:
+                    ids.extend(week_ids)
+                if not any(has_days for has_days, _ in chunk):  # a whole empty chunk = past the end
+                    break
         return ids
 
     def get_workout(self, workout_id: str) -> dict:
@@ -197,3 +205,22 @@ class RunnaClient:
         if not day or day.get("__typename") != "DayStrength":
             raise RunnaError(f"{workout_id} is not a DayStrength")
         return day
+
+    def strength_days_cached(self, refresh: bool = False) -> list[dict]:
+        """All strength days, cached in runna_cache.json keyed on the iCal ETag.
+
+        A 304 on the calendar feed means the plan hasn't changed, so the cached
+        payloads are reused (fast path: one conditional GET, zero GraphQL).
+        `refresh=True` bypasses the cache — use periodically to pick up changes
+        the iCal can't reflect (e.g. newly logged weights in mostRecentSet).
+        """
+        cache = self.state.load(CACHE_FILE, {})
+        changed, etag = self.ical_changed(self.ical_url(), cache.get("etag"))
+        if not refresh and not changed and cache.get("days") is not None:
+            log.info("Runna: calendar unchanged, using cached plan (%d days)", len(cache["days"]))
+            return cache["days"]
+        self._id_token = self._authenticate()
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            days = list(ex.map(self.get_workout, self.strength_day_ids()))
+        self.state.save(CACHE_FILE, {"etag": etag, "days": days})
+        return days

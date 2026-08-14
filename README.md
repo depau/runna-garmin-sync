@@ -36,6 +36,7 @@ Other commands: `dump` (print upcoming Runna strength days as JSON),
 
 - `garmin_tokens/` — Garmin OAuth tokens (garth, ~1 year, auto-refreshed)
 - `runna_auth.json` — Cognito refresh + id token
+- `runna_cache.json` — cached plan payloads, invalidated by the calendar ETag (periodic forced syncs bypass it to pick up logged weights)
 - `sync_state.json` — calendar ETag + map of Runna workout id → Garmin workout id / schedule / content hash
 - `unknown_exercises.json` — Runna exercises missing from the mapping CSV, captured for curation
 

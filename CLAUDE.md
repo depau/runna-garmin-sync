@@ -34,8 +34,13 @@ Runna/Garmin accounts; sessions live in `~/.config/runna-garmin-sync` (override 
 Pipeline in `src/runna_garmin_sync/` (src layout, uv_build backend):
 
 - `runna.py` — Cognito auth (raw HTTP, no boto3; password → cached refresh token → cached idToken
-  in `runna_auth.json`), minimal GraphQL client, plan-week walker, iCal conditional GET (ETag) as
-  the cheap change signal, per-user app-link base harvested from the iCal feed.
+  in `runna_auth.json`), minimal GraphQL client, parallel plan-week walker (8 threads), iCal
+  conditional GET (ETag) as the cheap change signal, per-user app-link base harvested from the
+  iCal feed. `strength_days_cached()` caches all day payloads in `runna_cache.json` keyed on the
+  iCal ETag (304 → zero GraphQL); `refresh=True` bypasses it (needed for `mostRecentSet.weightKg`,
+  which the iCal can't reflect — the daemon's periodic forced sync uses it). `planVersion` does
+  NOT bump on minor edits (verified) and `DayStrength` has no fingerprint field — the ETag is the
+  only reliable change signal.
 - `mapping.py` — Runna `exerciseId` → Garmin `{category, exerciseName}` from the **vendored**
   `runna-garmin-mapping.csv` (inside the package so pip installs keep it). Unknown ids are
   persisted to `unknown_exercises.json` for curation and mapped to a same-muscle-group generic.

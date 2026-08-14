@@ -86,10 +86,8 @@ def login(ctx):
 @cli.command()
 @click.pass_context
 def dump(ctx):
-    """Print all upcoming Runna strength days as JSON."""
-    runna = _runna(ctx)
-    days = [runna.get_workout(rid) for rid in runna.strength_day_ids()]
-    json.dump(days, sys.stdout, indent=2, ensure_ascii=False)
+    """Print all Runna strength days as JSON (cached; ETag-invalidated)."""
+    json.dump(_runna(ctx).strength_days_cached(), sys.stdout, indent=2, ensure_ascii=False)
 
 
 @cli.command("garmin-workout")
@@ -100,11 +98,11 @@ def garmin_workout(ctx, workout_id):
     json.dump(_garmin(ctx).get_workout_by_id(workout_id), sys.stdout, indent=2)
 
 
-def _do_sync(ctx: click.Context) -> None:
+def _do_sync(ctx: click.Context, refresh: bool = False) -> None:
     from .sync import full_sync
 
     mapping = Mapping(ctx.obj["state"], ctx.obj["mapping_csv"])
-    full_sync(_runna(ctx), _garmin(ctx), mapping, ctx.obj["state"])
+    full_sync(_runna(ctx), _garmin(ctx), mapping, ctx.obj["state"], refresh=refresh)
 
 
 @cli.command()
@@ -149,7 +147,7 @@ def sync(ctx, dry_run, as_json):
 @click.pass_context
 def daemon(ctx, poll_interval, force_sync_hours):
     """Poll the Runna calendar and sync on change."""
-    from .sync import SYNC_FILE
+    from .runna import CACHE_FILE
 
     state = ctx.obj["state"]
     runna = _runna(ctx)
@@ -157,15 +155,12 @@ def daemon(ctx, poll_interval, force_sync_hours):
     last_forced = 0.0
     while True:
         try:
-            st = state.load(SYNC_FILE, {})
-            changed, etag = runna.ical_changed(ical, st.get("icalEtag"))
+            # read-only peek at the plan cache's ETag; the sync refreshes it
+            changed, _ = runna.ical_changed(ical, state.load(CACHE_FILE, {}).get("etag"))
             force = time.monotonic() - last_forced > force_sync_hours * 3600
             if changed or force:
-                log.info("syncing (%s)", "calendar changed" if changed else "periodic")
-                _do_sync(ctx)
-                st = state.load(SYNC_FILE, {})
-                st["icalEtag"] = etag
-                state.save(SYNC_FILE, st)
+                log.info("syncing (%s)", "calendar changed" if changed else "periodic refresh")
+                _do_sync(ctx, refresh=force)
                 last_forced = time.monotonic()
         except Exception:
             log.exception("sync failed; retrying next poll")

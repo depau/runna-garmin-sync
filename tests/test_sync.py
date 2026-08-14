@@ -23,11 +23,8 @@ class FakeRunna:
     def __init__(self, days):
         self.days = {d["id"]: d for d in days}
 
-    def strength_day_ids(self):
-        return list(self.days)
-
-    def get_workout(self, rid):
-        return self.days[rid]
+    def strength_days_cached(self, refresh=False):
+        return list(self.days.values())
 
     def app_link_base(self):
         return "https://club.runna.com/USER/workout"

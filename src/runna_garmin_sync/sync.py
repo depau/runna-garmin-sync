@@ -45,8 +45,8 @@ def plan_sync(runna: RunnaClient, mapping: Mapping, state: State) -> list[dict]:
     link = runna.app_link_base()
     plan = []
     seen = set()
-    for rid in runna.strength_day_ids():
-        day = runna.get_workout(rid)
+    for day in runna.strength_days_cached():
+        rid = day["id"]
         if (day.get("date") or "") < today or day.get("skipped"):
             continue
         seen.add(rid)
@@ -66,19 +66,18 @@ def plan_sync(runna: RunnaClient, mapping: Mapping, state: State) -> list[dict]:
     return plan
 
 
-def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State) -> dict:
+def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State, refresh: bool = False) -> dict:
     today = datetime.date.today().isoformat()
     st = state.load(SYNC_FILE, {})
     tracked = st.setdefault("workouts", {})
 
     link = runna.app_link_base()
     desired = {}
-    for rid in runna.strength_day_ids():
-        day = runna.get_workout(rid)
+    for day in runna.strength_days_cached(refresh=refresh):
         if (day.get("date") or "") < today or day.get("skipped"):
             continue
         workout = build_workout(day, mapping, link)
-        desired[rid] = (workout, day["date"])
+        desired[day["id"]] = (workout, day["date"])
 
     stats = {"created": 0, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0}
 
