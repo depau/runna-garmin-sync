@@ -28,7 +28,7 @@ Other commands: `dump` (print upcoming Runna strength days as JSON),
 | Var | Default | |
 |---|---|---|
 | `STATE_DIR` | `$XDG_CONFIG_HOME/runna-garmin-sync` (`~/.config/…`) | token + sync state directory |
-| `POLL_INTERVAL` | `300` | seconds between calendar ETag polls |
+| `POLL_INTERVAL` | `60` | seconds between calendar ETag polls (a 304 is a few bytes) |
 | `FORCE_SYNC_HOURS` | `6` | full sync even without a calendar change |
 | `MAPPING_CSV` | CSV bundled in the package | exercise mapping override |
 

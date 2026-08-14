@@ -135,7 +135,7 @@ def sync(ctx, dry_run, as_json, no_cache):
 @click.option(
     "--poll-interval",
     envvar="POLL_INTERVAL",
-    default=300,
+    default=60,
     show_default=True,
     help="seconds between calendar ETag polls",
 )
