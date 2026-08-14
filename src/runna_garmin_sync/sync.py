@@ -5,7 +5,7 @@ import logging
 
 from garminconnect import Garmin
 
-from .builder import build_workout, content_hash
+from .builder import RUNNA_APP_LINK, build_workout, content_hash
 from .mapping import Mapping
 from .runna import RunnaClient
 from .state import State
@@ -90,18 +90,23 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
     st = state.load(SYNC_FILE, {})
     tracked = st.setdefault("workouts", {})
 
-    link = runna.app_link_base()
+    link_base = runna.app_link_base() or RUNNA_APP_LINK
     desired = {}
     for day in runna.strength_days_cached(refresh=refresh):
         if (day.get("date") or "") < today or day.get("skipped"):
             continue
-        workout = build_workout(day, mapping, link)
-        desired[day["id"]] = (workout, day["date"])
+        workout = build_workout(day, mapping, link_base)
+        info = {
+            "name": day.get("strengthTitle") or "Strength",
+            "link": f"{link_base}?dayId={day['id']}&weekIndex={day.get('weekIndex')}",
+        }
+        desired[day["id"]] = (workout, day["date"], info)
 
     stats = {"created": 0, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0, "pushed": 0}
+    changes = stats["changes"] = []
     touched = []
 
-    for rid, (workout, date) in desired.items():
+    for rid, (workout, date, info) in desired.items():
         h = content_hash(workout, date)
         rec = tracked.get(rid)
         if not rec:
@@ -113,9 +118,11 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
                 "scheduleId": _schedule_id(sched, garmin, gid, date),
                 "date": date,
                 "hash": h,
+                **info,
             }
             stats["created"] += 1
             touched.append(gid)
+            changes.append({"action": "created", "date": date, **info})
             log.info("created %s → garmin %s on %s", rid, gid, date)
         elif rec["hash"] != h:
             garmin.update_workout(rec["garminWorkoutId"], workout)
@@ -127,7 +134,8 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
                 sched = garmin.schedule_workout(rec["garminWorkoutId"], date)
                 rec["scheduleId"] = _schedule_id(sched, garmin, rec["garminWorkoutId"], date)
                 stats["rescheduled"] += 1
-            rec.update(hash=h, date=date)
+            rec.update(hash=h, date=date, **info)
+            changes.append({"action": "updated", "date": date, **info})
             log.info("updated %s (garmin %s)", rid, rec["garminWorkoutId"])
         else:
             stats["unchanged"] += 1
@@ -147,6 +155,8 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
         garmin.delete_workout(rec["garminWorkoutId"])
         del tracked[rid]
         stats["deleted"] += 1
+        # no link: the workout is gone from Runna, a deep link would just 404
+        changes.append({"action": "deleted", "date": rec["date"], "name": rec.get("name", rid), "link": None})
         log.info("deleted %s (garmin %s)", rid, rec["garminWorkoutId"])
         state.save(SYNC_FILE, st)
 

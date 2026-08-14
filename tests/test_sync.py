@@ -71,9 +71,17 @@ def runna():
 def test_first_sync_creates_and_schedules(runna, mapping, state):
     garmin = FakeGarmin()
     stats = full_sync(runna, garmin, mapping, state)
-    assert stats == {"created": 2, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0, "pushed": 2}
+    assert stats["created"] == 2 and stats["pushed"] == 2
+    assert stats["updated"] == stats["rescheduled"] == stats["deleted"] == stats["unchanged"] == 0
     assert garmin.call_names() == ["upload", "schedule", "upload", "schedule", "push", "push"]
     assert garmin.calls[-1][2] == 42  # pushed to the primary training device
+    assert [c["action"] for c in stats["changes"]] == ["created", "created"]
+    assert all(
+        c["name"] == "Forza di gambe e core"
+        and c["link"].startswith("https://club.runna.com/USER/workout?dayId=r")
+        and "weekIndex=3" in c["link"]
+        for c in stats["changes"]
+    )
     tracked = state.load(SYNC_FILE)["workouts"]
     assert set(tracked) == {"r1", "r2"}
     assert tracked["r1"]["date"] == TOMORROW and tracked["r1"]["scheduleId"]
@@ -114,6 +122,8 @@ def test_vanished_and_skipped_days_are_deleted(runna, mapping, state):
     stats = full_sync(runna, garmin, mapping, state)
     assert stats["deleted"] == 2
     assert garmin.call_names() == ["unschedule", "delete", "unschedule", "delete"]
+    # deletions keep the remembered name but no link — the Runna day is gone
+    assert all(c["action"] == "deleted" and c["name"] and c["link"] is None for c in stats["changes"])
     assert state.load(SYNC_FILE)["workouts"] == {}
 
 

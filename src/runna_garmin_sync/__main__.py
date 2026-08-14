@@ -132,9 +132,18 @@ def _notify(url: str | None, title: str, body: str) -> None:
 
         a = apprise.Apprise()
         a.add(url)
-        a.notify(title=title, body=body)
+        a.notify(title=title, body=body, body_format=apprise.NotifyFormat.MARKDOWN)
     except Exception:
         log.exception("notification failed")
+
+
+def _sync_notification(stats: dict) -> str:
+    lines = []
+    for c in stats["changes"]:
+        label = f"[{c['name']}]({c['link']})" if c.get("link") else c["name"]
+        lines.append(f"- {label} — {c['action']}, {c['date']}")
+    counts = ", ".join(f"{k} {v}" for k, v in stats.items() if isinstance(v, int) and v and k != "unchanged")
+    return "\n".join([counts, *lines])
 
 
 @cli.command()
@@ -208,9 +217,8 @@ def daemon(ctx, poll_interval, force_sync_hours, notify_url, notify_error_url):
                 log.info("syncing (%s)", "calendar changed" if changed else "periodic refresh")
                 stats = _do_sync(ctx, refresh=force)
                 last_forced = time.monotonic()
-                summary = ", ".join(f"{k} {v}" for k, v in stats.items() if v and k != "unchanged")
-                if summary:
-                    _notify(notify_url, "Runna plan synced to Garmin", summary)
+                if stats["changes"]:
+                    _notify(notify_url, "Runna plan synced to Garmin", _sync_notification(stats))
             last_error = None
         except Exception as e:
             log.exception("sync failed; retrying next poll")
