@@ -8,26 +8,36 @@ use only — it talks to Runna's private GraphQL API (see `docs/runna-api.md`).
 
 ```sh
 uv sync
-export RUNNA_EMAIL=… RUNNA_PASSWORD=…       # Cognito native password (docs/runna-api.md §3.1)
-export GARMIN_EMAIL=… GARMIN_PASSWORD=…
-uv run python -m runna_garmin_sync login    # one-time: prompts for Garmin MFA code, seeds tokens
+uv run runna-garmin-sync login   # one-time interactive login: prompts for Runna +
+                                 # Garmin credentials and the Garmin MFA code
 ```
+
+`login` seeds long-lived sessions on disk (`STATE_DIR`), so no credentials are
+needed afterwards — every other command just reuses them. For non-interactive
+deployments you can instead provide `RUNNA_EMAIL`/`RUNNA_PASSWORD` and
+`GARMIN_EMAIL`/`GARMIN_PASSWORD` (or the matching flags), but the interactive
+login is the recommended path: nothing sensitive ends up in your shell history
+or unit files, and Garmin MFA needs a prompt anyway. The Runna password is the
+Cognito native password (docs/runna-api.md §3.1).
 
 ## Run
 
 ```sh
-uv run python -m runna_garmin_sync sync     # one-shot sync
-uv run python -m runna_garmin_sync daemon   # poll calendar ETag, sync on change
+uv run runna-garmin-sync sync            # one-shot sync (-n/--dry-run to preview, --no-cache to refetch)
+uv run runna-garmin-sync daemon          # poll calendar ETag, sync on change
 ```
 
-Other commands: `dump` (print upcoming Runna strength days as JSON),
-`garmin-workout <id>` (dump a Garmin workout DTO, for debugging).
+Other commands: `dump` (print Runna strength days as JSON), `push` (push all
+synced workouts to the primary training device), `garmin-workout <id>` (dump a
+Garmin workout DTO, for debugging).
 
 ## Configuration (env vars — every one is also a CLI flag, see `--help`)
 
 | Var | Default | |
 |---|---|---|
 | `STATE_DIR` | `$XDG_CONFIG_HOME/runna-garmin-sync` (`~/.config/…`) | token + sync state directory |
+| `RUNNA_EMAIL` / `RUNNA_PASSWORD` | — | only needed if there is no session from `login` |
+| `GARMIN_EMAIL` / `GARMIN_PASSWORD` | — | only needed if there is no session from `login` |
 | `POLL_INTERVAL` | `60` | seconds between calendar ETag polls (a 304 is a few bytes) |
 | `FORCE_SYNC_HOURS` | `6` | full sync even without a calendar change |
 | `NOTIFY_URL` | — | [Apprise](https://github.com/caronc/apprise) URL for daemon sync notifications |
@@ -50,7 +60,8 @@ each `DayStrength`, build a Garmin strength workout (one repeat group per
 Runna part, reps/time/rest steps, warmup phase when Runna marks it, original
 exercise name + rep range + load + tips in the step notes), then reconcile:
 create + schedule new days, update/reschedule changed ones, delete ours when a
-future day disappears or is skipped. Only workouts this tool created (tracked
-in `sync_state.json`, also marked `runna:<id>` in the description) are touched.
+future day disappears or is skipped, and push changes to the primary training
+device. Only workouts this tool created are touched (tracked in
+`sync_state.json`; the Runna deep link in each description carries the `dayId`).
 
 Tests: `uv run pytest` · Lint/format: ruff via pre-commit (`uv run pre-commit install` once)
