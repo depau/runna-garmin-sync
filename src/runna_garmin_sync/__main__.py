@@ -117,11 +117,24 @@ def garmin_workout(ctx, workout_id):
     json.dump(_garmin(ctx).get_workout_by_id(workout_id), sys.stdout, indent=2)
 
 
-def _do_sync(ctx: click.Context, refresh: bool = False) -> None:
+def _do_sync(ctx: click.Context, refresh: bool = False) -> dict:
     from .sync import full_sync
 
     mapping = Mapping(ctx.obj["state"], ctx.obj["mapping_csv"])
-    full_sync(_runna(ctx), _garmin(ctx), mapping, ctx.obj["state"], refresh=refresh)
+    return full_sync(_runna(ctx), _garmin(ctx), mapping, ctx.obj["state"], refresh=refresh)
+
+
+def _notify(url: str | None, title: str, body: str) -> None:
+    if not url:
+        return
+    try:
+        import apprise
+
+        a = apprise.Apprise()
+        a.add(url)
+        a.notify(title=title, body=body)
+    except Exception:
+        log.exception("notification failed")
 
 
 @cli.command()
@@ -164,8 +177,20 @@ def sync(ctx, dry_run, as_json, no_cache):
     show_default=True,
     help="full sync even without a calendar change",
 )
+@click.option(
+    "--notify-url",
+    envvar="NOTIFY_URL",
+    default=None,
+    help="Apprise URL for sync notifications (see https://github.com/caronc/apprise)",
+)
+@click.option(
+    "--notify-error-url",
+    envvar="NOTIFY_ERROR_URL",
+    default=None,
+    help="Apprise URL for error notifications (defaults to --notify-url)",
+)
 @click.pass_context
-def daemon(ctx, poll_interval, force_sync_hours):
+def daemon(ctx, poll_interval, force_sync_hours, notify_url, notify_error_url):
     """Poll the Runna calendar and sync on change."""
     from .runna import CACHE_FILE
 
@@ -173,6 +198,7 @@ def daemon(ctx, poll_interval, force_sync_hours):
     runna = _runna(ctx)
     ical = runna.ical_url()
     last_forced = 0.0
+    last_error = None
     while True:
         try:
             # read-only peek at the plan cache's ETag; the sync refreshes it
@@ -180,10 +206,18 @@ def daemon(ctx, poll_interval, force_sync_hours):
             force = time.monotonic() - last_forced > force_sync_hours * 3600
             if changed or force:
                 log.info("syncing (%s)", "calendar changed" if changed else "periodic refresh")
-                _do_sync(ctx, refresh=force)
+                stats = _do_sync(ctx, refresh=force)
                 last_forced = time.monotonic()
-        except Exception:
+                summary = ", ".join(f"{k} {v}" for k, v in stats.items() if v and k != "unchanged")
+                if summary:
+                    _notify(notify_url, "Runna plan synced to Garmin", summary)
+            last_error = None
+        except Exception as e:
             log.exception("sync failed; retrying next poll")
+            msg = f"{type(e).__name__}: {e}"
+            if msg != last_error:  # don't re-notify the same failure every poll
+                _notify(notify_error_url or notify_url, "Runna→Garmin sync error", msg)
+                last_error = msg
         time.sleep(poll_interval)
 
 

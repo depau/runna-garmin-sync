@@ -30,6 +30,8 @@ Other commands: `dump` (print upcoming Runna strength days as JSON),
 | `STATE_DIR` | `$XDG_CONFIG_HOME/runna-garmin-sync` (`~/.config/…`) | token + sync state directory |
 | `POLL_INTERVAL` | `60` | seconds between calendar ETag polls (a 304 is a few bytes) |
 | `FORCE_SYNC_HOURS` | `6` | full sync even without a calendar change |
+| `NOTIFY_URL` | — | [Apprise](https://github.com/caronc/apprise) URL for daemon sync notifications |
+| `NOTIFY_ERROR_URL` | — | Apprise URL for daemon error notifications (falls back to `NOTIFY_URL`) |
 | `MAPPING_CSV` | CSV bundled in the package | exercise mapping override |
 
 ## State (all plain files in `STATE_DIR`)
