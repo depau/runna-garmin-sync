@@ -50,4 +50,4 @@ create + schedule new days, update/reschedule changed ones, delete ours when a
 future day disappears or is skipped. Only workouts this tool created (tracked
 in `sync_state.json`, also marked `runna:<id>` in the description) are touched.
 
-Tests: `uv run pytest`
+Tests: `uv run pytest` · Lint/format: ruff via pre-commit (`uv run pre-commit install` once)

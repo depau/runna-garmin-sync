@@ -202,6 +202,4 @@ def describe_workout(workout: dict) -> str:
 
 
 def content_hash(workout: dict, date: str) -> str:
-    return hashlib.sha256(
-        json.dumps({"workout": workout, "date": date}, sort_keys=True).encode()
-    ).hexdigest()
+    return hashlib.sha256(json.dumps({"workout": workout, "date": date}, sort_keys=True).encode()).hexdigest()

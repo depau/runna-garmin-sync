@@ -41,9 +41,7 @@ def _garmin(ctx: click.Context, interactive: bool = False):
         return make_garmin(o["garmin_email"], o["garmin_password"], o["state"], interactive)
     except GarminConnectAuthenticationError as e:
         if not interactive:
-            raise click.ClickException(
-                f"no valid Garmin session ({e}); run `runna-garmin-sync login` first"
-            ) from e
+            raise click.ClickException(f"no valid Garmin session ({e}); run `runna-garmin-sync login` first") from e
         _prompt_creds(ctx, "garmin")
         return make_garmin(o["garmin_email"], o["garmin_password"], o["state"], interactive)
 
@@ -134,8 +132,20 @@ def sync(ctx, dry_run, as_json):
 
 
 @cli.command()
-@click.option("--poll-interval", envvar="POLL_INTERVAL", default=300, show_default=True, help="seconds between calendar ETag polls")
-@click.option("--force-sync-hours", envvar="FORCE_SYNC_HOURS", default=6.0, show_default=True, help="full sync even without a calendar change")
+@click.option(
+    "--poll-interval",
+    envvar="POLL_INTERVAL",
+    default=300,
+    show_default=True,
+    help="seconds between calendar ETag polls",
+)
+@click.option(
+    "--force-sync-hours",
+    envvar="FORCE_SYNC_HOURS",
+    default=6.0,
+    show_default=True,
+    help="full sync even without a calendar change",
+)
 @click.pass_context
 def daemon(ctx, poll_interval, force_sync_hours):
     """Poll the Runna calendar and sync on change."""

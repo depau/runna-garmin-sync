@@ -2,10 +2,9 @@ import copy
 import datetime
 
 import pytest
+from conftest import DAY
 
 from runna_garmin_sync.sync import SYNC_FILE, full_sync, plan_sync
-
-from conftest import DAY
 
 TOMORROW = (datetime.date.today() + datetime.timedelta(days=1)).isoformat()
 NEXT_WEEK = (datetime.date.today() + datetime.timedelta(days=7)).isoformat()
