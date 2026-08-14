@@ -1,0 +1,15 @@
+# First log in interactively (seeds the sessions into the state volume):
+#   docker compose run --rm sync login
+# then start the daemon:
+#   docker compose up -d
+services:
+  sync:
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./state:/state
+    # environment:
+    #   POLL_INTERVAL: 60
+    #   FORCE_SYNC_HOURS: 6
+    #   NOTIFY_URL: ntfy://ntfy.sh/your-topic
+    #   NOTIFY_ERROR_URL: ntfy://ntfy.sh/your-error-topic

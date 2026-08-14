@@ -27,6 +27,15 @@ uv run runna-garmin-sync sync            # one-shot sync (-n/--dry-run to previe
 uv run runna-garmin-sync daemon          # poll calendar ETag, sync on change
 ```
 
+### Docker
+
+```sh
+docker compose run --rm sync login   # one-time interactive login into the state volume
+docker compose up -d                 # daemon
+```
+
+See `docker-compose.yaml`; state persists in `./state`.
+
 Other commands: `dump` (print Runna strength days as JSON), `push` (push all
 synced workouts to the primary training device), `garmin-workout <id>` (dump a
 Garmin workout DTO, for debugging).
