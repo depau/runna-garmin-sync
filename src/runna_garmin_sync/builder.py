@@ -156,7 +156,7 @@ def build_workout(day: dict, mapping: Mapping, app_link_base: str | None = None)
     desc_lines.append(f"{app_link_base or RUNNA_APP_LINK}?dayId={day['id']}&weekIndex={day.get('weekIndex')}")
 
     return {
-        "workoutName": day.get("strengthTitle") or "Runna Strength",
+        "workoutName": f"[Runna] {day.get('strengthTitle') or 'Strength'}",
         "description": "\n".join(desc_lines)[:1000],
         "sportType": {"sportTypeId": 5, "sportTypeKey": "strength_training"},
         "estimatedDurationInSecs": int(max(duration) if duration else 1800),

@@ -9,7 +9,7 @@ def workout(day, mapping):
 
 
 def test_workout_metadata(workout):
-    assert workout["workoutName"] == "Forza di gambe e core"
+    assert workout["workoutName"] == "[Runna] Forza di gambe e core"
     assert workout["sportType"]["sportTypeKey"] == "strength_training"
     assert workout["estimatedDurationInSecs"] == 2100
     desc = workout["description"]
