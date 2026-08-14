@@ -1,0 +1,2122 @@
+{
+  "_note": "Live-harvested Runna strength exercise catalog. exerciseId is the stable English mapping key; titles/descriptions localized (it). strengthTypes = session focuses this exercise was seen in. Universe is 261 ids (runna-exercise-ids.txt); this is the subset observed so far.",
+  "schemaVersion": 1,
+  "appVersion": "8.42.0",
+  "strengthTypesSeen": [
+    "FULL_BODY",
+    "LEGS_AND_CORE"
+  ],
+  "uniqueExercises": 102,
+  "exercises": [
+    {
+      "exerciseId": "ABDUCTOR_SIDE_LEG_RAISE",
+      "title_it": "Sollevamento laterale delle gambe con abduttore",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": true,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "UNILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "olid32fu7LY",
+      "lottie": "ABDUCTOR_SIDE_LEG_RAISE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per prepararti, fissa una fascia elastica a un oggetto stabile e avvolgi l'altro lato intorno alla caviglia sinistra.   Il tuo piede destro deve trovarsi di fronte al piede con la fascia e deve essere ben appoggiato sul pavimento. Se lo ritieni utile, puoi aggrapparti a un oggetto stabile come supporto.   Da qui, solleva la gamba sinistra lontano dal corpo, facendo una pausa nel punto più lontano prima di riportare la gamba alla posizione iniziale. L'esercizio deve essere piacevole e controllato.  Per tutta la durata dell'esercizio devi avere le spalle tirate indietro e il core ben contratto, il che ti aiuterà a impedire qualsiasi movimento nel resto del corpo.   Se ti risulta difficile, puoi eseguire lo stesso movimento senza la fascia.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Tieni il bacino in basso chiuso e in avanti stringendo i muscoli dei glutei e mantieni questa posizione mentre spingi la gamba di lato"
+    },
+    {
+      "exerciseId": "BANDED_DEADBUG",
+      "title_it": "Deadbug con fascia",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": true,
+      "muscleGroupBroad": "EXTRA",
+      "muscleGroupSpecific": "EXTRA",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "A-boaViwUOA",
+      "lottie": "BANDED_DEADBUG",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per il deadbug con fascia, sdraiati sulla schiena con una fascia fissata intorno a un oggetto stabile nelle vicinanze.  Aggancia un piede alla fascia. Inizia con un piegamento a 90 gradi delle ginocchia e delle anche, con le braccia dritte in aria.  Contrai il core, premendo la parte bassa della schiena contro il pavimento.  Da qui, estendi la gamba con la fascia e poi riporta il ginocchio a 90 gradi nell'anca lavorando con forza sull'anca e sul core.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Cerca di mantenere la parte bassa della schiena premuta a terra durante tutto il movimento"
+    },
+    {
+      "exerciseId": "BANDED_FACE_PULLS",
+      "title_it": "Pull face con fascia",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": false,
+      "muscleGroupBroad": "BACK",
+      "muscleGroupSpecific": "BILATERAL_BACK",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "AlTGQrDOd98",
+      "lottie": "BANDED_FACE_PULLS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Avvolgi una lunga fascia di resistenza intorno a un rack per lo squat, a un lampione o a una balaustra all'altezza degli occhi. Indietreggia fino a sentire una tensione media attraverso la fascia, con le braccia distese, i gomiti leggermente piegati e paralleli al suolo. Alza le spalle all'indietro, ma mantieni la colonna vertebrale neutra e il core teso - bello alto! Guardando in avanti, tira i gomiti in alto e indietro, portando la fascia all'altezza delle sopracciglia. Abbassati con controllo e tira verso di te con forza.",
+      "tip_it": "Se ti ricordi di tenere il core ben contratto, migliorerai la postura."
+    },
+    {
+      "exerciseId": "BANDED_HAMSTRING_CURL",
+      "title_it": "Hamstring curl con fascia",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": true,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "UNILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "vMpIVM_jl3g",
+      "lottie": "BANDED_HAMSTRING_CURL",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sdraiati sul davanti, contraendo il core e spingendo le anche verso il pavimento per creare una base stabile. Fissa una fascia elastica a un oggetto stabile e intorno alla parte posteriore del tallone. Porta il tallone verso il sedere lasciando la gamba che non lavora dritta sul pavimento.   Se ti sembra troppo impegnativo, cambia la fascia con una più morbida o avvicinati all'oggetto stabile a cui è fissata la fascia. In questo modo ridurrai la tensione della fascia.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Cerca di ridurre al minimo il movimento del resto del corpo."
+    },
+    {
+      "exerciseId": "BANDED_TOE_RAISE",
+      "title_it": "Toe raise con fascia",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": true,
+      "muscleGroupBroad": "EXTRA",
+      "muscleGroupSpecific": "EXTRA",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "KC658qKNpqE",
+      "lottie": "BANDED_TOE_RAISE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Preparati fissando la fascia elastica a un oggetto stabile e avvolgendola intorno alle dita dei piedi. Allontanati dalla fascia finché non c'è una tensione sufficiente.  Puoi appoggiare la parte inferiore della gamba (appena sopra la caviglia) su un rullo da massaggio per ridurre la possibilità che la fascia scivoli via dal piede.  A questo punto, devi rilassare il piede in avanti prima di tirare le dita dei piedi verso il corpo.  Esegui l'intero range di movimento, portando le dita dei piedi il più in basso possibile senza che la fascia scivoli via e poi tirandole in alto e flettendo il piede il più possibile.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Spingi e tira il piede con controllo, non permettere che la fascia controlli il tuo movimento"
+    },
+    {
+      "exerciseId": "BARBELL_BENCH_PRESS",
+      "title_it": "Panca piana con bilanciere",
+      "requires": "BARBELL",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Bilanciere, panca",
+      "unilateral": false,
+      "muscleGroupBroad": "CHEST",
+      "muscleGroupSpecific": "BILATERAL_CHEST",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "HmzhfGUGQRc",
+      "lottie": "BARBELL_BENCH_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per l'impostazione, i piedi devono essere appoggiati sul pavimento e la schiena deve essere distesa su una panca o un box. Dovresti aver posizionato la panca o il box sotto il rack e la sbarra, in modo da poter sollevare il bilanciere dal rack in questa posizione.  Afferra il bilanciere con le mani a uguale distanza dal centro e i gomiti in posizione verticale sotto i pugni.   Spingi il bilanciere in alto in modo che sia verticale sopra le spalle.   Da qui, piega le braccia verso il basso in modo che i gomiti formino un angolo di 45 gradi rispetto al corpo. Esegui questo movimento per tutte le ripetizioni.  Per aumentare la potenza del movimento, puoi espirare mentre spingi il bilanciere in alto.",
+      "tip_it": "Mantieni la schiena aderente alla panca per tutta la durata del movimento, contraendo i muscoli del core."
+    },
+    {
+      "exerciseId": "BARBELL_HIP_THRUST",
+      "title_it": "Hip thrust con bilanciere",
+      "requires": "BARBELL",
+      "requires2": "BOX",
+      "requiresDisplay_it": "Bilanciere, box",
+      "unilateral": false,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "BILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "pF17m_CXfL0",
+      "lottie": "GLUTE_BRIDGE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posizionati con la schiena contro un blocco o uno step contro cui potrai premere le spalle.  Tieni il bilanciere sul basso ventre; puoi aggiungere un cuscinetto alla sbarra per un maggiore comfort.  Da qui, spingi la schiena contro il blocco di appoggio e spingi i fianchi in alto. Nella posizione più alta, gli stinchi devono formare un angolo di 90 gradi con il pavimento.   La testa deve rimanere in linea con la colonna vertebrale: ciò significa che guarderà leggermente più avanti mentre scendi e sarà rivolta verso il soffitto nella posizione superiore. Non è necessario che la sbarra scenda fino al pavimento tra una ripetizione e l'altra.",
+      "tip_it": "Mentre sollevi i fianchi, stringi i glutei per attivarli"
+    },
+    {
+      "exerciseId": "BARBELL_SQUAT",
+      "title_it": "Squat con bilanciere",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "BILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "S0H0JxLAOAY",
+      "lottie": "BARBELL_SQUAT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per prepararti allo squat con bilanciere mettiti in piedi davanti al centro della sbarra, con le spalle rivolte verso di essa.  Da qui, afferra la sbarra con le mani. Non è molto importante il punto in cui sono, è sufficiente che siano in posizione comoda e che ogni mano sia a una distanza uniforme dal corpo. Puoi usare i segni sulla barra per aiutarti in questo senso.   Fai qualche passo in avanti in modo che il rack non sia d'intralcio e inizia lo squat. Abbassati fino a quando ti senti a tuo agio, mantenendo il controllo della schiena che non deve flettersi o curvarsi.   Spingi con forza verso l'alto, stringendo il core e i glutei all'inizio del movimento.   Durante tutto il movimento assicurati che i talloni rimangano appoggiati al pavimento. Se ti accorgi che i piedi si sollevano alla fine del movimento, aggiungi qualche rivista o una piastra sotto i talloni in modo che rimangano ben piantati sul \"nuovo\" pavimento.",
+      "tip_it": "Assicurati che le ginocchia non cadano verso l'interno e che la schiena rimanga dritta"
+    },
+    {
+      "exerciseId": "BEAR_CRAWL",
+      "title_it": "Bear Crawl",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "BILATERAL_FB",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "U3Y58Kyw7Xw",
+      "lottie": "BEAR_CRAWL",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in quadrupedia, con le mani direttamente sotto le spalle e le braccia distese.  Solleva le ginocchia dal pavimento mantenendo le ginocchia sotto le anche e gli stinchi paralleli al pavimento. I talloni saranno sollevati e solo gli avampiedi saranno a contatto con il pavimento.  Da qui puoi procedere in avanti con il braccio e la gamba opposta che si muovono insieme.  Devi contrarre il core, cercando di ridurre al minimo i movimenti e le rotazioni del corpo e mantenendo la schiena piatta.  Una volta raggiunta la fine dello spazio di lavoro, puoi tornare alla posizione iniziale eseguendo il movimento al contrario.",
+      "tip_it": "Avanza con piccoli passi per mantenere il controllo e ridurre al minimo la rotazione del corpo"
+    },
+    {
+      "exerciseId": "BENT_KNEE_CALF_RAISE",
+      "title_it": "sollevamento dei polpacci a ginocchio piegato",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "CALVES",
+      "muscleGroupSpecific": "UNILATERAL_CALF",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "NcMjGCO_-J0",
+      "lottie": "BENT_KNEE_CALF_RAISE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Come in un tipico sollevamento dei polpacci, dovrai alzarti e abbassarti sulle punte dei piedi di una gamba alla volta. La differenza in questo esercizio è che la gamba che lavora rimarrà piegata per tutto il tempo. Mentre abbassi il tallone sotto la punta dei piedi, il ginocchio deve essere piegato e deve rimanere tale fino alla fine del movimento.  Ti accorgerai che si tratta di un esercizio molto più impegnativo rispetto al tipico sollevamento dei polpacci. Per questo motivo ti consiglio di iniziare con il peso corporeo mentre perfezioni la tecnica, prima di aggiungere un peso se ti senti a tuo agio.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Assicurati che tutto il corpo si sposti verso l'alto e verso il basso durante il movimento, e che non sia il ginocchio piegato a muoversi in avanti e indietro."
+    },
+    {
+      "exerciseId": "BENT_OVER_ROW",
+      "title_it": "Rematore con bilanciere",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "BACK",
+      "muscleGroupSpecific": "BILATERAL_BACK",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "rqTOAM8WoeM",
+      "lottie": "BENT_OVER_ROW",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Posizionati con le gambe alla larghezza dei fianchi e leggermente flesse, il corpo inclinato con un angolo di 45 gradi e le braccia alla larghezza delle spalle che reggono il peso che hai scelto.  Da qui, tira il bilanciere verso la parte inferiore della cassa toracica mandando i gomiti indietro con un angolo di 45 gradi e guardando in diagonale verso il pavimento di fronte a te.   Cerca di evitare qualsiasi oscillazione nel movimento e ad ogni movimento cerca di contrarre la parte superiore della schiena. Utilizzerai la parte bassa della schiena e il core per evitare qualsiasi flessione della colonna vertebrale.",
+      "tip_it": "Se la schiena inizia a inarcarsi, ti consigliamo di diminuire il peso."
+    },
+    {
+      "exerciseId": "BODYWEIGHT_SQUAT",
+      "title_it": "Squat con il peso corporeo",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "REPS",
+        "SECONDS"
+      ],
+      "youtubeId": "P-yaD24bUE8",
+      "lottie": "BODYWEIGHT_SQUAT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "La prima cosa a cui pensare quando fai uno squat è la posizione dei piedi. Per scoprire dove i tuoi piedi cadranno naturalmente, che spesso è la posizione migliore, puoi semplicemente saltare e atterrare con una posizione forte. Il punto di appoggio dei tuoi piedi è probabilmente una buona posizione di squat. I piedi devono essere appena più larghi rispetto ai fianchi e le punte dei piedi leggermente inclinate verso l'esterno.  Da qui piegherai le ginocchia, portando il sedere verso il pavimento. Accovacciati più in basso che puoi prima di vedere un piegamento della colonna vertebrale. Vedrai che con l'aumentare della pratica e dell'abitudine a questo movimento, probabilmente svilupperai un range di movimento più ampio che ti permetterà di abbassarti ulteriormente.   Durante lo squat dobbiamo mantenere i piedi piatti sul pavimento con circa l'80% del peso che passa attraverso talloni. Se dovessi avere difficoltà a tenere i piedi piatti sul pavimento o se i talloni si sollevano, puoi mettere un peso o un paio di riviste sotto i talloni; in questo modo i piedi inizieranno ad essere un po' più alti, ma resteranno incollati al loro nuovo \"pavimento\".",
+      "tip_it": "Assicurati che i talloni rimangano sul pavimento"
+    },
+    {
+      "exerciseId": "BOX_JUMP",
+      "title_it": "Box jump",
+      "requires": "BOX",
+      "requires2": null,
+      "requiresDisplay_it": "Box",
+      "unilateral": false,
+      "muscleGroupBroad": "PLYOS",
+      "muscleGroupSpecific": "PLYOS",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "G-bxQY57mKc",
+      "lottie": "BOX_JUMP",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posizionati a una distanza comoda dal box, assicurandoti che sia ben fissa e che non possa scivolare.   In posizione di squat, abbassati leggermente portando le braccia dietro di te. Fai quindi oscillare con forza le braccia davanti a te, spingendoti verso l'alto e saltando sul box.   Devi cercare di atterrare con il piede piatto e le ginocchia piegate per assorbire l'atterraggio potente. Puoi scendere o saltare dal blocco prima di ripetere.   Puoi migliorare questo movimento aumentando l'altezza del blocco su cui salti.",
+      "tip_it": "Scendi lentamente dal box e assicurati di flettere le ginocchia quando atterri"
+    },
+    {
+      "exerciseId": "BURPEE",
+      "title_it": "Burpee",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "BILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "u1floBsMZNs",
+      "lottie": "BURPEE",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per il burpee più basilare, porta le mani a terra davanti a te, piegando le gambe, poi stendi le gambe indietro in modo da trovarti in una posizione di press up. Da qui, riporta le gambe verso il petto e alzati in piedi.  Per progredire in questo movimento, una volta raggiunta la posizione di press up, puoi abbassare il petto verso il pavimento e spingere di nuovo verso l'alto. Si tratta di una sorta di press up a rilascio manuale.  Un'ulteriore aggiunta al movimento consiste nel fare un salto con le braccia stese sopra la testa una volta raggiunta la posizione eretta.",
+      "tip_it": "Quando riporti le gambe verso il corpo, assicurati che siano all'esterno delle mani per proteggere la schiena"
+    },
+    {
+      "exerciseId": "CLAM_SHELLS",
+      "title_it": "Clam shell",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "kO2Me7E83DQ",
+      "lottie": "CLAM_SHELLS_1",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sdraiati su un fianco sul pavimento con la testa appoggiata sul braccio inferiore e l'altra mano che ti stabilizza. Entrambe le gambe sono piegate a 70-80 gradi e impilate l'una sull'altra. Una volta in posizione, con il core ben contratto, solleva il ginocchio superiore il più in alto possibile assicurandoti che la schiena non si inarchi. Stringi i glutei mentre sollevi il ginocchio. Fai una breve pausa in alto e poi abbassati con controllo. Esegui per ogni lato il numero di ripetizioni indicato.",
+      "tip_it": "Puoi avvolgere una mini fascia intorno alle ginocchia per aggiungere un po' di resistenza."
+    },
+    {
+      "exerciseId": "CRUNCH_AND_PRESS",
+      "title_it": "Crunch & press",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "3KnTmnwcFgg",
+      "lottie": "CRUNCH_AND_PRESS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia mettendoti sul pavimento in posizione seduta. Se sei alle prime armi con questo esercizio, tieni entrambi i piedi sul pavimento e spingi i talloni contro il pavimento per tutta la durata del movimento. Se invece hai più esperienza, incrocia le caviglie e solleva leggermente i piedi dal pavimento. Tieni un manubrio o un kettlebell in ogni mano all'altezza del petto. Inizia in modo leggero per assicurarti di aver imparato la tecnica prima di spingere il peso.   Una volta in posizione, fai un crunch stringendo i muscoli del core mantenendo la colonna vertebrale neutra e tenendo i pesi all'altezza del petto. Al culmine, mantieni la posizione di crunch mentre spingi i pesi in alto e sopra la testa. Esegui l'esercizio per il numero di ripetizioni indicato prima di abbassarti lentamente e con controllo.",
+      "tip_it": "È importante mantenere il core ben contratto per tutta la durata del movimento. Anche la testa e la colonna vertebrale devono essere sempre in posizione neutra."
+    },
+    {
+      "exerciseId": "DEADBUG",
+      "title_it": "Deadbug",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "g5XKMzr5gUs",
+      "lottie": "DEADBUG",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Stenditi in posizione supina con le ginocchia sollevate, creando un angolo di 90 gradi tra il corpo e le cosce. Dovrebbe esserci un altro angolo di 90 gradi tra le cosce e gli stinchi.  Le braccia devono essere distese verso l'alto a 90 gradi dal corpo. In questa posizione devi spingere la parte lombare della schiena verso il basso e contro il pavimento, riempiendo l'arco naturale che molto probabilmente il corpo ha creato.  Dovrai poi estendere il braccio e la gamba opposta in lungo, appena sopra il livello del pavimento, per poi riportarli alla posizione iniziale.   Durante questo movimento devi pensare a contrarre il core e a spingere la schiena verso il basso e il pavimento. Un errore comune quando si eseguono i deadbug è quello di eseguire il movimento troppo velocemente e perdere il controllo attraverso il core. Deve essere un movimento lento e controllato in cui i benefici derivano dal tempo di tensione, ovvero il tempo in cui mantieni la posizione estesa e lavori sul movimento.",
+      "tip_it": "Accelerare non aumenterà l'efficacia di questo esercizio!"
+    },
+    {
+      "exerciseId": "DIAGONAL_TOE_TAP",
+      "title_it": "Diagonal toe tap",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_UPPER",
+      "gradeTypes": [
+        "REPS",
+        "SECONDS"
+      ],
+      "youtubeId": "2yh7i2Vx3rk",
+      "lottie": "DIAGONAL_TOE_TAP",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sdraiati sul pavimento con le braccia distese sopra la testa e le gambe allungate.  Da qui, solleva una gamba e il braccio opposto, avvicinandoli e toccando la punta del piede prima di riabbassarti.  Devi cercare di mantenere la gamba dritta per ottenere un allungamento dei muscoli ischiocrurali. Tra una ripetizione e l'altra, il tallone e la mano devono toccare il pavimento per tornare in posizione iniziale.",
+      "tip_it": "Se non riesci a toccare l'alluce, allora raggiungi la metà dello stinco. La tua flessibilità migliorerà con il tempo!"
+    },
+    {
+      "exerciseId": "DL_SKIPPING",
+      "title_it": "Salto della corda a due gambe",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "PLYOS",
+      "muscleGroupSpecific": "PLYOS",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "fO_WxAccGvg",
+      "lottie": "DL_SKIPPING",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Se hai a disposizione una corda per saltare, la situazione è perfetta, ma se non ce l'hai, non importa, ci piace simulare! Con o senza corda, questo esercizio è ottimo per migliorare l'esplosività e la tecnica di corsa, in quanto ti costringe a sollevare gli avampiedi.   Tieni le braccia lungo i fianchi afferrando la corda (o una corda immaginaria, ignorando tutti i presenti in palestra!). Salta con entrambe le gambe e porta le ginocchia in su, poi atterra sugli avampiedi. Tenendo i talloni sollevati da terra, salta su e giù sopra la corda con piedi veloci e leggeri.",
+      "tip_it": "Concentrati sul sollevarti da terra il più velocemente possibile!"
+    },
+    {
+      "exerciseId": "DOUBLE_ARM_CLEAN",
+      "title_it": "Clean a due braccia",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "BILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "IRViyYdBYpQ",
+      "lottie": "DOUBLE_ARM_CLEAN",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posiziona i piedi a una larghezza superiore a quella dei fianchi, con i pesi all'interno di ciascun piede. Solleva i pesi a uno o due centimetri dal pavimento.  Da qui, spingi i pesi con forza verso l'alto e verso le spalle, portandoti in posizione eretta  Poi quindi tornare a terra con il movimento. inverso. Non è necessario rimettere i pesi a terra tra una ripetizione e l'altra.  Per tutta la durata dell'esercizio devi tenere i piedi appoggiati al pavimento e la schiena piatta. Puoi eseguire questo esercizio con bilancieri, manubri o kettlebell.",
+      "tip_it": "Fai attenzione a non far cadere il peso sul piede ogni volta che ti abbassi"
+    },
+    {
+      "exerciseId": "DOUBLE_LEG_CALF_RAISE_ON_STEP",
+      "title_it": "Sollevamento dei polpacci a due gambe su step",
+      "requires": "KB",
+      "requires2": null,
+      "requiresDisplay_it": "Kettlebell",
+      "unilateral": false,
+      "muscleGroupBroad": "CALVES",
+      "muscleGroupSpecific": "BILATERAL_CALF",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "Og5Sle5DEkc",
+      "lottie": "DOUBLE_LEG_CALF_RAISE_ON_STEP",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posiziona i piedi su uno step in modo da allineare sul bordo le articolazioni delle dita.  Da qui, abbassa i talloni per sentire un allungamento del polpaccio. Poi spingi con forza i talloni in su in modo da trovarti sulla punta dei piedi.   Ripeti lavorando per tutto il range di movimento.  Assicurati che le caviglie rimangano in linea con i piedi e che le gambe non cadano di lato. Se hai difficoltà a mantenere l'equilibrio, puoi aggrapparti a qualcosa davanti a te o di lato. Ti consigliamo di iniziare con il peso corporeo mentre perfezioni la tecnica, prima di aggiungere un peso se ti senti a tuo agio.",
+      "tip_it": "Conta 1, 2 salendo e 1, 2 scendendo."
+    },
+    {
+      "exerciseId": "DUMBBELL_BENCH_PRESS",
+      "title_it": "Panca piana con manubri",
+      "requires": "DB",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Manubrio, panca",
+      "unilateral": false,
+      "muscleGroupBroad": "CHEST",
+      "muscleGroupSpecific": "BILATERAL_CHEST",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "xhEhjF5ozuY",
+      "lottie": "DUMBBELL_BENCH_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per iniziare, sdraiati con la schiena su una panca o un box.  Da qui, appoggia saldamente i piedi sul pavimento e solleva i pesi in modo da estendere completamente le braccia, con i polsi sopra le spalle.   Da qui, abbassa le braccia con i gomiti che escono dal coprpo con un angolo di 45 gradi, assicurandoti che i polsi rimangano verticali sopra i gomiti.  Devi cercare di abbassare i gomiti al massimo per ottenere un allungamento del torace.  Per aumentare la potenza del movimento, puoi espirare mentre spingi i pesi in alto.",
+      "tip_it": "Mantieni la schiena a filo della panca per tutto il movimento. Evita di usare la schiena per spingere più peso!"
+    },
+    {
+      "exerciseId": "DUMBBELL_CHEST_FLY",
+      "title_it": "Croci su panca piana con manubri",
+      "requires": "DB",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Manubrio, panca",
+      "unilateral": false,
+      "muscleGroupBroad": "CHEST",
+      "muscleGroupSpecific": "BILATERAL_CHEST",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "98aRvyw-IGg",
+      "lottie": "DUMBBELL_CHEST_FLY",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Sdraiati sulla panca e appoggia i piedi sul pavimento.   Porta i pesi in verticale sopra il corpo in modo che i palmi siano rivolti l'uno verso l'altro.   Crea una leggera flessione delle braccia e cerca di mantenerlo per tutto il tempo. Allarga le braccia per ottenere un allungamento del petto e poi alza con forza le braccia verso l'alto e una verso l'altra.",
+      "tip_it": "Abbassa le braccia all'altezza del petto con controllo."
+    },
+    {
+      "exerciseId": "FARMER'S_CARRY",
+      "title_it": "Farmer Carry",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "BILATERAL_FB",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "lLAw6fUccKA",
+      "lottie": "FARMER'S_CARRY",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione con i pesi ai lati. Abbassati e afferrali assicurandoti di mantenere la schiena piatta e di piegare le ginocchia.  In posizione eretta, assicurati che le spalle siano indietro, che il petto sia in avanti e che il core sia ben contratto.  Da qui puoi camminare nello spazio in cui stai lavorando, assicurandoti che le spalle rimangano indietro per tutto il tempo.  Una volta terminato, appoggia i pesi a terra nello stesso modo in cui li hai afferrati, assicurandoti che la schiena rimanga piatta.  Questo esercizio può essere eseguito sia con i kettlebell che con i manubri. Ti consigliamo di scegliere pesi più pesanti di quelli che usi di solito.",
+      "tip_it": "Mantieni il bacino in basso e in avanti stringendo i muscoli dei glutei per evitare di sforzare la parte bassa della schiena"
+    },
+    {
+      "exerciseId": "FIGURE_OF_8S",
+      "title_it": "Figura degli 8",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "fCGUX27lEC8",
+      "lottie": "FIGURE_OF_8S",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Questo esercizio si esegue in posizione supina con le mani sotto i glutei per sostenere la naturale curvatura della colonna vertebrale.  Da qui, solleva i piedi in modo che siano a una piccola distanza dal pavimento.  Disegna un 8 muovendo i piedi da un lato all'altro. Dovresti ripetere questa operazione sia in senso orario che antiorario per assicurarti di far lavorare entrambi i lati del corpo allo stesso modo.   Durante tutto l'esercizio devi tenere la testa piatta sul pavimento con lo sguardo rivolto verso l'alto e la schiena premuta sul pavimento, contraendo il core.",
+      "tip_it": "Se la schiena inizia a inarcarsi da terra, solleva le gambe più in alto"
+    },
+    {
+      "exerciseId": "FIRE_HYDRANTS",
+      "title_it": "Fire Hydrants (abduzione dell'anca)",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "12whZWUANRY",
+      "lottie": "FIRE_HYDRANTS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia in quadrupedia con le mani e le ginocchia più o meno alla larghezza delle spalle, in modo da avere una base solida. Le mani devono essere direttamente sotto le spalle e le ginocchia sotto i fianchi. Mantieni il mento inclinato in modo da guardare in basso verso il pavimento e contrai il core in modo da mantenere la schiena piatta. Solleva il ginocchio destro verso l'alto e di lato affinché sia ruotato esternamente. Una volta raggiunta questa posizione, tienila per 1-2 secondi, concentrandoti sul mantenimento di una schiena piatta, di un core forte e stringendo i muscoli dei glutei. Esegui sullo stesso lato per il numero di ripetizioni indicato prima di cambiare.",
+      "tip_it": "Evita di torcere la colonna vertebrale per ottenere l'altezza: l'obiettivo non l'altezza!"
+    },
+    {
+      "exerciseId": "FLOATING_HEEL_DROP",
+      "title_it": "Floating heel drop",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "l_gqkPF3_0c",
+      "lottie": "FLOATING_HEEL_DROP_2",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia in posizione eretta con i piedi a una larghezza leggermente superiore rispetto a quella dei fianchi. Posizionati sugli avampiedi e accovacciati in posizione di squat; abbassa i glutei verso il suolo a circa 90 gradi e fai una pausa di un secondo prima di risalire.   L'obiettivo è rimanere sugli avampiedi per tutto il movimento, mantenendo la schiena piatta, guardando dritto davanti e tenendo un core forte per favorire l'equilibrio. Le braccia saranno incrociate sul petto o, se aggiungi un peso, tieni un manubrio o un kettlebell in entrambe le mani all'altezza del petto.",
+      "tip_it": "Inizia con il peso del corpo finché non ritieni di avere un buon equilibrio e un buon controllo del movimento."
+    },
+    {
+      "exerciseId": "FRONT_LEG_RAISED_LUNGE",
+      "title_it": "Affondo con gamba anteriore sollevata",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": true,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "UNILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "d3NlC93UwXM",
+      "lottie": "FRONT_LEG_RAISED_LUNGE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Predisponi una pedana rialzata per il tuo piede anteriore; per cominciare, dovrebbe essere alta come uno o due piatti o uno step.  Posiziona il piede anteriore sulla pedana rialzata ed esegui l'affondo come di consueto, prestando particolare attenzione alle ginocchia, che devono rimanere in linea con le dita dei piedi.   Se ritieni di avere ancora un range di movimento, puoi aumentare l'altezza della pedana rialzata.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Mantieni la parte superiore del corpo eretta, guardando dritto davanti a te. Se non hai uno step, usa una pila di libri o il gradino inferiore di una scala."
+    },
+    {
+      "exerciseId": "FRONT_SQUAT",
+      "title_it": "Squat frontale",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "BILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "tCS4p5lS5rk",
+      "lottie": "FRONT_SQUAT",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per prepararti allo squat frontale, mettiti sotto la sbarra. Le braccia devono essere alla larghezza delle spalle e i palmi rivolti in avanti.   Afferra la sbarra e spingi i gomiti in avanti, in modo da tenere la sbarra contro la parte anteriore delle spalle con la punta delle dita e i polsi allungati.   I piedi devono essere poco più ampi rispetto alla larghezza dei fianchi, con le punte leggermente inclinate verso l'esterno. Da questa posizione, scendiamo nella nostra solita posizione di squat e torniamo a spingere verso l'alto.  Durante l'esercizio, continua a pensare di portare i gomiti il più in alto possibile per far sì che il peso continui a passare attraverso il corpo anziché esercitare una pressione eccessiva sulle braccia.  Se hai difficoltà a mantenere la posizione dei gomiti e dei polsi, puoi invece collocare la barra nella posizione frontale del rack e trattenerla incrociando le braccia e appoggiando le mani sulle spalle. Dovrebbe essere quasi contro la gola.",
+      "tip_it": "Assicurati di tenere i piedi fermi e piatti sul suolo."
+    },
+    {
+      "exerciseId": "GLUTE_BRIDGE",
+      "title_it": "Ponte glutei",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "BILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "L9KZfxT654Y",
+      "lottie": "GLUTE_BRIDGE_1",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione supina sul pavimento, con le ginocchia piegate e i piedi appoggiati a terra alla larghezza delle anche. Assicurati che i piedi siano abbastanza vicini da permettere alle punte delle dita di sfiorare i talloni.  Da qui, fai forza sui talloni, spingendo i fianchi verso l'alto in direzione del soffitto. Al termine del movimento, il tuo corpo deve formare una linea retta dalle spalle alle ginocchia.  La testa deve rimanere in linea con la colonna vertebrale per tutta la durata del movimento. Mentre ti sollevi, il tuo sguardo si sposterà naturalmente dallo sguardo in avanti a quello verso il soffitto nella posizione più alta.  Mantieni la posizione sollevata per un momento, assicurandoti che i fianchi non scendano. Poi, abbassa i fianchi verso il pavimento tra una ripetizione e l'altra, senza riposare completamente per mantenere la tensione nei glutei.",
+      "tip_it": "Mentre sollevi i fianchi, stringi i glutei per attivarli"
+    },
+    {
+      "exerciseId": "GLUTE_BRIDGE_HAM_WALKOUT",
+      "title_it": "Ponte glutei con camminata per muscoli ischiocrurali",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "6yeyt5mUo94",
+      "lottie": "GLUTE_BRIDGE_WITH_WALK_OUT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire un ponte glutei, sdraiati sulla schiena con le braccia lungo i fianchi, i piedi alla larghezza delle spalle e le ginocchia piegate a 90 gradi. Solleva con forza i fianchi dal pavimento, stringendo i muscoli dei glutei e premendo i talloni sul terreno. La testa deve rimanere in linea con la colonna vertebrale per tutto il tempo. Questo è il punto in cui l'esercizio si differenzia da un normale ponte glutei! Nella posizione del ponte, porta lentamente i piedi in avanti mantenendo i fianchi il più in alto possibile. Una volta raggiunta la massima estensione (il punto in cui i fianchi iniziano a scendere), comincia a tornare indietro fino alla posizione iniziale del ponte glutei.",
+      "tip_it": "Stringi i glutei per attivarli! Questo ti aiuterà a mantenere i fianchi alti!"
+    },
+    {
+      "exerciseId": "GOBLET_SQUAT",
+      "title_it": "Goblet squat",
+      "requires": "KB",
+      "requires2": null,
+      "requiresDisplay_it": "Kettlebell",
+      "unilateral": false,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "BILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "6mf0oa2GGUc",
+      "lottie": "GOBLET_SQUAT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia l'esercizio tenendo il peso stretto al petto.   Se utilizzi un kettlebell, devi tenerlo capovolto con i palmi delle mani premuti contro la campana e le dita rivolte verso l'alto. Analogamente, se utilizzi un manubrio, devi tenerlo con una delle campane premuta tra i palmi.   Mettiti in posizione di squat con i piedi appena più larghi rispetto ai fianchi e le punte dei piedi leggermente inclinate verso l'esterno.   Da qui, abbassati assicurandoti che le ginocchia corrispondano agli angoli delle dita dei piedi.   Durante il movimento è fondamentale tenere il peso molto vicino al corpo, premendo sullo sterno. In questo modo, il peso non deve essere sostenuto interamente dai muscoli delle braccia.",
+      "tip_it": "Assicurati che le ginocchia non cadano verso l'interno e che la schiena rimanga dritta"
+    },
+    {
+      "exerciseId": "HAMSTRING_WALKOUT",
+      "title_it": "Hamstring Walkout",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "BILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "mt1fUd_0ELw",
+      "lottie": "HAMSTRING_WALKOUT",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sdraiati sul pavimento in posizione supina con le ginocchia piegate e i piedi portati verso il sedere.   Da qui, spingi i fianchi verso l'alto in modo da creare una linea retta dalle ginocchia fino all'anca e al petto. Premi a fondo i talloni a terra e solleva le punte dei piedi.   Fai diversi piccoli passi verso l'esterno fino a quando non avrai allungato i piedi il più possibile senza far cadere il sedere a terra e poi riporta i talloni alla posizione di partenza.  Per aumentare la sfida, puoi mantenere la posizione estesa per qualche secondo, poiché è il punto più impegnativo del movimento.",
+      "tip_it": "I passi di questo esercizio devono essere brevi e lenti!"
+    },
+    {
+      "exerciseId": "HEEL_WALKS",
+      "title_it": "Camminata sui talloni",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "x_AuawYz2NA",
+      "lottie": "HEEL_WALKS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Passi alti ed equilibrati sui talloni. L'obiettivo è puntare le dita dei piedi il più possibile verso il soffitto in modo da ottenere la massima dorsiflessione possibile della caviglia. Questo ti aiuterà a rafforzare la parte anteriore dello stinco. Fai dei brevi passi in avanti mantenendo l'equilibrio sui talloni.",
+      "tip_it": "Fai passi brevi per controllare il tuo equilibrio."
+    },
+    {
+      "exerciseId": "HIP_DROP",
+      "title_it": "Hip drop",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": true,
+      "muscleGroupBroad": "EXTRA",
+      "muscleGroupSpecific": "EXTRA",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "URR5gL6yQvk",
+      "lottie": "HIP_DROP",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posiziona un piede sul bordo di una pedana rialzata.  L'altro piede deve iniziare in posizione neutra allo stesso livello del piede sulla pedana.  A questo punto, lascia cadere il piede che non si trova sulla pedana e poi riportalo in alto, sopra l'altro piede.  Il movimento deve provenire esclusivamente dai fianchi. Di conseguenza, non sarà un movimento ampio. Si tratta di un delicato movimento di salita e discesa, mantenendo la colonna vertebrale e le spalle ferme.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Mantieni il bacino sotto e in avanti per tutta la durata del movimento: sentirai i glutei accendersi! Se non hai uno step, usa una pila di libri o il gradino inferiore di una scala."
+    },
+    {
+      "exerciseId": "INCLINE_BARBELL_BENCH_PRESS",
+      "title_it": "Panca inclinata con bilanciere",
+      "requires": "BARBELL",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Bilanciere, panca",
+      "unilateral": false,
+      "muscleGroupBroad": "CHEST",
+      "muscleGroupSpecific": "BILATERAL_CHEST",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "O9x7xRhtA9Q",
+      "lottie": "INCLINE_BARBELL_BENCH_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Regola la panca con un angolo di 30-45 gradi.   Appoggia i piedi a terra e sdraiati con la schiena sulla panca.   Afferra il bilanciere, assicurandoti di tenerlo in modo simmetrico.  Spingi il bilanciere lontano dal rack e portalo a metà petto, in linea con le ascelle.   Al termine di ogni ripetizione, cerca di ottenere un braccio steso senza sforzare la testa o il collo, mantenendo l'impegno del core.",
+      "tip_it": "Contrai il core per mantenere la schiena neutra durante tutto il movimento. Se inizi a inarcare la schiena, è probabile che il peso sia eccessivo!"
+    },
+    {
+      "exerciseId": "KB_SWINGS",
+      "title_it": "Oscillazioni con kettlebell",
+      "requires": "KB",
+      "requires2": null,
+      "requiresDisplay_it": "Kettlebell",
+      "unilateral": false,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "BILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "kuZPzr_eldA",
+      "lottie": "KB_SWINGS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posiziona i piedi alla larghezza dei fianchi con le dita dei piedi rivolte verso l'esterno, come in uno squat.   Da qui, piega le ginocchia e afferra il peso prima di andare in estensione con il corpo. Mantieni una leggera flessione del ginocchio.   Da qui, manda il sedere indietro e spingi i fianchi in avanti per imprimere slancio nell'oscillazione. Ad ogni oscillazione devi sporgerti il più possibile per ottenere un allungamento dei tendini del ginocchio, senza cambiare la sottile flessione del ginocchio.  Il movimento deve essere continuo; non può essere fatto al rallentatore perché il kettlebell deve mantenere la velocità.",
+      "tip_it": "Tieni la schiena dritta e il core ben contratto  Piega leggermente le ginocchia"
+    },
+    {
+      "exerciseId": "KNEE_DRIVE",
+      "title_it": "Knee Drive",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "UNILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "MrY88grXRtU",
+      "lottie": "KNEE_DRIVE",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per iniziare il knee drive, mettiti in posizione di affondo completo con entrambi i piedi paralleli, rivolti in avanti.  Tieni le braccia sopra la testa. Spingi il ginocchio posteriore in avanti in modo che si unisca al ginocchio anteriore, mantenendo una posizione bassa.  Mentre muovi la gamba, porta le braccia verso il basso in modo che le mani tocchino il ginocchio alla fine del movimento prima di tornare alla posizione iniziale. Si tratta di un movimento breve e deciso eseguito con potenza.",
+      "tip_it": "Per mantenere l'equilibrio mentre ti muovi velocemente su una gamba sola, dovrai contrarre il core"
+    },
+    {
+      "exerciseId": "LATERAL_WALK",
+      "title_it": "Camminata laterale",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "BILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "9MuZrYJddcQ",
+      "lottie": "LATERAL_WALK_1",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "La camminata laterale può essere eseguita in due modi: con una fascia di resistenza posizionata sopra le ginocchia o senza.  In posizione eretta con i piedi alla larghezza delle anche, inchinati in modo da creare un angolo di 90 gradi nelle ginocchia, poi fai un passo verso sinistra.  Continua a fare piccoli passi verso sinistra eripeti sul lato destro.",
+      "tip_it": "Quando ti sposti a destra, assicurati che la gamba sinistra si mantenga forte e non venga trascinata dal lato destro."
+    },
+    {
+      "exerciseId": "LUNGE_AND_PRESS",
+      "title_it": "Lunge & press",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "UNILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "1AP-jQ-n3dg",
+      "lottie": "LUNGE_AND_PRESS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per iniziare tieni il peso sulla spalla destra. Da qui fai un passo in avanti per eseguire un affondo con la gamba sinistra. Spingi la gamba sinistra verso l'alto e insieme, in modo da tornare in piedi. Poi spingi il peso in alto fino a distendere il braccio prima di ripetere l'intero movimento.   Per rendere il movimento più impegnativo, puoi premere il peso quando sei in posizione di affondo anziché in piedi.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Contrai il core per evitare che la schiena si inarchi!"
+    },
+    {
+      "exerciseId": "LUNGE_HOLD_CALF_RAISE",
+      "title_it": "Sollevamento dei polpacci con affondo",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "REPS",
+        "SECONDS"
+      ],
+      "youtubeId": "u5ioqmbjUWM",
+      "lottie": "LUNGE_HOLD_CALF_RAISE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per questo esercizio, inizia mettendoti in posizione di affondo e verificando che il ginocchio anteriore non sia più avanti delle dita dei piedi.   Da qui, devi sollevare il tallone anteriore in modo che il piede anteriore sia sulla punta delle dita.   Mentre lo fai, concentrati pensando di mandare il tallone direttamente in su senza lasciare che la caviglia si inarchi lateralmente.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Potresti sentire bruciore anche nei quadricipiti, quindi inizia con il peso corporeo."
+    },
+    {
+      "exerciseId": "MOUNTAIN_CLIMBER",
+      "title_it": "Mountain Climber",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS",
+        "SECONDS"
+      ],
+      "youtubeId": "CQk4MHY2_Tc",
+      "lottie": "MOUNTAIN_CLIMBER",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Il mountain climber si esegue mettendosi in posizione di press up, facendo attenzione alla linea retta che vogliamo vedere dalla sommità della testa fino alle dita dei piedi e tenendo i polsi sotto le spalle.  Porta una gamba alla volta verso il gomito dello stesso lato e riportala indietro.  Cerca di ridurre al minimo il dondolio delle spalle e di fare in modo che la gamba si muova in avanti in linea retta.   Per incrementare l'intensità puoi aumentare la velocità di esecuzione dell'esercizio. In questo modo aumenterai la frequenza cardiaca e renderai l'esercizio più impegnativo dal punto di vista fisico.",
+      "tip_it": "Una ripetizione consiste in un movimento completo di entrambe le gambe"
+    },
+    {
+      "exerciseId": "PLANK",
+      "title_it": "Plank",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "kSFvHo9p53Y",
+      "lottie": "PLANK",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione con gli avambracci appoggiati al pavimento per sostenere la maggior parte del peso e le punte dei piedi che tengono sollevate le gambe.  Una volta assunta questa posizione, cercheremo di inclinare il bacino sotto il corpo, retrovertendo il bacino e guardando in avanti verso i pollici.  Per facilitare questo movimento, possiamo abbassarci sulle ginocchia. In questa posizione cerchiamo di ottenere una linea retta dalla sommità della testa fino alle ginocchia, sempre creando un'inclinazione del bacino.",
+      "tip_it": "Contrai i muscoli del core e dei glutei per mantenere la colonna vertebrale neutra"
+    },
+    {
+      "exerciseId": "PLANK_ON_SWISSBALL",
+      "title_it": "Plank su swiss ball",
+      "requires": "SWISSBALL",
+      "requires2": null,
+      "requiresDisplay_it": "Swiss ball",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "fwvVnCEqMhA",
+      "lottie": "PLANK_ON_SWISSBALL",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Appoggia i gomiti sulla swiss ball e distendi le gambe dietro di te con le punte dei piedi appoggiate al pavimento.  In questa posizione devi formare una linea retta che parte dalla testa e scende lungo la colonna vertebrale e le gambe fino ai talloni.  Il coccige deve essere retroverso, costringendoti a contrarre il core. Ti accorgerai di dover continuare a fare piccoli aggiustamenti al posizionamento delle braccia sulla palla mentre lavori per mantenere l'equilibrio.",
+      "tip_it": "Più mantieni larghi i piedi, più facile sarà l'esercizio!"
+    },
+    {
+      "exerciseId": "PLANK_PULL_THROUGH",
+      "title_it": "Plank pull through",
+      "requires": "KB",
+      "requires2": null,
+      "requiresDisplay_it": "Kettlebell",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "iXtAv61NEIo",
+      "lottie": "PLANK_PULL_THROUGH",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione di press up con i piedi leggermente più larghi del solito e un peso appena fuori e dietro il polso destro.  Da qui, allunga la mano sinistra sotto il corpo per afferrare il peso, sollevarlo, spostarlo passando sotto il corpo e rimetterlo nella posizione equivalente sull'altro lato.  Durante l'esercizio devi cercare di ridurre al minimo l'oscillazione dei fianchi che può verificarsi quando avvicini o effettui lo spostamento.  Se ti accorgi di oscillare in modo significativo, puoi provare a posizionare il peso meno lontano dal corpo o a usarne uno più leggero.",
+      "tip_it": "Immagina di tenere in equilibrio sulla schiena una tazza di tè, non farne fuoriuscire neanche una goccia!"
+    },
+    {
+      "exerciseId": "PLANK_TWIST",
+      "title_it": "Plank Twist",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "5IOr9dmHlKI",
+      "lottie": "PLANK_TWIST",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti nella tipica posizione di plank con gli avambracci appoggiati al pavimento e forma una linea retta che dalla sommità della testa scende lungo la colonna vertebrale fino ai talloni.  Da qui devi portare un'anca verso il suolo, prima di usare gli obliqui per riportare l'anca in alto e tornare alla posizione iniziale. Ripeti sull'altro lato.   Immaginando che un pennello sia attaccato a una delle anche, dovresti cercare di creare un semicerchio ogni volta che passi da un lato all'altro.  Mentre muovi i fianchi e ruoti con il core, devi cercare di mantenere le spalle il più possibile ferme.",
+      "tip_it": "La torsione deve provenire dai fianchi ed essere lenta e controllata. Non avere fretta!"
+    },
+    {
+      "exerciseId": "POGO_JUMPS",
+      "title_it": "Pogo jump",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "PLYOS",
+      "muscleGroupSpecific": "PLYOS",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "j0nl5dWuqN4",
+      "lottie": "POGO_JUMPS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Il pogo jump è un esercizio di salto verticale a due gambe che si concentra sul minimo contatto con il suolo. Posiziona le mani sulle anche e concentrati sul sollevamento da terra il più velocemente possibile. Il contatto con il suolo deve essere rapido e veloce sull'avampiede.",
+      "tip_it": "Pensa come se usassi un salterello e cerca di passare il minor tempo possibile a contatto con il suolo."
+    },
+    {
+      "exerciseId": "PRESS-UP_POSITION_WITH_SINGLE_ARM_EXTENSIONS",
+      "title_it": "Posizione di press up con estensioni a braccio singolo",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "G45RuildQP4",
+      "lottie": "PRESS-UP_POSITION_WITH_SINGLE_ARM_EXTENSIONS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione di press-up con i piedi leggermente più larghi del solito per avere una base migliore per l'equilibrio.  In questa posizione, cerchiamo di immaginare una linea retta che parte dalla sommità della testa e scende lungo la colonna vertebrale fino a un punto equidistante tra i piedi.  Da qui, solleva un braccio e allungalo in avanti. Durante questo movimento, il tuo corpo dondolerà naturalmente; cerca quindi di ridurre al minimo questo dondolio contraendo il core e mantenendo le spalle in posizione orizzontale. Riporta la mano a terra e ripeti con l'altro braccio.  Per aumentare la sfida di questo esercizio, puoi avvicinare i piedi. In questo modo avrai una base più piccola e dovrai contrarre maggiormente il core per rimanere stabile.",
+      "tip_it": "Immagina di tenere in equilibrio sulla schiena una tazza di tè, non farne fuoriuscire neanche una goccia!"
+    },
+    {
+      "exerciseId": "PRESS_UP",
+      "title_it": "Press up",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_UPPER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "ReVAogcbkV8",
+      "lottie": "PRESS_UP",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Il press-up più basilare può essere eseguito dalle ginocchia con il corpo inclinato. Per ottenere questo risultato è necessario appoggiare le mani su un blocco o uno step. Più alto è il blocco, più facile sarà l'esecuzione. Devi creare una linea retta dal ginocchio alla sommità della testa e un triangolo tra le due mani e il punto in cui guardi: davanti e tra le due mani.  Abbassati in modo che il petto si trovi tra i pollici e verso il box. Per aiutarci nella fase di spinta del movimento, possiamo usare il respiro: espirando mentre ci spingiamo verso l'alto e inspirando mentre scendiamo.   Questo movimento può essere ripetuto ma partendo dalla punta dei piedi anziché dalle ginocchia. Dovresti comunque creare una linea retta dalle dita dei piedi fino alla sommità della testa; mantieni il triangolo guardando davanti alle mani in modo che la testa rimanga in linea con la schiena.  La variante successiva è il classico press up con ginocchia a terra. In questa progressione ti posizionerai con la stessa linea retta dalle ginocchia alla sommità della testa e lo stesso triangolo per la linea di vista. Ti abbasserai in modo che il naso, il petto e i fianchi tocchino leggermente il pavimento prima di rialzarti.  L'ultima variante è il press up completo. Anche in questo caso dovrai mantenere una linea retta lungo tutto il corpo, abbassandoti in modo che il naso, il petto e i fianchi tocchino leggermente il pavimento prima di rialzarti. Una volta che avrai imparato a eseguire il press up completo e ti sentirai a tuo agio per il numero di ripetizioni e serie indicate, potrai eseguire un press up con pesi utilizzando un manubrio o una piastra con pesi sulla schiena. Presta molta attenzione al posizionamento: chiedi a qualcuno di collocarti il peso sulla schiena una volta che sei in posizione. Inizia in modo leggero per assicurarti che la tecnica non venga compromessa.",
+      "tip_it": "Non avere paura di dover scendere sulle ginocchia per completare l'esercizio"
+    },
+    {
+      "exerciseId": "PRESS_UP_POSITION_DIAGONAL_TOE_TAP",
+      "title_it": "Tocco in diagonale della punta del piede in posizione di press up",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_UPPER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "L4oG_eSfxAo",
+      "lottie": "PRESS_UP_POSITION_DIAGONAL_TOE_TAP",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per eseguire questo esercizio, mettiti in posizione di press up con le gambe leggermente più larghe del solito.  In questa posizione devi avere le braccia più o meno alla larghezza delle spalle e devi guardare davanti a te e al centro delle mani, creando un triangolo.    Da qui, allunga un braccio all'indietro toccando l'alluce del piede opposto; mentre lo fai, il sedere salirà in aria verso il soffitto.  Ritorna nella posizione di press up e ripeti con l'altro braccio per raggiungere l'alluce opposto.   Puoi aumentare la velocità di questo movimento per renderlo più impegnativo. Tuttavia, è importante assicurarsi di mantenere il controllo durante tutto l'esercizio.",
+      "tip_it": "Tieni le gambe il più dritte possibile per sentire un buon allungamento dei muscoli ischiocrurali"
+    },
+    {
+      "exerciseId": "PRESS_UP_POSITION_WALK_OUT",
+      "title_it": "Camminata in posizione di press up",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_UPPER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "iqVpjKAUETY",
+      "lottie": "PRESS_UP_POSITION_WALK_OUT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia in posizione eretta con i piedi alla larghezza dei fianchi e le spalle indietro.  Da qui, piegati in avanti portando le mani a terra e mantenendo le gambe dritte il più a lungo possibile.  Una volta raggiunto il pavimento, muovi le mani verso l'esterno e lungo il pavimento fino a raggiungere la posizione di press up.  A questo punto, spingi il peso sulle spalle e crea una linea retta dalla testa ai piedi. Torna su, eseguendo gli stessi passi al contrario.",
+      "tip_it": "Cammina in avanti finché le mani non sono sotto le spalle"
+    },
+    {
+      "exerciseId": "PULL_UP",
+      "title_it": "Trazioni alla sbarra",
+      "requires": "PUB",
+      "requires2": "BAND",
+      "requiresDisplay_it": "Barra per trazioni, fascia elastica",
+      "unilateral": false,
+      "muscleGroupBroad": "BACK",
+      "muscleGroupSpecific": "BILATERAL_BACK",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "1rRmIzEsl_4",
+      "lottie": "PULL_UP",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Esistono tre impugnature principali che possiamo utilizzare per tutte le nostre variazioni, ossia:  Presa prona con palmi rivolti verso l'esterno e braccia a una distanza tra loro maggiore della larghezza delle spalle. In questo modo lavoreremo sulla parte superiore della schiena.  Presa supina con palmi rivolti verso di noi, per lavorare maggiormente sui bicipiti. Per questa opzione le braccia devono essere all'incirca alla larghezza delle spalle.  Presa con palmi rivolti verso l'esterno con le braccia alla larghezza delle spalle. In questo modo lavoreremo sulla parte centrale della schiena.  La prima variante di una trazione alla sbarra è quella con la fascia. Fissa una fascia spessa alla sbarra in modo che penda verso il basso. Inserisci il ginocchio all'interno della fascia. Tenendo la sbarra con la presa che preferisci, puoi saltare verso l'alto mentre ti sollevi e poi abbassarti lentamente fino a ottenere un braccio disteso.  Per progredire in questo movimento, possiamo rimuovere la fascia o usarne una più morbida in modo che fornisca meno assistenza. Puoi continuare a usare un piccolo salto per aiutarti durante la risalita.  La progressione finale consiste nell'eseguire una trazione a corpo intero. In questo caso, l'esecuzione è continua, senza toccare il pavimento tra una ripetizione e l'altra.",
+      "tip_it": "Più ti abbassi, maggiore è la difficoltà dell'esercizio!"
+    },
+    {
+      "exerciseId": "PUSH_PRESS",
+      "title_it": "Push press",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "SHOULDERS",
+      "muscleGroupSpecific": "BILATERAL_SHLD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "Hqxjk5Z35SM",
+      "lottie": "PUSH_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Inizia questo esercizio staccando il bilanciere dal rack in posizione frontale con i gomiti in dentro, vicino al petto.  Fletti leggermente le ginocchia prima di spingere con forza il bilanciere sopra la testa usando lo slancio delle gambe.  Cerca di avere entrambe le braccia sopra sopra la testa e la testa in posizione neutra tra le braccia. Poi riporta il bilanciere verso il basso, piegando le ginocchia mentre esegui il movimento.",
+      "tip_it": "Fai una pausa di un secondo in alto prima di abbassarti mantenendo il controllo"
+    },
+    {
+      "exerciseId": "RAISED_LEG_HIP_THRUST",
+      "title_it": "Hip Thrust a gambe sollevate",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "BILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "sOq7RdWE3rs",
+      "lottie": "HIP_THRUST",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Preparati con una pedana per i piedi; puoi usare uno step o impilare alcuni pesi uno sopra l'altro. Sdraiati sul pavimento con i piedi sulla pedana rialzata e con i piedi e le ginocchia ampi quasi come la larghezza dei fianchi. Estendi le braccia in avanti, spingendo la sbarra sui fianchi. A questo punto potresti dover spostare il corpo verso la pedana rialzata in modo che il sedere sia relativamente vicino ai piedi. Da qui spingi i fianchi verso l'alto, stringendo i glutei e il core prima di tornare giù.   Se stai eseguendo la versione con pesi con un bilanciere, quando torni a terra devi fare in modo che la sbarra arrivi al suolo nello stesso momento su entrambi i lati per assicurarti di lavorare in modo uniforme su tutto il corpo.  Quando spingi i fianchi verso l'alto, portali al massimo senza far inarcare la schiena; se lavori inarcando la schiena, te ne renderai conto molto in fretta, perché inizierai ad avere la schiena dolorante.  Questo esercizio è molto simile al ponte per i glutei. In questo esercizio, i piedi sollevati anziché le spalle sollevate consentono un maggiore range di movimento e una maggiore attivazione dei glutei.",
+      "tip_it": "Mentre fai il ponte, stringi i glutei in alto per attivarli"
+    },
+    {
+      "exerciseId": "REAR_LEG_RAISED_LUNGE",
+      "title_it": "Affondo con gamba posteriore sollevata",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": true,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "UNILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "Hgsq3pY1oZw",
+      "lottie": "REAR_LEG_RAISED_LUNGE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Conosciuto anche come split squat bulgaro. Posiziona la gamba posteriore su un box o una panca in modo che la caviglia sia sopra il bordo del blocco e possa muoversi liberamente senza interferenze del blocco stesso.   Il piede anteriore deve essere sotto le anche e appoggiato a terra.   Piega quindi la gamba anteriore, consentendo al ginocchio della gamba posteriore di muoversi verso terra, prima di spingerti di nuovo verso l'alto.  Per migliorare il movimento, puoi aggiungere un manubrio o un kettlebell. Puoi lasciare il peso agganciato al braccio opposto alla gamba anteriore o tenerlo con la spalla.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Usa una sedia o uno step se non hai un box o una panca."
+    },
+    {
+      "exerciseId": "REVERSE_FLY",
+      "title_it": "Reverse fly",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "BACK",
+      "muscleGroupSpecific": "BILATERAL_BACK",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "3MKmYlhxgOo",
+      "lottie": "REVERSE_FLY",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per prepararti al reverse fly, posiziona i piedi a circa la larghezza dei fianchi e tieni due manubri con le braccia che cadono perpendicolari verso terra con il gomito leggermente flesso.   In piedi, con un leggero piegamento delle ginocchia, fai una cerniera sui fianchi per portare il petto in avanti e il sedere all'indietro. Assicurati che la schiena rimanga piatta per tutto il tempo.   Da qui, apri lateralmente le braccia stringendo i muscoli tra le scapole, prima di tornare alla posizione di partenza.  Per progredire in questo movimento, puoi regolare l'angolo delle braccia in modo che i mignoli siano più alti dei pollici. Mantieni un peso leggero in modo da poter mettere a punto la tua forma fisica ed evitare di dover usare lo slancio per sollevare i pesi in aria.",
+      "tip_it": "Abbassati fino alla posizione iniziale mantenendo il controllo"
+    },
+    {
+      "exerciseId": "REVERSE_LUNGE",
+      "title_it": "Affondo inverso",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "UNILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "HXs8u1251ss",
+      "lottie": "REVERSE_LUNGE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia con i piedi alla larghezza delle spalle per avere una base stabile; fai quindi un passo indietro e appoggia le dita del piede posteriore a terra, in modo che lo stinco sia parallelo al suolo e il ginocchio sia sotto l'anca.  È fondamentale mantenere il core teso e il piede anteriore piatto con lo sguardo avanti. La versione con pesi di questo esercizio si esegue con i kettlebell in posizione rack frontale, con i gomiti chiusi e i palmi delle mani vicini. In alternativa, puoi sostituire i kettlebell con un paio di manubri o addirittura con un sacco di sabbia per variare ulteriormente.   Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Per cominciare, concentrati sull'equilibrio e sul controllo anziché su un affondo lungo ma sbilanciato!"
+    },
+    {
+      "exerciseId": "RUSSIAN_TWIST",
+      "title_it": "Torsioni russe",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "IJDOoVyVjhc",
+      "lottie": "RUSSIAN_TWIST_2",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Preparati con un kettlebell o un manubrio a circa 10 cm di distanza dal corpo su un lato (ignora questo passaggio se usi il peso del corpo).  Siediti sul pavimento con le gambe davanti a te con un piegamento di circa 90 gradi del ginocchio e i talloni appoggiati sul pavimento. Devi piegarti all'indietro in modo che l'angolo tra le cosce e la parte superiore del corpo sia di circa 90 gradi.  Ruota la parte superiore del corpo seguendo le mani mentre le abbassi accanto a te per prendere il peso.  Porta il peso dall'altra parte del corpo in modo che arrivi a un paio di centimetri dal pavimento, prima di riportarlo dall'altra parte.  Se ti sembra facile, puoi progredire sollevando i piedi dal pavimento. Durante questa progressione, cerca di mantenere i piedi il più possibile fermi.   Questo movimento si basa sul controllo, quindi non devi necessariamente aumentare la velocità della rotazione. La qualità è più importante della quantità!",
+      "tip_it": "Concentrati sullo stringere i muscoli del core mentre esegui la torsione con controllo, non affrettare il movimento"
+    },
+    {
+      "exerciseId": "SEATED_BARBELL_PRESS",
+      "title_it": "Press con bilanciere in posizione seduta",
+      "requires": "BARBELL",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Bilanciere, panca",
+      "unilateral": false,
+      "muscleGroupBroad": "SHOULDERS",
+      "muscleGroupSpecific": "BILATERAL_SHLD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "MSp9s5L5xPU",
+      "lottie": "SEATED_BARBELL_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per prepararti a questo movimento, posiziona una panca rivolta verso il rack. Afferra la sbarra con le mani a una larghezza pari a una volta e mezza quella delle spalle e i palmi rivolti all'esterno.  Solleva la sbarra dalla rastrelliera e portala al petto tenendo i gomiti stretti ai fianchi e i piedi ben piantati a terra.  Spingi con forza la sbarra verso l'alto sopra la testa, cercando di mantenere la testa ferma e facendo attenzione a non battere contro il mento con la sbarra.  Riporta la sbarra verso il basso in modo controllato, prima di ripetere il movimento.  Per aumentare la potenza del movimento e salire di livello, puoi espirare mentre spingi con forza la sbarra verso l'alto e inspirare mentre la riporti verso il basso in modo controllato.",
+      "tip_it": "Fai attenzione alla posizione della testa mentre premi verso l'alto, per evitare di urtare la parte inferiore del mento!"
+    },
+    {
+      "exerciseId": "SEATED_CALF_RAISE",
+      "title_it": "Sollevamento dei polpacci da seduti",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "CALVES",
+      "muscleGroupSpecific": "BILATERAL_CALF",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "ORY-ke6vcgk",
+      "lottie": "SEATED_CALF_RAISE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire un sollevamento dei polpacci da seduti, siediti sul bordo di un box o di una sedia con le gambe piegate ad angolo retto.  Posiziona appena sopra il ginocchio un peso sulla gamba che lavora.   Solleva il tallone della gamba che lavora verso l'alto fino a quando il piede non è sulla punta.   Stringi e fai una pausa all'inizio del movimento prima di scendere di nuovo.   Per questo esercizio puoi utilizzare un peso relativamente grande.",
+      "tip_it": "Se l'appoggio del peso sul ginocchio non è comodo, usa un tappetino da palestra per avere un'imbottitura extra."
+    },
+    {
+      "exerciseId": "SIDEPLANK_HIP_FLEXORS",
+      "title_it": "Plank laterale con flessione dell'anca",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "UNILATERAL_CO",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "d0JyUzS-wwQ",
+      "lottie": "SIDEPLANK_HIP_FLEXORS_1",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Questo esercizio inizia con la posizione di plank laterale: sdraiati su un fianco, spingiti in su con l'avambraccio con il gomito direttamente sotto la spalla e le gambe distese in linea retta. Se questa posizione è difficile da raggiungere, inizia a tenere la posizione di plank laterale dalle ginocchia.   In entrambe le posizioni, solleva i fianchi, allontanandoli dal pavimento e mantenendo una linea retta: fai in modo che i fianchi non si abbassino troppo o non si inarchino troppo in alto!   Tieni lo sguardo dritto davanti a te. Il braccio superiore può essere tenuto dritto verso il soffitto o piatto lungo il fianco del corpo. Spingi il ginocchio della gamba superiore verso l'anca mantenendo la rigidità del tronco. Fai in modo che la parte superiore del corpo non ruoti verso l'interno. Per sviluppare ulteriormente questo esercizio, puoi posizionare una leggera fascia di resistenza intorno ai piedi in modo da imprimere una certa tensione quando spingi il ginocchio verso le anche.",
+      "tip_it": "Concentrati prima di tutto sulla forma fisica!"
+    },
+    {
+      "exerciseId": "SIDE_LEG_SWINGS",
+      "title_it": "Oscillazioni laterali con le gambe",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "6aw8CAH_65Y",
+      "lottie": "SIDE_LEG_SWINGS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in piedi a circa un metro di distanza da una parete su cui appoggerai entrambe le mani. In posizione eretta, con le spalle indietro e il petto aperto, slancia una gamba e portala attraverso il corpo, consentendo al corpo di ruotare verso l'interno. Fai oscillare la gamba sul lato opposto mantenendo i fianchi neutri. Esegui per ogni lato per il numero di ripetizioni indicato.",
+      "tip_it": "Il movimento deve essere lento e l'oscillazione delle gambe eseguita con controllo."
+    },
+    {
+      "exerciseId": "SIDE_LUNGE",
+      "title_it": "Affondo laterale",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "u_xtYxMEfoQ",
+      "lottie": "SIDE_LUNGE",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia a gambe divaricate, piega la gamba sinistra e scendi, mantenendo il piede sinistro piatto sul pavimento e lasciando che le dita del piede destro si sollevino dal pavimento.  Devi scendere fino a quando ti sentirai a tuo agio, mantenendo il piede sinistro piatto sul pavimento.  Puoi appoggiare le braccia dove ti sembra più comodo, io ti consiglio di metterle sui fianchi o davanti a te per trovare l'equilibrio.  Esegui su entrambi i lati il numero di ripetizioni indicato su entrambi i lati.",
+      "tip_it": "Mantieni il corpo in posizione eretta e la testa in avanti mentre fai un passo laterale"
+    },
+    {
+      "exerciseId": "SIDE_PLANK",
+      "title_it": "Plank laterale",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "UNILATERAL_CO",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "iNbH7_edNI8",
+      "lottie": "SIDE_PLANK",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Questo esercizio si esegue sdraiandosi su un fianco, appoggiando l'avambraccio sul pavimento con il gomito direttamente sotto le spalle e le gambe distese in linea retta.  Solleva quindi i fianchi dal pavimento guardando dritto davanti a te.  Puoi allungare il braccio superiore sopra di te in linea con la spalla, portando le punte delle dita alle tempie o appoggiando la mano sull'anca, come ti è più comodo.   Se trovi difficile questo movimento, puoi renderlo più semplice piegando la parte inferiore della gamba ad angolo retto. In questo modo otterrai un sostegno migliore e toglierai un po' di pressione al core.",
+      "tip_it": "Tieni i fianchi alti per mantenere il corpo laterale il più dritto possibile"
+    },
+    {
+      "exerciseId": "SIDE_PLANK_LEG_RAISE",
+      "title_it": "Sollevamento gamba in plank laterale",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": true,
+      "muscleGroupBroad": "EXTRA",
+      "muscleGroupSpecific": "EXTRA",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "PAD7sMmIgts",
+      "lottie": "SIDE_PLANK_LEG_RAISE",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "In questo esercizio ti metti in plank laterale prima di sollevare la gamba superiore e allontanarla da quella inferiore. Mantieni la posizione all'inizio del movimento e poi riabbassa la gamba con controllo.  Cerca di mantenere la parte superiore del corpo e le anche ferme durante il movimento e continua a guardare dritto davanti a te.  Possiamo eseguire questo esercizio anche utilizzando una fascia intorno agli stinchi. Si tratta di un notevole passo avanti rispetto all'esecuzione del movimento senza fascia e dovrebbe essere eseguito solo dopo aver perfezionato la tecnica del movimento di base.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Non abbassare la posizione di plank mentre sollevi la gamba!"
+    },
+    {
+      "exerciseId": "SINGLE_ARM_BENCH_PRESS",
+      "title_it": "Panca piana a braccio singolo",
+      "requires": "DB",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Manubrio, panca",
+      "unilateral": true,
+      "muscleGroupBroad": "CHEST",
+      "muscleGroupSpecific": "UNILATERAL_CHEST",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "7m9JICs5odQ",
+      "lottie": "SINGLE_ARM_BENCH_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per prepararti all'esercizio con il manubrio in un solo braccio, sdraiati sulla schiena su una panca imbottita con i piedi che scendono sul pavimento dall'estremità della panca.   Tieni un manubrio con un braccio rivolto verso il lato del corpo con il gomito all'altezza del petto. Inizia il movimento sollevando il braccio verso il soffitto.  Dato che lavorerai solo su un lato del corpo, ti accorgerai che la posizione è sbilanciata. Per ovviare a questo inconveniente, dovrai contrarre il core per evitare che il corpo si inclini lateralmente. Inoltre, può essere utile muovere entrambe le braccia nello stesso movimento (un braccio senza peso).  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Usa meno peso per mantenere il controllo e la stabilità durante il movimento."
+    },
+    {
+      "exerciseId": "SINGLE_ARM_CLEAN",
+      "title_it": "Clean a braccio singolo",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "UNILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "H6h-331U1fc",
+      "lottie": "SINGLE_ARM_CLEAN",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Iniziare l'esercizio con i piedi in una posizione forte come se dovessi accovacciarti con il manubrio tra le gambe.  Abbassati e afferra il manubrio, portandolo con forza verso la spalla. In questo processo, il manubrio ruoterà in modo da terminare il movimento con il palmo rivolto verso il corpo e il gomito vicino al petto.  Fai una pausa in alto per 2 secondi prima di abbassarti con il movimento inverso. Fai una pausa in basso per 1 secondo prima di ripetere. Mentre ti abbassi verso il pavimento, assicurati di mantenere i piedi piatti sul pavimento piegando le ginocchia a sufficienza per consentire questa aderenza.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Fai attenzione a non far cadere il peso sul piede ogni volta che ti abbassi"
+    },
+    {
+      "exerciseId": "SINGLE_ARM_CLEAN_AND_PRESS",
+      "title_it": "Clean & press a braccio singolo",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "UNILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "Hd9TbNb8diY",
+      "lottie": "SINGLE_ARM_CLEAN_AND_PRESS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia con i piedi in una posizione forte come se dovessi accovacciarti con il manubrio tra le gambe.  Abbassati e afferra il manubrio, portandolo con forza verso la spalla. In questo processo, il manubrio ruoterà in modo da terminare il movimento con il palmo rivolto verso il corpo e il gomito vicino al petto.  Poi spingi il peso verso il soffitto, con il polso che ruoterà di nuovo in modo che il palmo sia rivolto in avanti. Scendi quindi di nuovo con il movimento in sequenza inversa prima di ripeterlo.  Mentre ti avvicini al pavimento, assicurati di mantenere i piedi piatti sul pavimento piegando le ginocchia a sufficienza.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "La potenza deve provenire dalle gambe, non dalla schiena!"
+    },
+    {
+      "exerciseId": "SINGLE_ARM_ROW",
+      "title_it": "Rematore a braccio singolo",
+      "requires": "DB",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Manubrio, panca",
+      "unilateral": true,
+      "muscleGroupBroad": "BACK",
+      "muscleGroupSpecific": "UNILATERAL_BACK",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "zXD5rnv0gD0",
+      "lottie": "SINGLE_ARM_ROW",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per eseguire questo esercizio mettiti con una mano appoggiata su un box o una panca e un peso nella mano opposta. L'altezza deve essere tale che, con l'altro braccio disteso, il peso non raggiunga il pavimento.   Tieni la schiena piatta e il ginocchio leggermente flesso. Da qui, solleva il braccio che lavora con il gomito alto e tieni il braccio vicino al petto. Riporta il braccio verso il basso e ripeti.  Devi assicurarti di non ruotare alla fine del movimento e di avvicinare il peso al pavimento. La posizione corretta è con il braccio disteso verso il basso, ma con la schiena piatta.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Mantieni una posizione neutra del corpo per tutto il tempo, evitando la rotazione delle anche o delle spalle."
+    },
+    {
+      "exerciseId": "SINGLE_LEG_CALF_RAISE",
+      "title_it": "sollevamento dei polpacci a gamba singola",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "CALVES",
+      "muscleGroupSpecific": "UNILATERAL_CALF",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "ElcvJ0kjt6c",
+      "lottie": "SINGLE_LEG_CALF_RAISE_1",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Il sollevamento dei polpacci a gamba singola si esegue mettendo un piede su una posizione rialzata, ad esempio una piastra.   Posiziona la gamba che lavora sul bordo della pedana in modo che il tallone scenda oltre il bordo e le dita dei piedi siano sulla pedana.  Spingi il tallone verso l'alto in modo che la gamba che lavora sia sulla punta dei piedi e poi abbassa lentamente il tallone per ottenere un leggero stiramento del polpaccio. Dopo aver completato le ripetizioni su un lato, passa all'altra gamba.   La gamba anteriore rimane fuori dalla pedana e viene usata per l'equilibrio. Per aiutare ulteriormente l'equilibrio, impegnati con il core e guarda dritto davanti a te.   Se utilizzi un peso come i manubri, cerca di mantenerli fermi per tutta la durata dell'esercizio.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Mantieni un buon slancio in salita e in discesa. Conta 1, 2 salendo e 1, 2 scendendo."
+    },
+    {
+      "exerciseId": "SINGLE_LEG_GLUTE_BRIDGE",
+      "title_it": "Ponte glutei a gamba singola",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "UNILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "VUl8R0kn6v4",
+      "lottie": "SINGLE_LEG_GLUTE_BRIDGE",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire un ponte per i glutei, sdraiati sulla schiena con le braccia lungo i fianchi e le ginocchia piegate verso l'alto.   Raddrizza una gamba verso l'alto, assicurandoti che le ginocchia rimangano in linea. Spingi con forza i fianchi sollevandoli dal pavimento e stringendo i glutei e fai una pausa al culmine prima di riabbassarti con controllo. Per posizionare il bacino correttamente, stringi il core in modo che l'ombelico si sposti verso la colonna vertebrale.   Più il piede a terra è vicino al sedere, più questo esercizio farà lavorare i glutei. Allontanando la gamba, inizierai a far lavorare di più il muscolo ischiocrurale. Per assicurarti un allenamento ottimale, fai una pausa di qualche secondo al termine di ogni ripetizione per far lavorare davvero i glutei.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Contrai i glutei nella parte superiore del ponte per attivarli!"
+    },
+    {
+      "exerciseId": "SINGLE_LEG_SQUAT",
+      "title_it": "Squat a gamba singola",
+      "requires": "BOX",
+      "requires2": null,
+      "requiresDisplay_it": "Box",
+      "unilateral": true,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "UNILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "8twCe4C0c1c",
+      "lottie": "SINGLE_LEG_SQUAT",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Proprio come lo squat tradizionale, lo squat a gamba singola fa lavorare i glutei, i muscoli ischiocrurali, i quadricipiti e gli addominali. Lo squat a gamba singola presenta però l'ulteriore sfida dell'equilibrio, che può aiutarti a coinvolgere anche i muscoli del core.   Esistono diverse progressioni dello squat a gamba singola:  Opzione 1: per lo squat a gamba singola più basilare posizioni un blocco o una sedia dietro di te, trovi l'equilibrio su una gamba sola e ti abbassi lentamente sul blocco o sulla sedia. Poi puoi rialzarti usando entrambe le gambe.  Opzione 2: una sfida in più consiste nel rimanere su una gamba sola per tutto il movimento e continuare ad alzarsi su una gamba sola.  Opzione 3: un movimento più avanzato, se vuoi aumentare ulteriormente la sfida, consiste nell'eseguire l'esercizio con un blocco più basso. In questo caso è sufficiente prendere un blocco più basso o avere una posizione più alta rispetto al blocco, ad esempio stando in piedi su un piatto di pesi o su una pila di libri/riviste grandi.   Opzione 4: il livello finale di questo movimento consiste nell'eseguire l'esercizio senza alcun blocco e vedere quanto riesci ad abbassarti.   È meglio non passare a un movimento più impegnativo prima di aver imparato le basi; completare esercizi impegnativi con una forma non corretta è meno produttivo che eseguire esercizi più semplici ma perfetti. Esegui il numero di ripetizioni indicato su entrambi i lati.",
+      "tip_it": "Usa una sedia o uno step se non hai un box o una panca."
+    },
+    {
+      "exerciseId": "SINGLE_LEG_STRAIGHT_LEG_DEADLIFT",
+      "title_it": "Stacco a gamba singola dritta",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": true,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "UNILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "fkej6PUmvmc",
+      "lottie": "SINGLE_LEG_STRAIGHT_LEG_DEADLIFT_1",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia con il peso scelto nella mano destra in sospensione davanti a te. Trova l'equilibrio sulla gamba sinistra e solleva la gamba destra dal pavimento.   Da qui, fai cardine in corrispondenza delle anche permettendo al peso di uscire davanti a te e allungando la gamba destra dietro di te. La tua posizione alla fine del movimento dovrebbe consistere nel braccio destro con un angolo di 90 gradi rispetto al corpo, con il peso appoggiato leggermente sul pavimento e la gamba destra estesa dietro di te il più possibile in linea con la schiena. Dopo aver raggiunto questa posizione, risali lavorando sulle stesse posizioni.  Se hai difficoltà a raggiungere il peso fino al pavimento a causa della flessibilità degli arti inferiori, puoi preparare una pedana rialzata su cui appoggiare il peso nella posizione più bassa. In questo modo avrai la possibilità di ritrovare il tuo equilibrio alla fine del movimento.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Mentre ti abbassi, tieni il peso il più vicino possibile al corpo."
+    },
+    {
+      "exerciseId": "SL_COPENHAGEN_PLANK",
+      "title_it": "Plank Copenaghen a leva corta",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": true,
+      "muscleGroupBroad": "EXTRA",
+      "muscleGroupSpecific": "EXTRA",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "bU8aazv5voo",
+      "lottie": "SL_COPENHAGEN_PLANK",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sdraiati su un fianco in plank laterale con l'avambraccio destro a terra e il ginocchio sinistro appoggiato sulla parte superiore di una panca per esercizi, uno step o una sedia. La \"leva\" si trova tra l'anca e il ginocchio. Il ginocchio destro può essere piegato o esteso sotto una panca. Mantieni le spalle, le anche e il piede in linea retta mentre spingi verso il basso con il ginocchio sinistro, sentendo la tensione degli adduttori.",
+      "tip_it": "Mantieni un core forte e il bacino inclinato in avanti per stabilizzare la schiena piatta. Se non hai uno step, usa una pila di libri o il gradino inferiore di una scala."
+    },
+    {
+      "exerciseId": "SL_DB_RDL_KNEE_DRIVE",
+      "title_it": "Stacco da terra a gamba singola dritta con knee drive",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "UNILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "7Q-aaVsjTOw",
+      "lottie": "SL_DB_RDL_KNEE_DRIVE_1",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione eretta con i piedi alla larghezza delle anche e le punte dei piedi rivolte in avanti e solleva un ginocchio in alto. Fai una cerniera con i fianchi per abbassare il petto verso terra. Fletti leggermente il ginocchio della gamba appoggiata a terra e mantieni la schiena relativamente piatta contraendo il core. Quando torni alla posizione eretta, spingi il ginocchio in alto, ma con controllo e stabilità. Abbassati di nuovo nella posizione iniziale e ripeti sullo stesso lato. Questo esercizio ti aiuta a imitare la spinta del ginocchio che desideriamo quando corriamo. Una volta che hai imparato a eseguirlo senza peso, puoi aggiungere un manubrio in ogni mano. Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Inizia con il peso del corpo finché non ritieni di avere un buon equilibrio e un buon controllo del movimento."
+    },
+    {
+      "exerciseId": "SL_ISO_HAMSTRING_HOLD",
+      "title_it": "Trattenuta isometrica dei muscoli ischiocrurali a gamba singola",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": true,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "UNILATERAL_HAM",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "LRUtWMiLfM4",
+      "lottie": "SL_ISO_HAMSTRING_HOLD",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sdraiati sulla schiena con le ginocchia piegate e i piedi appoggiati sul pavimento. Alla fine passeremo alla posizione del ponte, ma inizia appoggiando il tallone di un piede su uno step, una panca, un box o una sedia. L'altra gamba sarà sospesa libera in aria. Spingiti verso l'alto in una posizione a ponte, contrai i glutei (stringi le chiappe!) e mantieni la contrazione in alto per 20-30 secondi. Rimani il più possibile immobile e concentrati sul tenere i fianchi sollevati e il tallone che affonda nello step. Abbassati lentamente e con controllo e cambia lato.",
+      "tip_it": "Quando sei nella posizione a ponte, assicurati di inclinare il bacino in avanti (verso il soffitto). In questo modo la schiena deve rimanere bella piatta, non vogliamo vedere una curva nella parte lombare. Se non hai uno step o un box, usa una pila di libri o il gradino inferiore di una scala."
+    },
+    {
+      "exerciseId": "SQUAT_THRUSTS",
+      "title_it": "Squat thrust",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "BILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "pwFi6tmVKyo",
+      "lottie": "SQUAT_THRUSTS",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Mettiti in posizione di press up con le braccia alla larghezza delle spalle.  Da qui, salta per accovacciarti, facendo in modo di trovarti in una posizione molto compressa, quasi come una palla schiacciata.  Ripeti l'esercizio saltando con le gambe piegate e distese tra le due posizioni.  Cerca di mantenere la testa e le spalle stabili per tutta la durata dell'esercizio, anziché lasciarle oscillare in avanti e indietro come potrebbe accadere.",
+      "tip_it": "Non preoccuparti di ridurre il numero di ripetizioni se ti sembra difficile!"
+    },
+    {
+      "exerciseId": "SQUAT_TO_CALF_RAISE",
+      "title_it": "Squat e sollevamento dei polpacci",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "1W0DlNuJbsc",
+      "lottie": "SQUAT_TO_CALF_RAISE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire questo esercizio, accovacciati con i piedi a una larghezza di poco superiore a quella dei fianchi e leggermente angolari verso l'esterno.  Quando esci dallo squat, continua a salire sulla punta dei piedi per eseguire il sollevamento dei polpacci. Mentre ti sollevi sulla punta dei piedi, assicurati che le caviglie rimangano in linea con i piedi e le gambe e non inizino a cadere verso l'esterno o l'interno. Abbassa i piedi e torna in posizione di squat.  Per ottenere il massimo beneficio da questo esercizio, devi stringere i glutei nella parte inferiore dello squat e spingere con forza, ma in modo fluido, fino alla posizione di sollevamento dei polpacci, durante la quale il tuo core deve essere ben contratto e i polpacci devono lavorare.",
+      "tip_it": "Questo potrebbe mettere a dura prova il tuo equilibrio, per cui all'inizio dovrai andarci piano!"
+    },
+    {
+      "exerciseId": "STAGGERED_HIP_THURSTS",
+      "title_it": "Hip thrust con stacco sfalsato (B stance)",
+      "requires": "BARBELL",
+      "requires2": "BENCH",
+      "requiresDisplay_it": "Bilanciere, panca",
+      "unilateral": true,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "UNILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "uyPrniW_ryo",
+      "lottie": "STAGGERED_HIP_THURSTS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Siediti contro una panca, uno step o un box e scivola sotto il bilanciere zavorrato o tieni un manubrio sulla parte anteriore dei fianchi. Divarica le gambe alla larghezza dei fianchi e inclina leggermente le ginocchia verso l'esterno. Metti un piede leggermente davanti all'altro e, su questa gamba anteriore, passa al tallone in modo da togliere un po' di carico su questo lato. Il tallone dovrà scavare nel terreno. Una volta assunta la posizione, inspira profondamente e, espirando, spingi i fianchi verso l'alto a ponte. Mantieni per un secondo in alto e poi abbassati con controllo. Esegui il movimento sullo stesso lato per il numero di ripetizioni indicato e poi cambia lato.",
+      "tip_it": "Non è inusuale che un lato sia più debole dell'altro, quindi ti consigliamo di iniziare dal lato più debole."
+    },
+    {
+      "exerciseId": "STAGGERED_RDLS",
+      "title_it": "Stacchi monopodalici in posizione sfalsata",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "UNILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "Li9jJhbSxBA",
+      "lottie": "STAGGERED_RDLS",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Da una posizione eretta, con i piedi alla larghezza delle spalle, fai scivolare il piede sinistro dietro di te mantenendo le punte dei piedi sul pavimento; questo serve a sostenere il lato destro durante il movimento. Tieni un peso in ogni mano. Una volta in posizione, inizia a fare una cerniera dai fianchi e scendi verso la gamba anteriore mantenendo il petto alto e le spalle indietro. Mantieni una piccola flessione del ginocchio in modo che non sia bloccato, ma non devi piegare il ginocchio per poter arrivare più lontano! Abbassati fino a sentire un leggero stiramento dei muscoli ischiocrurali e poi risali. Esegui il movimento sullo stesso lato per il numero di ripetizioni indicato e poi cambia lato.",
+      "tip_it": "Non è inusuale che un lato sia più debole dell'altro, quindi ti consigliamo di iniziare dal lato più debole."
+    },
+    {
+      "exerciseId": "STANDING_BARBELL_PRESS",
+      "title_it": "Press con bilanciere in piedi",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "SHOULDERS",
+      "muscleGroupSpecific": "BILATERAL_SHLD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "JHXtu-ll9Ik",
+      "lottie": "STANDING_BARBELL_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per prepararti, posizionare le mani poco più ampie della larghezza delle spalle e porta la sbarra sul davanti in modo che sia appoggiata al petto e tenuta dal braccio con i palmi rivolti in avanti o leggermente verso il soffitto.  Fai un passo in avanti e mettiti in posizione con i piedi alla larghezza delle spalle e una leggera flessione del ginocchio. Da qui, spingi la sbarra verso l'alto sopra la testa, raggiungendo la posizione massima quando le braccia sono completamente stese sopra la testa.  Cerca di riportare la sbarra al petto tra una ripetizione e l'altra.  Devi anche cercare di ridurre al minimo i movimenti del resto del corpo e della testa. Contrarre il core per tutta la durata dell'esercizio ti aiuterà a ottenere questo risultato e a mantenere l'equilibrio.",
+      "tip_it": "Fai una pausa in alto prima di abbassarti mantenendo il controllo"
+    },
+    {
+      "exerciseId": "STANDING_FRONT_RAISE",
+      "title_it": "Alzate frontali in stazione eretta",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "SHOULDERS",
+      "muscleGroupSpecific": "BILATERAL_SHLD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "vOqq8BfT3gQ",
+      "lottie": "STANDING_FRONT_RAISE",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Questo esercizio Inizia in posizione eretta con le gambe alla larghezza delle spalle. Tieni i manubri o i kettlebell con i palmi rivolti verso il corpo e i pesi leggermente appoggiati sulle cosce.  Da qui, solleva le braccia davanti a te fino a superare l'altezza delle spalle e riportale lentamente verso il basso.  Questo esercizio viene spesso eseguito in modo errato. È importante mantenere il controllo del movimento e non usare lo slancio per portare le braccia all'altezza desiderata.  Se senti che devi usare lo slancio e aggiungere un'oscillazione al movimento, dovresti ridurre il peso.",
+      "tip_it": "È più tosto di quanto sembri, inizia con un peso più leggero!"
+    },
+    {
+      "exerciseId": "STANDING_MARCH",
+      "title_it": "Marcia in piedi",
+      "requires": "BAND",
+      "requires2": null,
+      "requiresDisplay_it": "Fascia elastica",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "REPS",
+        "SECONDS"
+      ],
+      "youtubeId": "9jsUJPgUw6I",
+      "lottie": "STANDING_MARCH",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia in posizione eretta con i piedi alla larghezza delle anche e la parte superiore del corpo alta con le spalle indietro, il petto aperto e lo sguardo dritto in avanti. Solleva il piede destro e porta in alto il ginocchio, fai una pausa di un secondo in alto e riabbassati. Alternati su ogni lato. Durante la marcia su e giù, assicurati di stringere i glutei per garantire l'inclinazione del bacino in avanti e di mantenere il piede in posizione dorsiflessa (dita dei piedi in alto e piede parallelo al suolo). Le braccia devono muoversi come se stessi correndo, mantenendo i gomiti chiusi e spingendosi in alto e indietro contemporaneamente alle gambe.   Una volta imparato il movimento e a condizione di percepire che hai raggiunto un buon equilibrio, puoi progredire con questo esercizio mettendo una mini fascia intorno a entrambi i piedi. Mentre sollevi il ginocchio, usa il piede per spingere contro la fascia di resistenza. Fai una pausa di 1-2 secondi al culmine e poi abbassati lentamente e con controllo. Inizia con una fascia di resistenza leggera.",
+      "tip_it": "Inizia con una fascia di resistenza leggera finché non sei sicuro di avere acquisito un buon equilibrio e un buon controllo."
+    },
+    {
+      "exerciseId": "STANDING_SIDE_BEND",
+      "title_it": "Side bend in piedi",
+      "requires": "KB",
+      "requires2": null,
+      "requiresDisplay_it": "Kettlebell",
+      "unilateral": true,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "UNILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "PkRvuQP_31Y",
+      "lottie": "STANDING_SIDE_BEND",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire il side bend in piedi, puoi utilizzare kettlebell o manubri.  Inizia con i piedi più o meno alla larghezza dei fianchi e il peso in una mano.  Lascia che la mano scenda lungo il fianco il più possibile senza far muovere il corpo in avanti o indietro.  Dovrai poi tirarti su per tornare al centro con forza.  Se questo movimento ti sembra troppo facile, puoi renderlo più impegnativo premendo il peso sopra la testa e allargando i piedi prima di abbassare la gamba opposta (il lato del corpo su cui non si trova il peso) e risalire con forza. Questa variante farà lavorare anche le spalle.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Mantieni una postura alta, guardando dritto davanti a te. Evita d'inclinarti in avanti o indietro mentre ti muovi lateralmente!"
+    },
+    {
+      "exerciseId": "STANDING_SIDE_RAISE",
+      "title_it": "Alzate laterali in stazione eretta",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "SHOULDERS",
+      "muscleGroupSpecific": "BILATERAL_SHLD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "WuQ_ZQSrdbg",
+      "lottie": "STANDING_SIDE_RAISE",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Questo esercizio inizia in posizione eretta con i piedi alla larghezza dei fianchi, con un manubrio o un kettlebell in ogni mano rilassata sui fianchi.  Allarga e solleva entrambe le braccia fino a formare una T e poi abbassale lentamente fino alla posizione di partenza.  È importante stringere il core mentre sollevi le braccia e stringere le spalle all'inizio del movimento.  Per aumentare la sfida del movimento, puoi sollevare il mignolo leggermente più in alto, cambiando l'angolo del kettle o dei manubri.",
+      "tip_it": "È più impegnativo di quanto sembri, inizia con un peso più leggero!"
+    },
+    {
+      "exerciseId": "STANDING_SINGLE_ARM_SHOULDER_PRESS",
+      "title_it": "Shoulder press in piedi a braccio singolo",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": true,
+      "muscleGroupBroad": "SHOULDERS",
+      "muscleGroupSpecific": "UNILATERAL_SHLD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "L9VlR9yq904",
+      "lottie": "STANDING_SINGLE_ARM_SHOULDER_PRESS",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per eseguire un press per spalle in piedi a braccio singolo, devi posizionare i piedi alla larghezza dei fianchi e tenere il peso a un angolo di 45 gradi dal corpo.   Solleva il braccio verso l'alto portando il palmo della mano in avanti. Poi riabbassa il braccio fino alla posizione di angolo di 45 gradi.  Durante l'esercizio è importante che il movimento del resto del corpo sia minimo. Questo risultato si ottiene contraendo il core. Se ti accorgi di avere molti movimenti nel corpo, prova a usare un peso un po' più leggero.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Abbassare con controllo"
+    },
+    {
+      "exerciseId": "STATIC_LUNGE",
+      "title_it": "Affondo statico",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": true,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "UNILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "WQqjTRecEMQ",
+      "lottie": "STATIC_LUNGE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Sistema la sbarra in una posizione comoda sulla schiena, con le mani ben vicine al corpo. Allontanati di qualche passo dal rack per non rischiare di colpirlo.  Tieni lo sguardo avanti e assicurati che il ginocchio anteriore non sia più avanti della punta dei piedi quando passi alla posizione di affondo.  Mantenendo entrambi i piedi fermi, piega le ginocchia e raggiungi una posizione di affondo completo prima di spingere nuovamente verso l'alto.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Quando ritorni in posizione eretta, stringi i muscoli dei glutei per attivarli!"
+    },
+    {
+      "exerciseId": "STEP_DOWN",
+      "title_it": "Step Down",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": true,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "UNILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "d93bbZvxe_w",
+      "lottie": "STEP_DOWN",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire uno step down, inizia con il piede sinistro sul bordo dello step con le dita rivolte in avanti.   Fletti lentamente il ginocchio sinistro, portando il piede destro a terra prima di risalire.   Dopo aver completato le ripetizioni su una gamba, esegui lo stesso movimento con il piede destro sul bordo dello step.  È molto importante mantenere il core contratto e assicurarsi che, mentre fletti la gamba, il ginocchio si estenda nella direzione in cui sono rivolte le dita dei piedi. È meglio prendersi il tempo necessario per eseguire il movimento e non affrettare nessun passaggio.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Non aver paura di andare piano in questo esercizio. Se non hai uno step, usa una pila di libri o il gradino inferiore di una scala."
+    },
+    {
+      "exerciseId": "STEP_UP",
+      "title_it": "Step up",
+      "requires": "STEP",
+      "requires2": null,
+      "requiresDisplay_it": "Step",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "vOiHvzj5XhA",
+      "lottie": "STEP_UP",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire uno step up è sufficiente posizionare un piede su un blocco rialzato, che può essere anche un box, un gradino, una sedia o una panca.  Porta l'altra gamba verso l'alto in modo da essere completamente in piedi sul blocco, prima di scendere dal blocco con il piede che era inizialmente sul blocco.  Lascia il piede rimanente sul blocco e ripeti con le gambe opposte.  L'intensità dell'esercizio può essere regolata modificando la velocità, quindi se lo trovi particolarmente impegnativo o troppo facile, rallenta o accelera a seconda dei casi.",
+      "tip_it": "Se utilizzi una panca o uno step con una base stretta, assicurati di avere un supporto a cui aggrapparti!"
+    },
+    {
+      "exerciseId": "STEP_UP_AND_KNEE_DRIVE",
+      "title_it": "Step up con knee drive",
+      "requires": "BOX",
+      "requires2": null,
+      "requiresDisplay_it": "Box",
+      "unilateral": true,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "UNILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "PemRK2kC_w8",
+      "lottie": "STEP_UP_AND_KNEE_DRIVE",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posiziona il piede destro su un blocco rialzato (può essere uno step, un box, una sedia o una panca) e poi spingi con forza il ginocchio sinistro verso l'alto, spingendo con la gamba destra e portando il braccio destro in avanti.  Durante l'esecuzione dello step up con knee drive, è importante impegnarsi con il core e guardare avanti. Puoi migliorare questo movimento cercando di aumentare la potenza e l'esplosività.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "Se utilizzi una panca o uno step con una base stretta, assicurati di avere un supporto a cui aggrapparti!"
+    },
+    {
+      "exerciseId": "STRAIGHT_LEG_DEADLIFT",
+      "title_it": "Stacco da terra a gambe tese",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "HAMSTRING",
+      "muscleGroupSpecific": "BILATERAL_HAM",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "2fHE6zxftYw",
+      "lottie": "STRAIGHT_LEG_DEADLIFT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Posiziona i piedi alla larghezza delle anche con le dita rivolte in avanti.   Raggiungi la sbarra con una leggera flessione delle ginocchia e le braccia alla larghezza delle spalle. Una volta assunta questa postura, puoi alzarti con forza spingendo le spalle indietro e guardando in avanti, con l'obiettivo di fare perno sui fianchi.   Abbassa la sbarra il più possibile senza sforzare la schiena e ripeti il movimento.  Durante la preparazione, assicurati di non piegare troppo le ginocchia. Questo esercizio deve avere un movimento minimo dalle ginocchia e devi sentire un leggero stiramento dei tendini del ginocchio al momento dell'esecuzione.  Se ti sembra molto difficile raggiungere il pavimento con la sbarra, potresti piegare un po' di più le ginocchia durante l'esecuzione. Tuttavia, non è necessario rimettere la sbarra a terra tra una ripetizione e l'altra: scendi finché riesci a mantenere il movimento comodo.  In alternativa, se per te è molto facile raggiungere il pavimento con la sbarra, puoi alzare il livello su cui ti trovi posizionando alcune piastre sotto i piedi. In questo modo riuscirai a lavorare con l'intero range di movimento.",
+      "tip_it": "Perfeziona la tecnica prima di aggiungere altro peso!"
+    },
+    {
+      "exerciseId": "STRAIGHT_LEG_RAISE",
+      "title_it": "Straight Leg Raise",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "MGLFUBvbymI",
+      "lottie": "STRAIGHT_LEG_RAISE",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Le straight leg raise si eseguono stando sdraiati sulla schiena con la testa appoggiata a terra.  Metti le mani sotto i glutei per sostenere la naturale curvatura della colonna vertebrale.  Con il core ben contratto, solleva le gambe dal pavimento, mantenendole il più dritte possibile.  Continua a sollevarle finché non senti che i glutei iniziano a staccarsi dal pavimento: questo ti impedirà di piegare la schiena.  Se vuoi rendere il movimento più semplice, puoi piegare le ginocchia ed eseguire lo stesso movimento con le ginocchia flesse.",
+      "tip_it": "Abbassa le gambe verso il basso con controllo, mantenendo il core ben contratto"
+    },
+    {
+      "exerciseId": "SUMO_DEADLIFT",
+      "title_it": "Stacco sumo",
+      "requires": "BARBELL",
+      "requires2": null,
+      "requiresDisplay_it": "Bilanciere",
+      "unilateral": false,
+      "muscleGroupBroad": "GLUTES",
+      "muscleGroupSpecific": "BILATERAL_GLUTE",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "1ltxpKdXkG4",
+      "lottie": "SUMO_DEADLIFT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Per eseguire lo stacco sumo, posizionati davanti alla sbarra con le gambe divaricate e i piedi rivolti verso l'esterno.   Dovrai avere gli stinchi molto vicini alla sbarra, ma senza toccarla. Poi ti piegherai con le mani alla larghezza delle spalle e afferrerai la sbarra.   Prima di sollevare la sbarra da terra, tira le spalle indietro e avvicina i fianchi alla sbarra il più possibile. Poi estenditi, allargando le ginocchia e stringendo i glutei e il core nella parte superiore.  A questo punto, puoi accovacciarti di nuovo, appoggiando la sbarra a terra e riposizionandoti, avvicinando ancora una volta i fianchi alla sbarra.  Puoi progredire facilmente con questo movimento aggiungendo più peso alla sbarra.",
+      "tip_it": "Assicurati che le ginocchia seguano la posizione dei piedi, puntando verso l'esterno."
+    },
+    {
+      "exerciseId": "SWISSBALL_STIR_POT",
+      "title_it": "Swiss Ball Stir the Pot",
+      "requires": "SWISSBALL",
+      "requires2": null,
+      "requiresDisplay_it": "Swiss ball",
+      "unilateral": false,
+      "muscleGroupBroad": "CORE",
+      "muscleGroupSpecific": "BILATERAL_CO",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "Vt9au65_2yk",
+      "lottie": "SWISSBALL_STIR_POT",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Mettiti con attenzione in posizione di plank, con gli avambracci sulla swiss ball e le punte dei piedi per mantenere l'equilibrio. Tieni la posizione alla larghezza delle spalle: più ampia è la base, più facile è mantenere l'equilibrio! Una volta in questa posizione, retroverti il bacino, infila il coccige e guarda in avanti verso i pollici. Mantieni la schiena più piatta possibile e contrai i muscoli del core.   Una volta raggiunta una posizione di plank forte e stabile sulla palla, inizia a muovere i gomiti in un piccolo movimento circolare mantenendo un allineamento alto e neutro.",
+      "tip_it": "Inizia con piccoli cerchi e concentrati sul mantenere il corpo il più fermo possibile. Quando acquisirai sicurezza ed esperienza, potrai aumentare le dimensioni dei cerchi!"
+    },
+    {
+      "exerciseId": "THRUSTER",
+      "title_it": "Thruster",
+      "requires": "DB",
+      "requires2": null,
+      "requiresDisplay_it": "Manubrio",
+      "unilateral": false,
+      "muscleGroupBroad": "FULL_BODY",
+      "muscleGroupSpecific": "BILATERAL_FB",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "z0PGxb8BSq8",
+      "lottie": "THRUSTER",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Inizia con i pesi in posizione di rack frontale e i piedi in posizione di squat.  Accovacciati, poi spingiti verso l'alto in modo esplosivo fino a raggiungere una posizione eretta con il peso esteso sopra la testa.  Mentre ti estendi verso l'alto, assicurati di usare la forza delle gambe per sollevare il peso sopra la testa e stringi il core e i glutei al culmine di ogni ripetizione.",
+      "tip_it": "Durante questo movimento tutto deve essere attivo!"
+    },
+    {
+      "exerciseId": "TOE_SCRUNCHES",
+      "title_it": "Presa con le dita dei piedi",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "gTXwZTRuJYs",
+      "lottie": "TOE_SCRUNCHES",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Questo esercizio si può eseguire in piedi o in posizione seduta su una panca o una sedia. Se non hai un buon equilibrio, inizia in posizione seduta e cerca di passare a quella eretta. Una volta in posizione, metti un asciugamano (o i calzini) sotto i piedi. Stringi le dita dei piedi per sollevare l'asciugamano dal pavimento. Mantieni la contrazione per 1-2 secondi e poi rilascia. Esegui su ogni lato le ripetizioni entro il tempo stabilito.",
+      "tip_it": "Quando rilasci la \"presa\", cerca di allargare le dita dei piedi e di distenderle."
+    },
+    {
+      "exerciseId": "TOE_WALKS",
+      "title_it": "Camminata sull'avampiede",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_LOWER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "c_I-ui3PCrc",
+      "lottie": "TOE_WALKS",
+      "strengthTypes": [
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Passi alti e in equilibrio sugli avampiedi. Inizia in posizione eretta con i piedi alla larghezza delle spalle e sali sulle punte dei piedi sollevando i talloni da terra. Cammina in avanti a piccoli passi sugli avampiedi. Fai dei brevi passi in avanti tenendoti in equilibrio sulle punte dei piedi.",
+      "tip_it": "Tieni le ginocchia dritte il più possibile mentre cammini in linea retta."
+    },
+    {
+      "exerciseId": "TRAVELLING_PRESS_UP_WALK_OUT",
+      "title_it": "Camminata con spostamento in avanti in posizione di press up",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "WARM_UP",
+      "muscleGroupSpecific": "WARMUP_EX_UPPER",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "quJm2ZZ4R1I",
+      "lottie": "TRAVELLING_PRESS_UP_WALK_OUT",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Dalla posizione con le gambe dritte, piegati in avanti e porta le mani davanti a te fino a raggiungere la posizione di press up.  Poi porta i piedi verso le mani, sempre mantenendo le gambe dritte, fino a quando non riesci ad andare oltre, a quel punto puoi ricominciare ad allontanare le mani in avanti.  Per ottenere il meglio da questo esercizio, devi fare una piccola pausa una volta raggiunta la posizione di press up e assicurarti di contrarre il core in questa posizione.",
+      "tip_it": "Prenditi il tempo necessario per questo esercizio e mantieni gli arti il più dritti possibile"
+    },
+    {
+      "exerciseId": "TRICEP_DIP",
+      "title_it": "Piegamenti dei tricipiti o tricep dip",
+      "requires": "BOX",
+      "requires2": null,
+      "requiresDisplay_it": "Box",
+      "unilateral": false,
+      "muscleGroupBroad": "CHEST",
+      "muscleGroupSpecific": "BILATERAL_CHEST",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "AE4xaqTICTA",
+      "lottie": "TRICEP_DIP",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Per i piegamenti dei tricipiti devi posizionarti dando la schiena a una pedana rialzata, con le braccia appoggiate sulla pedana a una larghezza pari a una volta e mezza rispetto a quella delle spalle.  Puoi utilizzare una panca, il lato di un letto, un tavolino, una sedia, uno step, un box o un rack specifico per i piegamenti dei tricipiti.  Da qui, con le braccia stese, abbassa i fianchi mentre pieghi il gomito fino a formare un angolo di 90 gradi, prima di spingere attraverso il petto, le spalle e il tricipite per tornare a braccia stese.",
+      "tip_it": "Se non hai una pedana, puoi eseguire questo movimento direttamente da una sedia o anche sul pavimento"
+    },
+    {
+      "exerciseId": "WALKING_CALF_RAISES",
+      "title_it": "Calf raise in camminata con carico",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "CALVES",
+      "muscleGroupSpecific": "BILATERAL_CALF",
+      "gradeTypes": [
+        "SECONDS"
+      ],
+      "youtubeId": "JAZlQCFqW7o",
+      "lottie": "WALKING_CALF_RAISES_1",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "Scegli un'area in cui puoi camminare per 10-20 m. Può essere in palestra, a casa o all'aperto. In piedi, con un manubrio in ogni mano, fai piccoli passi lenti in avanti in linea retta. A ogni passo, spingi da terra con le dita dei piedi per sollevare i polpacci. Abbassati, fai un passo in avanti e ripeti sul lato opposto. Scegli un peso che ti permetta di muoverti con controllo, di mantenere un buon equilibrio e di fare una breve pausa al termine di ogni ripetizione.  Se non disponi di manubri, questo movimento può essere eseguito efficacemente come esercizio a corpo libero. Puoi anche ricorrere a oggetti di uso comune, ad esempio le bottiglie d'acqua, come pesi improvvisati, se vuoi aggiungere una leggera resistenza.",
+      "tip_it": "Concentrati sulla spinta per staccarti da terra a ogni passo. Questo potrebbe mettere alla prova il tuo equilibrio!"
+    },
+    {
+      "exerciseId": "WALKING_LUNGE",
+      "title_it": "Affondi in camminata",
+      "requires": "BW",
+      "requires2": null,
+      "requiresDisplay_it": "Peso corporeo",
+      "unilateral": false,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "BILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS",
+        "SECONDS"
+      ],
+      "youtubeId": "vYfp2t4XgqQ",
+      "lottie": "WALKING_LUNGE_2",
+      "strengthTypes": [
+        "FULL_BODY",
+        "LEGS_AND_CORE"
+      ],
+      "description_it": "L'esecuzione di un affondo in camminata prevede un grande passo in avanti e l'appoggio del piede anteriore a terra, la gamba posteriore piegata in modo che lo stinco sia parallelo al terreno. L'esercizio viene poi ripetuto, spostandosi in avanti nello spazio in cui si lavora.  È importante assicurarsi di non spingere il ginocchio anteriore troppo in avanti e che rimanga sopra la caviglia o i lacci delle scarpe. Inoltre, devi guardare in avanti e le spalle devono essere all'altezza dei fianchi. Assicurati di guardare avanti e di contrarre il core per l'equilibrio.  La cosa più semplice è terminare ogni affondo con un passo insieme per mantenere l'equilibrio e la forma. Tuttavia, se vuoi progredire ulteriormente in questo movimento, puoi continuare a fare un passo avanti a ogni affondo e non tornare alla posizione neutra. In questo modo aumenterai il lavoro sul core per i requisiti aggiuntivi di bilanciamento.  Se questo movimento ti risulta facile, puoi progredire aggiungendo dei pesi per manubri o kettlebell in ogni mano. Tienili con le braccia appese ai fianchi e le spalle rilassate verso il basso e indietro.  Esegui su entrambi i lati il numero di ripetizioni indicato.",
+      "tip_it": "L'attenzione si concentra sull'equilibrio e sul controllo anziché su un affondo lungo ma sbilanciato!"
+    },
+    {
+      "exerciseId": "WEIGHTED_DEADLIFT",
+      "title_it": "Stacco da terra con pesi",
+      "requires": "KB",
+      "requires2": null,
+      "requiresDisplay_it": "Kettlebell",
+      "unilateral": false,
+      "muscleGroupBroad": "QUADS",
+      "muscleGroupSpecific": "BILATERAL_QUAD",
+      "gradeTypes": [
+        "REPS"
+      ],
+      "youtubeId": "BP3uhdsMlS4",
+      "lottie": "DEADLIFT_1",
+      "strengthTypes": [
+        "FULL_BODY"
+      ],
+      "description_it": "Piegati e afferra i kettlebell, mantenendo la schiena piatta, le spalle indietro e abbassando il sedere.  Da qui, alzati. Una volta in questa posizione, alza lo sguardo dalla diagonale in avanti fino a guardare dritto.  Ripeti il movimento toccando leggermente i kettlebell sul pavimento tra una ripetuta e l'altra. Se non hai i kettlebell, puoi sostituirli con i manubri. Afferra il manubrio su uno dei lati zavorrati in modo che penda verso il basso, in senso longitudinale.   Se hai già eseguito la variante con bilanciere di questo esercizio, non puntare a sollevare lo stesso peso. È più facile caricare un bilanciere rispetto ai pesi singoli! L'obiettivo di questo esercizio è concentrarsi sul controllo del movimento, procedere lentamente e mantenere il core ben contratto.",
+      "tip_it": "Assicurati di mantenere la schiena dritta e il core ben contratto"
+    }
+  ]
+}

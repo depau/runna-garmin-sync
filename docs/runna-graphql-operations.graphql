@@ -1,0 +1,8920 @@
+# Runna GraphQL operations — extracted from the app bundle (com.runbuddy.prod v8.42.0)
+# 542 unique documents (Apollo literals from the Hermes JS bundle), GraphQL-validated.
+# Reference only: names + field selections as the app ships them. Send your own minimal queries
+# against https://hydra.platform.runna.com/graphql (see runna-api.md for transport/auth).
+# Sorted by type then name. Input-type shapes are NOT here (introspection is disabled).
+
+query AllOrders {
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    planEndDate
+    plan {
+      ...PlanFragment
+    }
+    race {
+      id
+      image
+      imageUrl
+    }
+  }
+  getActiveOrderDetails {
+    id
+    planId
+    customPlanName
+    disabled
+    runningModelVersion
+    planV2 {
+      ...PlanFragment
+    }
+    race {
+      id
+      image
+      imageUrl
+    }
+  }
+}
+
+query CanScheduleOrder($input: CanScheduleOrderInput!) {
+  canScheduleOrder(input: $input) {
+    result
+    conflicts {
+      orderId
+      reason
+    }
+  }
+}
+
+query CheckEmailAddress($email: String!) {
+  checkEmailAddress(email: $email)
+}
+
+query CheckForNewCommunityPosts($lastPostId: ID!) {
+  checkForNewCommunityPosts(lastPostId: $lastPostId) {
+    id
+    author {
+      profileImageUrl
+    }
+  }
+}
+
+query CheckLocationSpaceExists($coordinates: CoordinatesInput!) {
+  checkLocationSpaceExists(coordinates: $coordinates)
+}
+
+query ConfirmBRace($input: GetBRaceInput!, $orderId: String!) {
+  getBRace(input: $input) {
+    ...BRace
+  }
+  userProfile {
+    id
+    name
+  }
+  getOrderDetails(orderId: $orderId) {
+    id
+    status
+  }
+}
+
+query ConfirmHoliday($input: GetHolidayInput!, $orderId: String!) {
+  getHoliday(input: $input) {
+    ...Holiday
+  }
+  userProfile {
+    id
+    name
+  }
+  getOrderDetails(orderId: $orderId) {
+    id
+    status
+  }
+}
+
+query ConfirmTrainingReduction {
+  userProfile {
+    id
+    name
+  }
+  getActiveOrderDetails {
+    id
+    status
+    trainingReductions {
+      ...TrainingReduction
+    }
+  }
+}
+
+query FetchTrainingModeConfig($input: CreateSubOrderInputV2!) {
+  getTrainingModeConfig(input: $input) {
+    ...TrainingModeSettings
+  }
+}
+
+query FoundationStartDateScreenOrders {
+  getAllOrders {
+    ...UserOrdersInfo
+  }
+}
+
+query GetAbilities($goal: Goal!) {
+  getAbilities(goal: $goal)
+}
+
+query GetAccountOverview {
+  userProfile {
+    id
+    email
+    name
+    picture
+    createdOn
+    userType
+    referralCode
+    newProductId
+    appleWatch
+    appleHealthResync
+    unitOfMeasurementV2
+    subscriptionType
+    isLevelsEnabled
+    isOptedOutOfProductImprovements
+    isRunnaLabsUser
+    subscriptionStatus
+    devicePushTokens {
+      iosToken
+      androidToken
+    }
+    notificationSettings {
+      support
+      community
+      workouts
+      activities
+      whatsNew
+      emailMarketing
+      selectedWorkoutNotificationTime
+    }
+    languageSettings {
+      locale
+    }
+    aiDataSharingEnabled
+  }
+  getActiveOrderDetails {
+    planId
+  }
+}
+
+query GetActionCards {
+  userProfile {
+    id
+    orderSchedule
+    createdOn
+    subscriptionStatusUpdatedAt
+    subscriptionStatus
+    acceptedTermsVersionHistory {
+      version
+      acceptedAt
+      effectiveStartDate
+    }
+    newProductId
+    appleWatch
+    appleHealthResync
+    lastActive
+    parkrunBarcodeValue
+    notificationSettings {
+      workouts
+    }
+    garminToken {
+      accessToken
+    }
+    stravaToken {
+      accessToken
+    }
+    corosToken {
+      accessToken
+    }
+  }
+  getActiveOrderDetails {
+    id
+    planId
+    sessionsPerWeek
+    upgradeRecommended
+    raceTimeUpdateOffer {
+      key
+      secs
+    }
+    estimatedPaceState {
+      ...EstimatedPaceStateFields
+    }
+    plan {
+      id
+      activeWeekIndex
+      completed
+    }
+    planV2 {
+      id
+      planLength
+    }
+  }
+  getPaceInsightState {
+    ...PaceInsightStateFields
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    completedPlanFeedback {
+      questionId
+    }
+    plan {
+      id
+      planLength
+      raceDistance
+      iconText
+      color
+      imageId
+      shortPlanName
+    }
+    race {
+      id
+      image
+      imageUrl
+    }
+  }
+  getAppConfig {
+    effectiveStartDate
+    latestTermsVersion
+    recommendedAppVersion
+  }
+}
+
+query GetActiveBetaFeatures {
+  userProfile {
+    id
+    isRunnaLabsUser
+  }
+}
+
+query GetActiveOrderForRecoveryModal {
+  getActiveOrderDetails {
+    id
+    raceName
+    associatedOrderId
+    race {
+      id
+    }
+    planV2 {
+      id
+      planId
+      shortPlanName
+      iconText
+      color
+    }
+  }
+}
+
+query GetActiveOrderInternalUpdates {
+  getActiveOrderDetails {
+    id
+    internalUpdates {
+      ...OrderInternalUpdates
+    }
+  }
+}
+
+query GetActiveOrderRaceDate {
+  getActiveOrderDetails {
+    id
+    raceDate
+  }
+}
+
+query GetActivitiesHomeScreen {
+  userProfile {
+    id
+    name
+    picture
+    unitOfMeasurementV2
+    garminPermissions
+    garminToken {
+      accessToken
+    }
+    createdOn
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    plan {
+      ...PlanFragment
+    }
+    race {
+      id
+      image
+      imageUrl
+      communitySpaceId
+    }
+  }
+  getPbs {
+    id
+    activityId
+    distance
+    time
+    isNew
+    createdOn
+  }
+  getUserMetrics {
+    id
+    longestRun
+    completedPlans
+    totalActivities
+    totalCompletedRunWorkouts
+    totalCompletedStrengthWorkouts
+    totalCompletedMobilityWorkouts
+    totalCompletedPilatesWorkouts
+    totalCompletedStretchWorkouts
+    totalDistance
+    totalTime
+  }
+  getActiveOrderDetails {
+    id
+    planId
+    customPlanName
+    plan {
+      id
+      activeWeekIndex
+      estimatedRaceTimes
+      activeWeekRunnaScore
+    }
+  }
+  getUserTrophies {
+    id
+    userId
+    name
+    completed
+    type
+    isNew
+    label
+    value
+    createdOn
+  }
+}
+
+query GetActivityDetails($id: ID!) {
+  userProfile {
+    id
+    picture
+    unitOfMeasurementV2
+    stravaToken {
+      accessToken
+    }
+    isLevelsEnabled
+  }
+  getActiveOrderDetails {
+    id
+    customPlanName
+    plan {
+      estimatedActiveWeekTimes {
+        key
+        secs
+        display
+      }
+      activeWeekIndex
+    }
+    planV2 {
+      id
+      shortPlanName
+      iconText
+      color
+    }
+  }
+  getActivityDetails(id: $id) {
+    id
+    summary {
+      id
+      type
+      treadmillType
+      name
+      description
+      privateNote
+      address
+      tzOffset
+      mapPolyline
+      routeSVG
+      createdOn
+      workoutId
+      recordType
+      deviceName
+      pbs
+      activePbs
+      predictedRunType
+      feedback
+      detailedFeedback
+      points
+      fastestTimes {
+        type
+        time
+        distance
+      }
+      linkedToWorkout
+      runType
+      duplicateActivitiesInfo {
+        id
+        recordType
+      }
+      plannedWorkoutMetadataV2 {
+        ... on WorkoutMetadataV2 {
+          day {
+            ...FullDayMetadata
+          }
+          weekIndex
+          planDetails {
+            id
+            planLength
+            shortPlanName
+          }
+        }
+      }
+      instantWorkoutMetadata {
+        day {
+          ...FullDayMetadata
+        }
+      }
+      summary {
+        startTimestamp
+        endTimestamp
+        movingTime
+        totalTime
+        distance
+        averageSpeed
+        maxSpeed
+        elevationGain
+        maxElevation
+        minElevation
+        averageHeartRate
+        maxHeartRate
+        minHeartRate
+        averageCadence
+        maxCadence
+        calories
+        averagePower
+        maxPower
+        averageGroundContactTime
+        maxGroundContactTime
+        averageStrideLength
+        maxStrideLength
+        averageVerticalOscillation
+        maxVerticalOscillation
+      }
+      kmSplits
+      mileSplits
+      shoe {
+        id
+        active
+        brand
+        color
+        createdOn
+        distance
+        model
+        name
+        runs
+        targetDistance
+        time
+        visible
+        retired
+      }
+      averageGpsAccuracy
+      postRunSummary {
+        ...PostRunSummaryMetadata
+      }
+      strengthTrackedExercises {
+        exerciseId
+        sets {
+          elapsedTime
+          weightKg
+          reps
+        }
+      }
+      stravaActivities {
+        stravaActivityId
+      }
+    }
+    chartData {
+      chartStreams {
+        pace {
+          x
+          y
+        }
+        heartRate {
+          x
+          y
+        }
+        elevation {
+          x
+          y
+        }
+      }
+      laps {
+        startTimestamp
+        startCoordinate {
+          latitude
+          longitude
+        }
+        endCoordinate {
+          latitude
+          longitude
+        }
+        distance
+        movingTime
+        totalTime
+        averageSpeed
+        maxSpeed
+        elevationGain
+        maxElevation
+        minElevation
+        averageHeartRate
+        maxHeartRate
+        minHeartRate
+        averageCadence
+        maxCadence
+        calories
+      }
+      heartRateZoneSummary {
+        zone
+        minBPM
+        maxBPM
+        percentage
+        timeMs
+      }
+    }
+  }
+}
+
+query GetActivityRunTypeClassification($id: String!) {
+  getRunTypeClassification(id: $id)
+}
+
+query GetActveOrderScheduleData {
+  getActiveOrderDetails {
+    id
+    longRun
+    raceDay
+    raceDate
+    raceName
+  }
+}
+
+query GetAdaptToWeatherData($input: GetWorkoutInput!) {
+  getWorkout(input: $input) {
+    ... on Day {
+      id
+      workoutFingerprint
+      date
+      scheduled24HourTime
+      runType
+      duration
+      durationFormatted
+      adaptions {
+        ...WorkoutAdaptions
+      }
+      outdoor {
+        ...DaySpeed
+      }
+    }
+  }
+}
+
+query GetAIDataSharingStatus {
+  userProfile {
+    id
+    aiDataSharingEnabled
+  }
+}
+
+query GetAllActivitiesV4($input: GetAllActivitiesV3Input!) {
+  getAllActivitiesV4(input: $input) {
+    monthlySummaries {
+      id
+      distance
+      key
+      time
+      tsRange
+      activityCount
+    }
+    activities {
+      ...ActivitySummary
+    }
+    lastActivityToken
+  }
+}
+
+query getAllOrders {
+  getAllOrders {
+    id
+    completed
+    disabled
+  }
+}
+
+query GetAllowedAbilities($input: GetAllowedAbilitiesInput!) {
+  getAllowedAbilities(input: $input)
+}
+
+query GetAllowedEndDates($input: GetAllowedEndDatesInput!) {
+  getAllowedEndDates(input: $input) {
+    min
+    max
+    weekToDateMapping {
+      week
+      date
+      recommended
+    }
+    maxDateWithoutConflicts {
+      week
+      date
+    }
+  }
+}
+
+query GetAllowedNRunsForTrainingAdjustment($input: GetAllowedNRunsForTrainingAdjustmentInput!) {
+  getAllowedNRunsForTrainingAdjustment(input: $input) {
+    min
+    max
+  }
+}
+
+query GetAllowedNumberOfWeeksPlanEdit($input: GetAllowedNumberOfWeeksInput!) {
+  getAllowedNumberOfWeeks(input: $input) {
+    min
+    max
+  }
+}
+
+query GetAllowedStartDates($input: GetAllowedStartDatesInput!) {
+  getAllowedStartDates(input: $input) {
+    min
+    max
+  }
+}
+
+query GetAllowedStartDatesV2($input: GetAllowedStartDatesInput!) {
+  getAllowedStartDatesV2(input: $input) {
+    minDate
+    maxDate
+    minDateWithoutConflicts
+  }
+}
+
+query GetAllPbs {
+  getPbs(includeInactive: true) {
+    id
+    activityId
+    distance
+    time
+    isNew
+    createdOn
+    active
+  }
+  getActiveOrderDetails {
+    id
+    plan {
+      id
+      activeWeekIndex
+      estimatedActiveWeekTimes {
+        display
+        key
+        secs
+      }
+    }
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetAllPlansBuckets($input: GetAllPlansBucketsInput!) {
+  getAllPlansBuckets(input: $input) {
+    ...PlanGroupFragment
+  }
+}
+
+query GetAllUserFeatureInteractions {
+  getAllUserFeatureInteractions {
+    ...UserFeatureInteraction
+  }
+}
+
+query GetAppConfig {
+  getAppConfig {
+    communityFeatureTourCutOffDate
+    communityV2Enabled
+    latestEngineVersion
+    migrationEnabled
+    minimumAppVersion
+    recommendedAppVersion
+  }
+  getAppContent {
+    ...AppContentFragment
+  }
+}
+
+query GetAppHeaderInfo {
+  userProfile {
+    id
+    name
+    picture
+    email
+    subscriptionType
+  }
+  getActiveOrderDetails {
+    id
+    orderIsDated
+    plan {
+      id
+      activeWeekIndex
+    }
+  }
+}
+
+query GetAppleFitnessUserInfo {
+  userProfile {
+    id
+    appleFitness {
+      enabled
+    }
+  }
+}
+
+query GetAppleFitnessWorkouts($input: GetAllActivitiesV3Input!) {
+  getAllActivitiesV4(input: $input) {
+    monthlySummaries {
+      id
+    }
+    activities {
+      id
+      recordType
+      duplicateActivitiesInfo {
+        id
+        recordType
+      }
+    }
+    lastActivityToken
+  }
+}
+
+query GetAppleWatchUserProfile {
+  userProfile {
+    id
+    appleWatch
+    name
+    appleWorkoutsApp
+    watchesSpeedUom {
+      appleWorkoutsApp
+    }
+    countdownTime
+    heartRateZoneThresholds {
+      zone1
+      zone2
+      zone3
+      zone4
+      zone5
+    }
+  }
+}
+
+query GetAssociatedOrderPlanDetails($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    id
+    planV2 {
+      id
+      iconText
+      color
+    }
+  }
+}
+
+query GetBRace($input: GetBRaceInput!) {
+  getBRace(input: $input) {
+    ...BRace
+  }
+}
+
+query GetBRaceRecommendations($input: GetBRaceRecommendationsInput) {
+  getBRaceRecommendations(input: $input) {
+    ...BRaceRecommendation
+  }
+}
+
+query GetCohortMilestoneProgress {
+  getCohortMilestoneProgress {
+    currentMilestone {
+      title
+      body
+      isCompleted
+      status
+      milestoneNumber
+    }
+    totalMilestones
+  }
+}
+
+query GetCommunityOnboardingData($input: CommunityOnboardingInput!) {
+  getCommunityOnboardingData(input: $input) {
+    focusedSpaces {
+      focusedPost {
+        ...CommunityPostV2
+      }
+      space {
+        ...CommunitySpace
+        followingStatus {
+          ...CommunitySpaceFollowingStatus
+        }
+      }
+    }
+    general {
+      ...OnboardingSpace
+    }
+    race {
+      ...OnboardingSpace
+    }
+    location {
+      ...OnboardingSpace
+    }
+  }
+  userProfile {
+    id
+    countryCode
+  }
+}
+
+query GetCommunityOnboardingStatus {
+  getCommunityOnboardingFlags {
+    onboarded
+    onboardingTourComplete
+    hasUserVisitedCommunity
+  }
+}
+
+query GetCommunitySpace($spaceId: ID!) {
+  getSpaceById(spaceId: $spaceId) {
+    ...HydratedCommunitySpace
+  }
+}
+
+query GetCommunitySpaceIndexConfig {
+  getCommunitySpaceIndexConfig {
+    content
+    filename
+  }
+}
+
+query GetCommunitySpacesByType($pagination: CursorPagination!, $type: CommunitySpaceType!) {
+  getSpacesByType(pagination: $pagination, type: $type) {
+    spaces {
+      ...ExploreCommunitySpace
+    }
+    nextCursor
+    hasMore
+  }
+}
+
+query GetCommunitySuggestedSpaces {
+  getCommunitySuggestedSpaces {
+    spaces {
+      ...ExploreCommunitySpace
+    }
+  }
+}
+
+query GetConnectedAppsInfo {
+  userProfile {
+    id
+    workoutMirroring
+    unitOfMeasurementV2
+    garminToken {
+      accessToken
+    }
+    garminPermissions
+    appleWatch
+    appleFitness {
+      enabled
+    }
+    healthConnect {
+      enabled
+    }
+    stravaToken {
+      accessToken
+      scopes
+    }
+    isStravaConnectionLocked
+    corosToken {
+      accessToken
+    }
+    suuntoToken {
+      accessToken
+    }
+    appleWorkoutsApp
+    watchesSpeedUom {
+      garmin
+      coros
+      suunto
+      appleWorkoutsApp
+    }
+    iCalendarUrl
+    calendarSyncing {
+      iCalendarUrl
+      completedActivitySyncMode
+    }
+    fitbitToken {
+      accessToken
+    }
+    googleCalendarToken {
+      accessToken
+    }
+    outlookCalendarToken {
+      accessToken
+    }
+    subscriptionStore
+    externalIntegrations
+  }
+  getActiveOrderDetails {
+    id
+    garminUpdatedAt
+    corosUpdatedAt
+    suuntoUpdatedAt
+  }
+}
+
+query GetCountdownSettings {
+  userProfile {
+    id
+    startOnMotion
+    countdownTime
+  }
+}
+
+query GetCreateRaceScreenData {
+  getEngineVersion
+  getAppConfig {
+    platform
+    latestEngineVersion
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetCurrentPlanData {
+  getActiveOrderDetails {
+    ...HolidayPlanData
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetDayDetail($input: GetWorkoutInput!) {
+  userProfile {
+    ...DayDetailUserProfile
+  }
+  getActiveOrderDetails {
+    ...DayDetailActiveOrderDetails
+  }
+  getWorkout(input: $input) {
+    ...DayDetailDay
+  }
+}
+
+query GetDefaultPrrParams($input: GetDefaultPrrParamsInput!) {
+  getDefaultPrrParams(input: $input) {
+    ...CreateOrderInputFields
+  }
+}
+
+query GetEditAbilitiesPlans($locale: String) {
+  plansV3(locale: $locale) {
+    ...PlanFragment
+  }
+}
+
+query GetEditActivity($id: String!) {
+  getActivity(id: $id) {
+    id
+    name
+    description
+    privateNote
+  }
+}
+
+query GetEditProfileInfo {
+  userProfile {
+    id
+    name
+    picture
+    email
+    gender
+    dateOfBirth
+    injuryRisk
+  }
+}
+
+query GetEstimatedPaceState {
+  getActiveOrderDetails {
+    ...EstimatedPaceStateOrderDetails
+  }
+}
+
+query GetEstimatedPaceStateForOrder($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    ...EstimatedPaceStateOrderDetails
+  }
+}
+
+query GetEstimatedRaceTime($input: GetEstimatedRaceTimeInput!) {
+  getEstimatedRaceTime(input: $input) {
+    estimatedRaceTime
+  }
+  getActiveOrderDetails {
+    id
+    planV2 {
+      iconText
+      color
+      shortPlanName
+    }
+  }
+}
+
+query GetExampleWorkoutRepsForPaceStates($input: GetExampleWorkoutRepsForPaceStatesInput!) {
+  getExampleWorkoutRepsForPaceStates(input: $input) {
+    exampleWorkoutReps {
+      runType
+      currentWorkoutRep {
+        ...ExampleWorkoutRepsFields
+      }
+      shiftedWorkoutRep {
+        ...ExampleWorkoutRepsFields
+      }
+    }
+  }
+}
+
+query GetExtraActivityChartData($id: ID!) {
+  getActivityDetails(id: $id) {
+    id
+    chartData {
+      chartStreams {
+        cadence {
+          x
+          y
+        }
+        groundContactTime {
+          x
+          y
+        }
+        power {
+          x
+          y
+        }
+        strideLength {
+          x
+          y
+        }
+        verticalOscillation {
+          x
+          y
+        }
+      }
+    }
+  }
+}
+
+query GetFeatureOnboarding {
+  userProfile {
+    id
+    featureOnboardingConfig {
+      ...FeatureOnboardingConfig
+    }
+  }
+}
+
+query GetFoundationPlansAllowedEndDates($input: GetFoundationPlansAllowedEndDatesInput!) {
+  getFoundationPlansAllowedEndDates(input: $input) {
+    min
+    max
+    weekToDateMapping {
+      week
+      date
+      recommended
+    }
+    maxDateWithoutConflicts {
+      week
+      date
+    }
+  }
+}
+
+query GetFullActivity($id: String!, $includeAllPbs: Boolean) {
+  userProfile {
+    id
+    picture
+    unitOfMeasurementV2
+    stravaToken {
+      accessToken
+    }
+    isLevelsEnabled
+  }
+  getActiveOrderDetails {
+    id
+    customPlanName
+    plan {
+      estimatedActiveWeekTimes {
+        key
+        secs
+        display
+      }
+      activeWeekIndex
+    }
+    planV2 {
+      id
+      shortPlanName
+      iconText
+      color
+    }
+  }
+  getActivity(id: $id, includeAllPbs: $includeAllPbs) {
+    ...FullActivity
+  }
+}
+
+query GetFullCommunityPost($postId: ID!, $commentsPagination: CursorPagination!) {
+  getCommunityPostByIdV2(
+    input: {postId: $postId, commentsPagination: $commentsPagination}
+  ) {
+    ...CommunityPostV2
+  }
+}
+
+query GetFullInstantWorkout($input: GetInstantWorkoutInput!) {
+  getInstantWorkout(input: $input) {
+    ...InstantWorkoutSummary
+    outdoor {
+      ...DaySpeed
+    }
+    treadmill {
+      ...DaySpeed
+    }
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+    name
+  }
+  getActiveOrderDetails {
+    id
+    planId
+  }
+}
+
+query GetFullInstantWorkouts($input: GetInstantWorkoutsInput!) {
+  getInstantWorkouts(input: $input) {
+    ...InstantWorkoutSummary
+    outdoor {
+      ...DaySpeed
+    }
+    treadmill {
+      ...DaySpeed
+    }
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetFullRoute($routeId: String!) {
+  getFullRoute(input: {routeId: $routeId}) {
+    ...FullRoute
+  }
+}
+
+query GetHealthConnectUserInfo {
+  userProfile {
+    id
+    healthConnect {
+      enabled
+    }
+  }
+}
+
+query GetHeartRateZonesCustomizableData {
+  userProfile {
+    id
+    dateOfBirth
+    heartRateZoneThresholds {
+      zone1
+      zone2
+      zone3
+      zone4
+      zone5
+    }
+  }
+}
+
+query GetHeartRateZonesData {
+  userProfile {
+    id
+    heartRateZoneThresholds {
+      zone1
+      zone2
+      zone3
+      zone4
+      zone5
+    }
+  }
+}
+
+query GetHelpSelectGoalScreen {
+  userProfile {
+    id
+    name
+  }
+}
+
+query GetHoliday($input: GetHolidayInput!) {
+  getHoliday(input: $input) {
+    ...Holiday
+  }
+}
+
+query GetInjuryRisk {
+  userProfile {
+    id
+    injuryRisk
+  }
+}
+
+query GetInstantWorkoutBenchmark {
+  getActiveOrderDetails {
+    id
+    estimatedRaceTime
+    estimatedRaceTimeType
+    estimatedPaceState {
+      ...EstimatedPaceStateFields
+    }
+    plan {
+      id
+      activeWeekIndex
+      estimatedActiveWeekTimes {
+        key
+        secs
+        display
+      }
+    }
+    planId
+    runningModelVersion
+    planV2 {
+      raceDistance
+    }
+  }
+  getActiveOrderWeek(input: {activeWeek: true}) {
+    week {
+      id
+      estCurrentRaceTimesV2 {
+        key
+        secs
+        display
+      }
+    }
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+    lastActive
+  }
+}
+
+query GetInstantWorkoutSummaries($input: GetInstantWorkoutsInput!) {
+  getInstantWorkouts(input: $input) {
+    ...InstantWorkoutSummary
+  }
+}
+
+query GetIntercomHash($platform: Platform!) {
+  getIntercomHash(platform: $platform)
+}
+
+query GetIntroWorkouts {
+  getActiveOrderDetails {
+    id
+    planId
+    plan {
+      id
+      workoutIntroComments {
+        key
+        value
+      }
+    }
+  }
+}
+
+query GetLanguageSettings {
+  userProfile {
+    id
+    languageSettings {
+      locale
+    }
+  }
+}
+
+query GetLastImmutableDate {
+  getLastImmutableDate
+}
+
+query GetLevelsData {
+  getUserLevelAndTotalPoints {
+    level
+    totalPoints
+  }
+  getLevelsThresholds {
+    level
+    threshold
+    __typename
+  }
+  userProfile {
+    id
+    isLevelsEnabled
+  }
+}
+
+query GetManagePlanOrderDetails($orderId: String!) {
+  userProfile {
+    id
+    name
+    picture
+    activeOrder
+    affiliateCode
+    subscriptionStatus
+    subscriptionStatusV2
+    subscriptionType
+    lastActive
+    referralCode
+    unitOfMeasurementV2
+    optInYoga
+    limits {
+      workoutsCompleted
+      plansCreated
+    }
+  }
+  getOrderDetails(orderId: $orderId) {
+    ...PlanOverviewOrderDetails
+  }
+  getActiveOrderDetails {
+    plan {
+      id
+      completed
+    }
+    id
+    customPlanName
+    planV2 {
+      id
+      iconText
+      color
+      imageId
+      shortPlanName
+      planLength
+      raceDistance
+      planCategory
+    }
+  }
+}
+
+query GetMileageInsightStatus {
+  getActiveOrderDetails {
+    id
+    mileageInsightState {
+      ...MileageInsightStateFields
+    }
+    plan {
+      coaches
+    }
+    runningAbility
+    runsPerWeek
+    currentLongestRun
+    currentWeeklyMileage
+    longRun
+    daysOfWeekRun
+  }
+  getMileageInsightMetadata {
+    ...MileageInsightOfferMetadataFields
+  }
+}
+
+query GetMileageState {
+  getMileageState {
+    ...MileageStateFields
+  }
+}
+
+query GetNewPlanAbilities($goal: Goal!) {
+  getAbilities(goal: $goal)
+  getActiveOrderDetails {
+    id
+    runningAbility
+    plan {
+      id
+      completed
+      finishingAbilityV2
+    }
+  }
+}
+
+query GetNoPlansScreenData {
+  userProfile {
+    id
+    name
+    picture
+  }
+  getAllOrders {
+    id
+    completed
+    disabled
+  }
+}
+
+query GetNotifications($input: GetNotificationsInput!) {
+  getNotifications(input: $input) {
+    notifications {
+      __typename
+      ... on CommunityReplyNotification {
+        ...CommunityReplyNotification
+      }
+      ... on CommunityReactionNotification {
+        ...CommunityReactionNotification
+      }
+      ... on CommunityPostNotification {
+        ...CommunityPostNotification
+      }
+      ... on CommunityPollFinishedNotification {
+        ...CommunityPollFinishedNotification
+      }
+    }
+    unseenCount
+    unreadCount
+    hasMore
+  }
+}
+
+query GetNotificationSettings {
+  userProfile {
+    id
+    email
+    name
+    notificationSettings {
+      support
+      community
+      workouts
+      activities
+      whatsNew
+      emailMarketing
+      selectedWorkoutNotificationTime
+    }
+    community {
+      settings {
+        enableAmbassadorNotifications
+        communityCommentNotifications
+        communityLikeNotifications
+      }
+    }
+    devicePushTokens {
+      iosToken
+      androidToken
+    }
+  }
+}
+
+query GetNotificationsV2($input: GetNotificationsInputV2!) {
+  getNotificationsV2(input: $input) {
+    notifications {
+      __typename
+      ... on CommunityReplyNotification {
+        ...CommunityReplyNotification
+      }
+      ... on CommunityReactionNotification {
+        ...CommunityReactionNotification
+      }
+      ... on CommunityPostNotification {
+        ...CommunityPostNotification
+      }
+      ... on CommunityPollFinishedNotification {
+        ...CommunityPollFinishedNotification
+      }
+      ... on MileageInsightNotification {
+        ...MileageInsightNotification
+      }
+      ... on PaceInsightNotification {
+        ...PaceInsightNotification
+      }
+    }
+    unseenCount
+    unreadCount
+  }
+}
+
+query GetOfferCodes($input: LocalisedOffersInput!) {
+  getLocalisedOffersV4(input: $input) {
+    offers {
+      ...GenericOfferCodeFields
+      ...UniqueOfferCodeFields
+    }
+  }
+}
+
+query GetOrderInternalUpdates($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    id
+    internalUpdates {
+      ...OrderInternalUpdates
+    }
+  }
+}
+
+query GetOrdersForPlanNumber {
+  getActiveOrderDetails {
+    id
+  }
+  getAllOrders {
+    id
+    createdOn
+    disabled
+  }
+}
+
+query GetOrderUOM($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    ...OrderDetailsUOM
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+    speedTarget
+    workoutMirroring
+    weightUnitOfMeasurement
+    temperatureUnitOfMeasurement
+  }
+}
+
+query GetOrderWeekDetail($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    ...OrderWeekDetail
+  }
+  userProfile {
+    ...UserProfileWeekDetail
+  }
+  getActiveOrderDetails {
+    ...OrderWeekDetail
+  }
+  getAppConfig {
+    recommendedAppVersion
+    minimumAppVersion
+    migrationEnabled
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    plan {
+      id
+      planLength
+      raceDistance
+      raceDistName
+      iconText
+      color
+      imageId
+      shortPlanName
+    }
+  }
+  getPbs {
+    id
+    activityId
+    distance
+    time
+    isNew
+  }
+  getUserMetrics {
+    id
+    longestRun
+    completedPlans
+    totalActivities
+    totalCompletedRunWorkouts
+    totalCompletedStrengthWorkouts
+    totalDistance
+    totalTime
+  }
+  getUserShoes {
+    id
+    active
+    brand
+    color
+    createdOn
+    distance
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+  getEngineVersion
+}
+
+query GetPaceInsightData {
+  getActiveOrderDetails {
+    id
+    runningModelVersion
+    terrain
+    estimatedPaceState {
+      ...EstimatedPaceStateFields
+    }
+    plan {
+      id
+      activeWeekIndex
+      nextSpeedSession {
+        ...PaceInsightsNextSpeedSession
+      }
+      completed
+    }
+    planV2 {
+      id
+      color
+      iconText
+      shortPlanName
+    }
+  }
+  getPaceInsightState {
+    ...PaceInsightStateFields
+  }
+  getPaceShiftHistory {
+    ...PaceShiftRecommendationHistoryItem
+  }
+  getPaceInsightsVisualizationDataV2 {
+    ...PaceInsightsVisualizationDataV2
+  }
+}
+
+query GetPaceInsightState {
+  getPaceInsightState {
+    ...PaceInsightStateFields
+  }
+}
+
+query GetPaceInsightsVisualizationDataV2 {
+  getPaceInsightsVisualizationDataV2 {
+    ...PaceInsightsVisualizationDataV2
+  }
+}
+
+query GetPaceShiftRecommendationHistory {
+  getPaceShiftHistory {
+    ...PaceShiftRecommendationHistoryItem
+  }
+}
+
+query GetParkrunBarcode {
+  userProfile {
+    id
+    parkrunBarcodeValue
+  }
+}
+
+query GetPerformanceSummaries($numWeeks: Float!, $numMonths: Float!, $startDate: String!, $days: Int!) {
+  getPreviousWeeklySummaries(numWeeks: $numWeeks, startDate: $startDate) {
+    id
+    distance
+    key
+    time
+    tsRange
+    activityCount
+  }
+  getPreviousMonthlySummaries(numMonths: $numMonths, startDate: $startDate) {
+    id
+    distance
+    key
+    time
+    tsRange
+    activityCount
+  }
+  getUserMetrics {
+    id
+    totalDistance
+  }
+  userProfile {
+    id
+    name
+  }
+  getUserRecordedTypes(days: $days) {
+    id
+    recordType
+    recordDeviceName
+    lastCreatedOn
+  }
+}
+
+query GetPinnedPosts($spaceId: ID!) {
+  getCommunityPinnedPostsV2(spaceId: $spaceId) {
+    posts {
+      ...CommunityPostV2
+    }
+    errors {
+      message
+    }
+  }
+}
+
+query GetPinnedSpaces($pagination: LimitOffsetPagination!) {
+  getSubscribedSpaces(pagination: $pagination, pinned: true) {
+    spaces {
+      ...SubscribedCommunitySpace
+    }
+    hasMore
+  }
+}
+
+query GetPlanAlignmentActionsV2 {
+  getPlanAlignmentMetadata {
+    ...PlanAlignmentActionsV2Fields
+  }
+}
+
+query getPlanAlignmentMetadata {
+  getActiveOrderDetails {
+    ...PlanAlignmentMetadataQueryFields
+  }
+}
+
+query GetPlanAlignmentStateV2 {
+  getPlanAlignmentMetadata {
+    ...PlanAlignmentStateV2Fields
+  }
+  getActiveOrderDetails {
+    ...PlanAlignmentOrderDetails
+  }
+  userProfile {
+    id
+    name
+  }
+}
+
+query GetPlanCongratulations {
+  userProfile {
+    id
+    name
+  }
+  getActiveOrderDetails {
+    id
+    estimatedRaceTimeType
+    runsPerWeek
+    longRun
+    raceDay
+    planV2 {
+      id
+    }
+    plan {
+      id
+      activeWeekIndex
+      predictedPlanTimes {
+        key
+        value
+      }
+      finishingAbilityV2
+    }
+  }
+  getAllOrders {
+    id
+    completed
+  }
+}
+
+query GetPlanData($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    ...HolidayPlanData
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetPlanId {
+  getActiveOrderDetails {
+    id
+    planId
+  }
+}
+
+query GetPlanIsReadyData {
+  getActiveOrderDetails {
+    id
+    planId
+    terrain
+    planV2 {
+      id
+      planLength
+      raceDistance
+      raceDistName
+      salesline
+      imageId
+      iconText
+      color
+      shortPlanName
+      planCategory
+    }
+    plan {
+      id
+      estimatedRaceTimes
+    }
+    race {
+      id
+      name
+      imageUrl
+      elevationProfile
+    }
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query getPlanMetadata {
+  getActiveOrderDetails {
+    id
+    planId
+    customPlanName
+    plan {
+      id
+    }
+  }
+}
+
+query GetPlanMetaData($planMetadataInput: GetPlanMetadataInput!) {
+  getPlanMetadata(input: $planMetadataInput) {
+    ...PlanFragment
+  }
+}
+
+query GetPlanNearlyReadyFoundationPlanData($locale: String) {
+  plansV3(locale: $locale) {
+    ...PlanFragment
+    planCategory
+  }
+}
+
+query GetPlanNearlyReadyV1PlanData($locale: String) {
+  plansV3(locale: $locale) {
+    ...PlanFragment
+    planCategory
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetPlanNearlyReadyV2PlanData($id: String!, $planMetadataInput: GetPlanMetadataInput!) {
+  getRace(id: $id) {
+    ...RaceFields
+  }
+  getPlanMetadata(input: $planMetadataInput) {
+    id
+    planLength
+    raceDistance
+    cost
+    description
+    excludedAbilities
+    enabledInApp
+    iconText
+    color
+    imageId
+    salesline
+    shortPlanName
+    planCategory
+  }
+}
+
+query GetPlanOverview {
+  userProfile {
+    id
+    name
+    picture
+    activeOrder
+    affiliateCode
+    subscriptionStatus
+    subscriptionStatusV2
+    subscriptionType
+    lastActive
+    referralCode
+    unitOfMeasurementV2
+    optInYoga
+    limits {
+      workoutsCompleted
+      plansCreated
+    }
+  }
+  getActiveOrderDetails {
+    ...PlanOverviewOrderDetails
+  }
+  getPaceInsightState {
+    ...PaceInsightStateFields
+  }
+  getAllOrders {
+    ...UserOrdersInfo
+  }
+}
+
+query GetPlanOverviewContent($orderId: String!) {
+  getPlanOverview(orderId: $orderId) {
+    coaches {
+      bio {
+        description
+        id
+        imageUrl
+        learnMoreId
+        title
+      }
+      id
+      imageUrl
+      name
+      role
+    }
+    guide {
+      description
+      sections {
+        answerSections {
+          description
+          id
+          imageUrl
+          learnMoreId
+          screens
+          subtitle
+          title
+        }
+        id
+        subtitle
+        title
+      }
+      title
+    }
+    methodology {
+      description
+      coaches {
+        bio {
+          description
+          imageUrl
+          id
+          learnMoreId
+          title
+        }
+        id
+        imageUrl
+        name
+        role
+      }
+      imageUrl
+      learnMoreId
+      subtitle
+      title
+    }
+  }
+}
+
+query GetPlanOverviewPDF {
+  getActiveOrderDetails {
+    ...PlanOverviewPDFOrderDetails
+  }
+}
+
+query GetPlanOverviewPDFForOrder($orderId: String!) {
+  getOrderDetails(orderId: $orderId) {
+    ...PlanOverviewPDFOrderDetails
+  }
+}
+
+query GetPlanPreview($orderId: String!) {
+  userProfile {
+    id
+    unitOfMeasurementV2
+    name
+    referralCode
+  }
+  getOrderDetails(orderId: $orderId) {
+    ...UserOrderInfo
+  }
+  getOrderWeeks(input: {orderId: $orderId, initialWeekIndex: 1}) {
+    weeks {
+      ...WeekSummary
+    }
+  }
+}
+
+query GetPlanReadyOnboardingScreen($id: String!, $planMetadataInput: GetPlanMetadataInput!) {
+  getRace(id: $id) {
+    ...RaceFields
+  }
+  getPlanMetadata(input: $planMetadataInput) {
+    id
+    planLength
+    raceDistance
+    cost
+    description
+    excludedAbilities
+    enabledInApp
+    iconText
+    color
+    imageId
+    salesline
+    shortPlanName
+    planCategory
+  }
+}
+
+query GetPlanReplaySummary($orderId: String!) {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+    picture
+  }
+  getPlanReplaySummary(orderId: $orderId) {
+    ...PlanReplaySummary
+  }
+}
+
+query GetPlans($locale: String) {
+  plansV3(locale: $locale) {
+    ...PlanFragment
+  }
+}
+
+query GetPlansRaceDist($locale: String) {
+  plansV3(locale: $locale) {
+    ...PlanFragment
+  }
+  getActiveOrderDetails {
+    ...GetPlansRaceDistOrderFragment
+  }
+}
+
+query GetPostRunSummaryStatus($input: GetPostRunSummaryStatusInput!) {
+  getPostRunSummaryStatus(input: $input)
+}
+
+query GetPredictedRaceTime($input: GetEstimatedRaceTimeInput!) {
+  getEstimatedRaceTime(input: $input) {
+    estimatedRaceTime
+  }
+}
+
+query GetRace($id: String!) {
+  getRace(id: $id) {
+    ...RaceFields
+  }
+}
+
+query GetRaceEvent($input: GetRaceEventInput!) {
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+  getRaceEvent(input: $input) {
+    raceEvent {
+      ...RaceEventDetails
+    }
+  }
+}
+
+query GetRaceEventByRaceId($input: GetRaceEventByRaceIdInput!) {
+  getRaceEventByRaceId(input: $input) {
+    raceEvent {
+      ...RaceEventDetails
+    }
+  }
+}
+
+query GetRaceLocationFilters {
+  getRaceLocationFilters {
+    code
+    name
+    imageUrl
+    cities
+  }
+}
+
+query GetRecordActivityDetails {
+  userProfile {
+    ...RecordActivityUserProfile
+  }
+}
+
+query GetRecordActivityPermissionInfo {
+  userProfile {
+    id
+    stravaToken {
+      accessToken
+    }
+  }
+}
+
+query GetRecordActivityResult {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+    stravaToken {
+      accessToken
+    }
+  }
+}
+
+query GetRecordActivityUserInfo {
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetRecordSettings {
+  userProfile {
+    id
+    unitOfMeasurementV2
+    autoPause
+    startOnMotion
+    freeRunAudioSplitDistance
+    countdownTime
+    rodAudioStartStop
+    rodAudioSplits
+    rodAudioPace
+    rodAudioPauseWarning
+  }
+}
+
+query GetRecoverFromRaceOnboardingScreen {
+  getRecentRacePlanForPrr {
+    orderId
+    plan {
+      id
+      iconText
+      color
+      imageId
+      shortPlanName
+    }
+    raceCoverImage
+    raceDate
+    raceName
+  }
+}
+
+query GetReferralCodeInfo($code: String!) {
+  getReferralCodeInfo(code: $code) {
+    firstName
+    code
+    weekFreeOrMonthly
+  }
+}
+
+query GetRunnaReplayDetails {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+    picture
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    plan {
+      id
+      planLength
+      raceDistance
+      raceDistName
+      iconText
+      color
+      planCategory
+      imageId
+      shortPlanName
+    }
+  }
+}
+
+query GetRunningActivities($input: GetAllActivitiesV3Input!) {
+  getAllActivitiesV4(input: $input) {
+    activities {
+      id
+    }
+  }
+}
+
+query GetRunWorkoutRecommendations($input: GetRunWorkoutRecommendationsInput!) {
+  getRunWorkoutRecommendations(input: $input) {
+    ...InstantWorkoutMetaData
+  }
+}
+
+query GetSharedWorkout($input: GetSharedWorkoutInput!) {
+  getSharedWorkout(input: $input) {
+    ... on Day {
+      ...InstantWorkoutSummary
+      outdoor {
+        ...DaySpeed
+      }
+      treadmill {
+        ...DaySpeed
+      }
+      sharedWorkoutDetails {
+        ...SharedWorkoutSummary
+      }
+    }
+  }
+}
+
+query GetSharePlanDetailsV3($input: GetSharePlanDetailsInputV2!) {
+  getSharePlanDetailsV3(input: $input) {
+    ownerName
+    ownerPicture
+    race {
+      ...RaceFields
+    }
+    plan {
+      id
+      introVideoYoutubeId
+      planLength
+      raceDistance
+      hasRace
+      salesline
+      description
+      iconText
+      color
+      planCategory
+      imageId
+      shortPlanName
+      veryShortPlanName
+      raceDistName
+    }
+    orderDetails {
+      orderId
+      orderSeed
+      raceDay
+      raceDate
+      customPlanName
+      longRun
+      runsPerWeek
+      daysOfWeekRun
+      runningAbility
+      estimatedRaceTime
+      runningModelVersion
+      terrain
+      trainingMode
+      planStartDate
+      goalRaceDistance
+      currentWeeklyMileage
+      currentLongestRun
+      trainingFocus
+      timeTrialFrequency
+      mileageCaps {
+        totalWeekly
+        longRun
+      }
+      trainingModeSettings {
+        ...OrderTrainingModeSettingsFragment
+      }
+      userExerciseLevel
+      userExerciseFrequency
+      userMonthsSinceLastRun
+    }
+  }
+}
+
+query GetShoes {
+  userProfile {
+    id
+    unitOfMeasurementV2
+    shoe {
+      id
+      active
+      name
+    }
+  }
+  getUserShoes {
+    id
+    active
+    brand
+    color
+    createdOn
+    distance
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+}
+
+query GetSpaceByCode($code: String!) {
+  getSpaceByCode(code: $code) {
+    ...HydratedCommunitySpace
+  }
+}
+
+query GetStravaAccountData {
+  getStravaAccountData {
+    ...StravaAccountData
+  }
+}
+
+query getStravaSyncStatus($id: String!) {
+  getActivity(id: $id) {
+    id
+    duplicateActivitiesInfo {
+      id
+      recordType
+    }
+  }
+}
+
+query getStravaToken {
+  userProfile {
+    id
+    stravaToken {
+      accessToken
+      scopes
+    }
+    stravaMediaUploadEnabled
+  }
+}
+
+query GetStrengthExerciseWeightHistory($exerciseId: String!, $startDate: Float, $endDate: Float) {
+  getStrengthExerciseWeightHistory(
+    exerciseId: $exerciseId
+    startDate: $startDate
+    endDate: $endDate
+  ) {
+    weightKg
+    completedAt
+    activityId
+  }
+}
+
+query GetStrengthPartsOverview($workoutId: String) {
+  userProfile {
+    id
+    name
+  }
+  getWorkout(input: {workoutId: $workoutId}) {
+    ... on DayStrength {
+      ...DayStrengthWithExercises
+    }
+    ... on Rest {
+      id
+    }
+    ... on Day {
+      id
+      completed
+    }
+    ... on DayMobility {
+      id
+      completed
+    }
+    ... on DayPilates {
+      id
+      completed
+    }
+    ... on DayStretch {
+      id
+      completed
+    }
+  }
+}
+
+query GetSubscribedSpaces($pagination: LimitOffsetPagination!, $isShareYourRunPost: Boolean) {
+  getSubscribedSpaces(
+    pagination: $pagination
+    isShareYourRunPost: $isShareYourRunPost
+  ) {
+    spaces {
+      ...SubscribedCommunitySpace
+    }
+    hasMore
+  }
+}
+
+query GetSuggestedPlans {
+  getSuggestedPlans {
+    distancePlans {
+      ...PlanRecommendationCategoryFragment
+    }
+    generalFitnessPlans {
+      ...PlanRecommendationCategoryFragment
+    }
+    recoveryPlans {
+      ...PlanRecommendationCategoryFragment
+    }
+  }
+}
+
+query GetSupertonicBundleInfo($input: GetSupertonicBundleInfoInput) {
+  getSupertonicBundleInfo(input: $input) {
+    version
+    files {
+      name
+      presignedUrl
+    }
+  }
+}
+
+query GetSupportHomeData {
+  userProfile {
+    id
+    devicePushTokens {
+      iosToken
+      androidToken
+    }
+    blockedOnIntercom
+  }
+  getActiveOrderDetails {
+    id
+    planId
+  }
+}
+
+query GetSurveyQuestions($surveyId: String!, $locale: String) {
+  getSurveyQuestions(surveyId: $surveyId, locale: $locale) {
+    questionId
+    content
+  }
+}
+
+query GetTimeTrialConfig($input: CreateSubOrderInputV2!) {
+  getTimeTrialConfig(input: $input) {
+    frequency
+  }
+}
+
+query GetTodayHomeActivities($input: GetAllActivitiesV3Input!) {
+  getAllActivitiesV4(input: $input) {
+    activities {
+      ...ActivitySummary
+    }
+    lastActivityToken
+  }
+}
+
+query GetTodayHomeData {
+  userProfile {
+    id
+    name
+    dateOfBirth
+    picture
+    activeOrder
+    lastActive
+    referralCode
+    subscriptionStatus
+    subscriptionType
+    unitOfMeasurementV2
+    temperatureUnitOfMeasurement
+    partnerCodeRaceAttribution
+    createdOn
+    languageSettings {
+      locale
+    }
+    limits {
+      workoutsCompleted
+      plansCreated
+    }
+    devicePushTokens {
+      iosToken
+      androidToken
+    }
+    notificationSettings {
+      support
+      community
+      workouts
+      activities
+      whatsNew
+      emailMarketing
+      selectedWorkoutNotificationTime
+    }
+    optInYoga
+  }
+  getCommunityOnboardingFlags {
+    onboarded
+  }
+  getPlanScheduleV2 {
+    ...PlanScheduleV2
+  }
+  getActiveOrderDetails {
+    id
+    createdOn
+    sessionsPerWeek
+    terrain
+    estimatedPaceState {
+      ...EstimatedPaceStateFields
+    }
+    race {
+      id
+      eventId
+      image
+      imageUrl
+    }
+    startDate
+    runsPerWeek
+    raceCompleted
+    associatedOrderId
+    raceDayId
+    raceDate
+    raceName
+    firstWorkoutDate
+    speedTarget
+    uomV2
+    engineVersion
+    runningAbility
+    runningModelVersion
+    mobilityDay
+    pilatesDay
+    stretchDay
+    orderIsDated
+    planId
+    holidays {
+      ...Holiday
+    }
+    trainingReductions {
+      ...TrainingReduction
+    }
+    planV2 {
+      id
+      planLength
+      description
+      shortPlanName
+      iconText
+      color
+      planCategory
+    }
+    plan {
+      id
+      completed
+      activeWeekIndex
+      estimatedActiveWeekTimes {
+        key
+        secs
+        display
+      }
+      completedOrSkippedWeeks
+      firstWorkout {
+        ... on Day {
+          ...DaySummary
+          coach
+          article
+          note
+          linkedActivitiesV2 {
+            ...LinkedActivitySummaryMetadata
+          }
+          tracking {
+            ...Tracking
+          }
+          preferredSpeedTarget
+          speedTargetOverride
+          terrain
+        }
+        ... on DayStrength {
+          ...DayStrengthSummary
+          note
+        }
+        ... on DayMobility {
+          ...DayMobilitySummary
+          coach
+          comment
+          sessionLevel
+          note
+          videoId
+          videoPath
+          linkedActivitiesV2 {
+            ...LinkedActivitySummaryMetadata
+          }
+        }
+        ... on DayPilates {
+          ...DayPilatesSummary
+          coach
+          comment
+          sessionLevel
+          note
+          videoId
+          videoPath
+          linkedActivitiesV2 {
+            ...LinkedActivitySummaryMetadata
+          }
+        }
+        ... on DayStretch {
+          ...DayStretchSummary
+          coach
+          comment
+          sessionLevel
+          note
+          videoId
+          videoPath
+          linkedActivitiesV2 {
+            ...LinkedActivitySummaryMetadata
+          }
+        }
+      }
+    }
+    raceTimeUpdateOffer {
+      key
+      secs
+    }
+    planReplayState {
+      shouldShowPlanReplay
+    }
+    firstRunBackDate
+    previousRaceDate
+    previousRaceName
+    previousRacePlanOrderId
+  }
+  getAllOrders {
+    ...TodayHomeOrderInfo
+  }
+  getTodayTips {
+    id
+    imageUrl
+    title
+    views
+    rank
+    tag
+  }
+  getPaceInsightState {
+    ...PaceInsightStateFields
+  }
+  getWorkoutsForAssociatedOrder {
+    ... on Day {
+      ...DaySummary
+      durationType
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayStrength {
+      ...DayStrengthSummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayMobility {
+      ...DayMobilitySummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayPilates {
+      ...DayPilatesSummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayStretch {
+      ...DayStretchSummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+  }
+}
+
+query GetTrackingValues($input: GetTrackingValuesInput!) {
+  getTrackingValues(input: $input) {
+    id
+    data {
+      x {
+        a
+        b
+        c
+      }
+      y {
+        a
+        b
+        c
+      }
+    }
+  }
+}
+
+query GetTrainingCalendar {
+  userProfile {
+    id
+    unitOfMeasurementV2
+    subscriptionType
+    orderSchedule
+  }
+  getActiveOrderDetails {
+    id
+    plan {
+      id
+      activeWeekIndex
+      completed
+    }
+    planId
+    planV2 {
+      id
+      iconText
+      color
+      planLength
+    }
+    trainingReductions {
+      ...TrainingReduction
+    }
+  }
+  getAllOrders {
+    id
+    planId
+    plan {
+      id
+      iconText
+      color
+      imageId
+      shortPlanName
+      planLength
+    }
+    race {
+      id
+      image
+      imageUrl
+    }
+  }
+  getWorkoutsForAssociatedOrder {
+    ... on Day {
+      ...DaySummary
+      durationType
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayStrength {
+      ...DayStrengthSummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayMobility {
+      ...DayMobilitySummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayPilates {
+      ...DayPilatesSummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+    ... on DayStretch {
+      ...DayStretchSummary
+      linkedActivitiesV2 {
+        id
+      }
+    }
+  }
+}
+
+query GetTrainingModeConfig($input: CreateSubOrderInputV2!, $defaultMileagesInput: GetUserDefaultMileagesInput!) {
+  getTrainingModeConfig(input: $input) {
+    ...TrainingModeSettings
+  }
+  getUserDefaultMileages(input: $defaultMileagesInput) {
+    totalWeekly {
+      min
+      max
+      default
+    }
+    longRun {
+      min
+      max
+      default
+    }
+  }
+}
+
+query GetTrainIntroCoachOrderDetails($orderId: String!) {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+  }
+  getOrderDetails(orderId: $orderId) {
+    ...PlanOverviewOrderDetails
+  }
+}
+
+query GetTrendingRaceEvents($input: GetTrendingRaceEventsInput!) {
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+  getTrendingRaceEvents(input: $input) {
+    ...RaceEventDetails
+  }
+}
+
+query GetUpcomingOrders {
+  getAllOrders(input: {categories: [UPCOMING]}) {
+    planStartDate
+  }
+}
+
+query GetUpdatedSubscriptionAndPlanData {
+  userProfile {
+    id
+    picture
+    name
+    activeOrder
+    isRunnaLabsUser
+    garminToken {
+      accessToken
+    }
+    garminPermissions
+    userType
+    createdOn
+    subscriptionStatus
+    subscriptionType
+    subscriptionStatusUpdatedAt
+    limits {
+      workoutsCompleted
+      plansCreated
+    }
+    partnerCodeRaceAttribution
+    subscriptionLastEventType
+    referralCode
+    affiliateCode
+    lastActive
+    newProductId
+    unitOfMeasurementV2
+    speedTarget
+    justGivingDonationLink
+    appleWatch
+    autoPause
+    countdownTime
+    startOnMotion
+    notificationSettings {
+      support
+      community
+      workouts
+      activities
+      whatsNew
+      emailMarketing
+    }
+    devicePushTokens {
+      iosToken
+      androidToken
+    }
+    stravaToken {
+      accessToken
+    }
+    corosToken {
+      accessToken
+    }
+    fitbitToken {
+      accessToken
+    }
+    watchesSpeedUom {
+      garmin
+      coros
+      suunto
+      appleWorkoutsApp
+    }
+    appleHealthResync
+    appleFitness {
+      enabled
+    }
+    appleWorkoutsApp
+    rodAudioStartStop
+    shoe {
+      active
+      brand
+      color
+      createdOn
+      distance
+      id
+      model
+      name
+      runs
+      targetDistance
+      time
+      visible
+      retired
+    }
+    workoutSettings {
+      openWarmup
+      trackIntervals
+      paceTargets
+      paceTargetsEasyRun
+    }
+  }
+  getActiveOrderDetails {
+    id
+    planId
+    planVersion
+    customPlanName
+    sessionsPerWeek
+    upgradeRecommended
+    runningAbility
+    createdOn
+    isActive
+    raceDay
+    linked
+    longRun
+    uomV2
+    baseUOM
+    speedTarget
+    estimatedRaceTime
+    estimatedRaceTimeType
+    daysOfWeekRun
+    runsPerWeek
+    raceDate
+    raceName
+    status
+    mobilityDay
+    pilatesDay
+    stretchDay
+    terrain
+    trainingMode
+    currentLongestRun
+    currentWeeklyMileage
+    startDate
+    engineVersion
+    orderIsDated
+    mileageInsightState {
+      ...MileageInsightStateFields
+    }
+    planV2 {
+      id
+      introVideoYoutubeId
+      planLength
+      raceDistance
+      hasRace
+      salesline
+      description
+      iconText
+      color
+      imageId
+      shortPlanName
+      veryShortPlanName
+      raceDistName
+    }
+    availableEngineMigration {
+      ...AvailableEngineMigration
+    }
+    rollbackMetadata {
+      ...OrderRollbackMetadata
+    }
+    internalUpdates {
+      ...OrderInternalUpdates
+    }
+    race {
+      ...RaceFields
+    }
+    updateLimits {
+      timeLimit
+      runningAbility
+      schedule
+      raceTime
+    }
+    raceTimeUpdateOffer {
+      key
+      secs
+    }
+    strengthAbility
+    strengthDaysAvailable
+    strengthTimeAvailable
+    strengthGoal
+    equipmentAvailable
+    runningModelVersion
+    holidays {
+      ...Holiday
+    }
+    bRaces {
+      ...BRace
+    }
+    planAlignmentMetadata {
+      missedWorkouts
+      missedWeeks
+      alignmentState
+      alignmentActions
+    }
+    plan {
+      id
+      completed
+      finishingAbilityV2
+      activeWeekIndex
+      ...ActiveWeekAllowedUpdates
+      estimatedFinalWeekTimes {
+        key
+        secs
+        display
+      }
+      estimatedActiveWeekTimes {
+        key
+        secs
+        display
+      }
+      availableSpeedUOMs
+      estimatedRaceTimes
+      totalPlanDistance
+      completedPlanDistance
+      introComment
+      coaches
+      pdfTemplate
+      workoutIntroComments {
+        key
+        value
+      }
+      introComments {
+        coach
+        comment
+      }
+      predictedPlanTimes {
+        key
+        value
+      }
+    }
+    sharedOrderMetrics {
+      orderSharedCount
+      sharedWithProfilePictures
+    }
+  }
+  getAppConfig {
+    recommendedAppVersion
+    minimumAppVersion
+    migrationEnabled
+  }
+  getPaceInsightState {
+    ...PaceInsightStateFields
+  }
+  getPaceInsightsVisualizationDataV2 {
+    ...PaceInsightsVisualizationDataV2
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    plan {
+      id
+      planLength
+      raceDistance
+      raceDistName
+      iconText
+      color
+      imageId
+      shortPlanName
+    }
+  }
+  getPbs {
+    id
+    activityId
+    distance
+    time
+    isNew
+  }
+  getUserMetrics {
+    id
+    longestRun
+    completedPlans
+    totalActivities
+    totalCompletedRunWorkouts
+    totalCompletedStrengthWorkouts
+    totalDistance
+    totalTime
+  }
+  getUserShoes {
+    id
+    active
+    brand
+    color
+    createdOn
+    distance
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+  getEngineVersion
+  getPlanScheduleV2 {
+    ...PlanScheduleV2
+  }
+  getMileageInsightMetadata {
+    ...MileageInsightOfferMetadataFields
+  }
+  getAllUserFeatureInteractions {
+    ...UserFeatureInteraction
+  }
+}
+
+query GetUrlMetadata($urlsWithFlags: [UrlWithFlagInput!]!) {
+  getUrlMetadata(urlsWithFlags: $urlsWithFlags) {
+    url
+    isDisabled
+    favicon
+    siteName
+    title
+    description
+    image
+  }
+}
+
+query GetUserActiveOrder {
+  userProfile {
+    id
+    activeOrder
+  }
+}
+
+query GetUserCodeInfo {
+  getUserCodeInfo {
+    code
+    userId
+    countAttributedSportShoes
+  }
+}
+
+query GetUserCommunityProfile {
+  getCommunityProfileById {
+    ...CommunityProfile
+  }
+}
+
+query GetUserDefaultCurrentMileages($input: GetUserDefaultMileagesInput!) {
+  getUserDefaultMileages(input: $input) {
+    totalWeekly {
+      min
+      max
+      default
+    }
+    longRun {
+      min
+      max
+      default
+    }
+  }
+}
+
+query GetUserDefaultTargetMileages($input: GetUserMileageCapsInput!) {
+  getUserMileageCaps(input: $input) {
+    ...UserMileageCapsFragment
+  }
+}
+
+query GetUserInfo {
+  userProfile {
+    ...UserInfo
+  }
+}
+
+query GetUserInfoForShoes {
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query GetUserInfoWithStravaAccountData {
+  userProfile {
+    ...UserInfo
+  }
+  getStravaAccountData {
+    ...StravaAccountData
+  }
+}
+
+query GetUserLevelsOffers {
+  getAllLevelsOffers {
+    id
+    partnerName
+    description
+    imageUrl
+    hubImageUrl
+    introModalImageUrl
+    category
+    rank
+    levelTiers {
+      BRONZE {
+        ...LevelTierFields
+      }
+      SILVER {
+        ...LevelTierFields
+      }
+      GOLD {
+        ...LevelTierFields
+      }
+      PLATINUM {
+        ...LevelTierFields
+      }
+      DIAMOND {
+        ...LevelTierFields
+      }
+      CHAMPION {
+        ...LevelTierFields
+      }
+    }
+    tag
+    website
+    termsAndConditions
+    endsAt
+    partnerOfferId
+  }
+}
+
+query GetUserLevelsResources {
+  getUserLevelsResources {
+    id
+    isAchieved
+    points
+    trigger
+    isOneTime
+    limit
+    limitDuration
+  }
+  userProfile {
+    id
+    createdOn
+    lastActive
+    subscriptionStatusV2
+  }
+}
+
+query GetUserLevelsTransactions($nextToken: String, $limit: Int) {
+  getUserLevelsTransactions(nextToken: $nextToken, limit: $limit) {
+    transactions {
+      __typename
+      points
+      trigger
+      timestamp
+      metadata {
+        ... on WorkoutCompletedMetadata {
+          __typename
+          timestamp
+          workoutType: type
+        }
+        ... on PbMetadata {
+          __typename
+          featureId
+          timestamp
+          pbType: type
+        }
+      }
+    }
+    nextToken
+  }
+}
+
+query GetUserOnboardingDefaults {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+    speedTarget
+    referralCode
+    orders
+    dateOfBirth
+    gender
+    injuryRisk
+  }
+  getActiveOrderDetails {
+    id
+    runningAbility
+    estimatedRaceTime
+    estimatedRaceTimeType
+    runsPerWeek
+    daysOfWeekRun
+    longRun
+    baseUOM
+    plan {
+      id
+      completed
+      finishingAbilityV2
+    }
+  }
+}
+
+query GetUserOptInYogaStatus {
+  userProfile {
+    id
+    optInYoga
+  }
+  getActiveOrderDetails {
+    id
+    mobilityDay
+  }
+}
+
+query GetUserRecordSettings {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+    autoPause
+    startOnMotion
+    freeRunAudioSplitDistance
+    countdownTime
+    rodAudioStartStop
+    rodAudioSplits
+    rodAudioPace
+    rodAudioPauseWarning
+  }
+}
+
+query GetUserRoutes($page: Int!, $perPage: Int!, $provider: RouteProvider!, $cursor: String) {
+  getUserRoutes(
+    input: {page: $page, perPage: $perPage, provider: $provider, cursor: $cursor}
+  ) {
+    hasMore
+    page
+    perPage
+    nextCursor
+    routes {
+      id
+      name
+      distance
+      elevationGain
+      estimatedMovingTime
+      routeSVG
+    }
+  }
+}
+
+query GetUserSubscriberInfo {
+  userProfile {
+    id
+    email
+    subscriptionStatus
+    subscriptionType
+    subscriptionLastEventType
+    subscriptionStatusUpdatedAt
+    referralCode
+    createdOn
+    newProductId
+  }
+}
+
+query GetUserTrophies {
+  userProfile {
+    id
+    picture
+    unitOfMeasurementV2
+  }
+  getUserTrophies {
+    id
+    userId
+    name
+    completed
+    isNew
+    type
+    label
+    value
+    createdOn
+  }
+}
+
+query GetUserUOM {
+  getActiveOrderDetails {
+    ...OrderDetailsUOM
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+    speedTarget
+    workoutMirroring
+    weightUnitOfMeasurement
+    temperatureUnitOfMeasurement
+  }
+}
+
+query GetUserWeatherForecast($input: GetWeatherForecastV2Input!) {
+  getUserWeatherForecastV2(input: $input) {
+    ...WeatherForecast
+  }
+}
+
+query GetV2EngineVersion {
+  getEngineVersion
+  getAppConfig {
+    platform
+    latestEngineVersion
+  }
+}
+
+query GetValidRaceTimeRange($input: GetValidRaceTimeRangeInput!) {
+  getValidRaceTimeRange(input: $input) {
+    validRange {
+      distance
+      timeRange {
+        hardLower
+        hardUpper
+        softLower
+        softUpper
+      }
+    }
+  }
+}
+
+query GetWarmCoolRoutine($workoutId: String) {
+  getWorkout(input: {workoutId: $workoutId}) {
+    ... on Day {
+      id
+      runTitle
+      warmUpRoutine {
+        ...WarmCoolRoutine
+      }
+      coolDownRoutine {
+        ...WarmCoolRoutine
+      }
+    }
+    ... on DayStrength {
+      id
+    }
+    ... on DayMobility {
+      id
+    }
+    ... on DayPilates {
+      id
+    }
+    ... on DayStretch {
+      id
+    }
+    ... on Rest {
+      id
+    }
+  }
+}
+
+query GetWeatherAdaptedWorkout($input: GetWeatherAdaptedWorkoutInput!) {
+  getWeatherAdaptedWorkout(input: $input) {
+    ...WorkoutPreview
+  }
+}
+
+query GetWeekDetail {
+  userProfile {
+    ...UserProfileWeekDetail
+  }
+  getActiveOrderDetails {
+    ...OrderWeekDetail
+  }
+  getAppConfig {
+    recommendedAppVersion
+    minimumAppVersion
+    migrationEnabled
+  }
+  getAllOrders {
+    id
+    planId
+    completed
+    createdOn
+    customPlanName
+    disabled
+    runningModelVersion
+    plan {
+      id
+      planLength
+      raceDistance
+      raceDistName
+      iconText
+      color
+      imageId
+      shortPlanName
+    }
+  }
+  getPbs {
+    id
+    activityId
+    distance
+    time
+    isNew
+  }
+  getUserMetrics {
+    id
+    longestRun
+    completedPlans
+    totalActivities
+    totalCompletedRunWorkouts
+    totalCompletedStrengthWorkouts
+    totalDistance
+    totalTime
+  }
+  getUserShoes {
+    id
+    active
+    brand
+    color
+    createdOn
+    distance
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+  getEngineVersion
+}
+
+query GetWeekForDayDetail($weekIndex: Int!) {
+  getActiveOrderWeek(input: {weekIndex: $weekIndex}) {
+    week {
+      id
+      weekIndex
+      days {
+        ...DayDetailDay
+      }
+    }
+  }
+}
+
+query GetWeekSummaries($input: GetActiveOrderWeeksInput!) {
+  getActiveOrderWeeks(input: $input) {
+    weeks {
+      ...WeekSummary
+    }
+  }
+}
+
+query GetWeightUom {
+  userProfile {
+    id
+    weightUnitOfMeasurement
+  }
+}
+
+query GetWelcomeToClub($locale: String) {
+  userProfile {
+    id
+    name
+    unitOfMeasurementV2
+    speedTarget
+    email
+    notificationSettings {
+      emailMarketing
+    }
+    partnerCodeRaceAttribution
+    referralCode
+  }
+  getActiveOrderDetails {
+    id
+  }
+  plansV3(locale: $locale) {
+    ...PlanFragment
+  }
+}
+
+query GetWorkout($input: GetWorkoutInput!) {
+  getWorkout(input: $input) {
+    ...DayDetailDay
+  }
+}
+
+query GetWorkoutBriefing($input: GetWorkoutInput!, $mode: [WorkoutBriefingMode!]!) {
+  getWorkout(input: $input) {
+    ... on Day {
+      workoutBriefingV2(mode: $mode) {
+        ...WorkoutBriefingsFragment
+      }
+    }
+  }
+}
+
+query GetWorkoutBriefingStatus($input: GetWorkoutBriefingStatusInput!) {
+  getWorkoutBriefingStatus(input: $input) {
+    status
+  }
+}
+
+query GetWorkoutSettings {
+  userProfile {
+    id
+    workoutSettings {
+      openWarmup
+      trackIntervals
+      paceTargets
+      paceTargetsEasyRun
+      upperLimitOnlyEasyRun
+    }
+  }
+  getActiveOrderDetails {
+    id
+    planId
+    planVersion
+  }
+}
+
+query GetWorkoutTypeMileageBounds($input: GetWorkoutTypeMileageBoundsInput!) {
+  getWorkoutTypeMileageBounds(input: $input) {
+    min
+    max
+  }
+}
+
+query GetYourPlanIsReadyScreenData($locale: String) {
+  plansV3(locale: $locale) {
+    ...PlanFragment
+  }
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+}
+
+query HasUserSavedPosts {
+  hasUserSavedPosts
+}
+
+query HasV1Orders {
+  hasV1Orders
+}
+
+query HowLongPlanScreenOrders {
+  getAllOrders {
+    ...UserOrdersInfo
+  }
+}
+
+query IntrospectionQuery {
+      __schema {
+          ...InputValue
+        }
+        type {
+          ...TypeRef
+        }
+        isDeprecated
+        deprecationReason
+      }
+
+query PlanLengthScreenOrders {
+  getAllOrders {
+    ...UserOrdersInfo
+  }
+}
+
+query PlansRecommendationOnboardingScreen($input: GetRecommendedPlansInput!) {
+  userProfile {
+    id
+    unitOfMeasurementV2
+  }
+  getRecommendedPlans(input: $input) {
+    ...PlanFragment
+  }
+}
+
+query PlanStartDateScreenOrders {
+  getAllOrders {
+    ...UserOrdersInfo
+  }
+}
+
+query PollOrderStatus($orderId: String!) {
+  getOrderInfo(orderId: $orderId) {
+    id
+    status
+  }
+}
+
+query PrefetchDayDetail($weekIndex: Int!) {
+  userProfile {
+    ...DayDetailUserProfile
+  }
+  getActiveOrderDetails {
+    ...DayDetailActiveOrderDetails
+  }
+  getActiveOrderWeek(input: {weekIndex: $weekIndex}) {
+    week {
+      id
+      weekIndex
+      days {
+        ...DayDetailDay
+      }
+    }
+  }
+}
+
+query RecommendRaceTimeShift($input: RecommendRaceTimeShiftInput!) {
+  recommendRaceTimeShift(input: $input) {
+    recommendedRaceTimes {
+      distance
+      timeSecs
+    }
+  }
+}
+
+query SearchCommunityContent($input: SearchCommunityContentInput!) {
+  searchCommunityContent(input: $input) {
+    results {
+      post {
+        ...CommunityPostV2
+      }
+      highlights {
+        field
+        textFragments {
+          text
+          isHighlighted
+        }
+      }
+    }
+    errors {
+      message
+    }
+    totalResultsCount
+    hasMore
+  }
+}
+
+query SearchCommunitySpaces($input: SearchCommunitySpacesInput!) {
+  searchCommunitySpaces(input: $input) {
+    results {
+      ...ExploreCommunitySpace
+    }
+    errors {
+      message
+    }
+    totalResultsCount
+    hasMore
+  }
+}
+
+query SearchRaceEvents($input: SearchRaceEventsInput!) {
+  searchRaceEvents(input: $input) {
+    items {
+      ...RaceEventDetails
+    }
+    pageInfo {
+      hasNextPage
+      currentPage
+      totalPages
+    }
+  }
+}
+
+query SubscribeModalPlan {
+  userProfile {
+    id
+    name
+    referralCode
+    justGivingDonationLink
+    subscriptionStatusUpdatedAt
+    createdOn
+  }
+  getActiveOrderDetails {
+    planId
+  }
+}
+
+query UserOrders {
+  getAllOrders {
+    ...UserOrdersInfo
+  }
+}
+
+query ValidateBRace($input: ValidateBRaceInput!) {
+  validateBRace(input: $input) {
+    ...BRace
+  }
+}
+
+query ValidateHoliday($input: ValidateHolidayInput!) {
+  validateHoliday(input: $input) {
+    ...Holiday
+  }
+}
+
+query ValidateTrainingReduction($input: ValidateTrainingReductionInput!) {
+  validateTrainingReduction(input: $input) {
+    ...TrainingReduction
+  }
+}
+
+mutation AcceptMileageInsightOffer($input: UpdateParametersInput!) {
+  acceptMileageInsightOffer(input: $input) {
+    ... on UpdateOrderEditLimit {
+      message
+    }
+    ... on UpdateOrderTimeLimit {
+      message
+    }
+    ... on OrderDetails {
+      id
+      status
+      runsPerWeek
+      currentLongestRun
+      currentWeeklyMileage
+      runningAbility
+      daysOfWeekRun
+      longRun
+    }
+  }
+}
+
+mutation AcceptPaceInsightOffer($input: AcceptPaceInsightOfferInput!) {
+  acceptPaceInsightOffer(input: $input) {
+    ...PaceInsightStateFieldsWithoutNextSession
+  }
+}
+
+mutation AcceptSharedWorkout($input: AcceptSharedWorkoutInput!) {
+  acceptSharedWorkout(input: $input) {
+    ...InstantWorkoutSummary
+  }
+}
+
+mutation AddDateOfBirthToUser($input: AddDateOfBirthToUserInput!) {
+  addDateOfBirthToUser(input: $input)
+}
+
+mutation AddDateOfBirthToUserV2($input: AddDateOfBirthToUserV2Input!) {
+  addDateOfBirthToUserV2(input: $input) {
+    id
+    dateOfBirth
+  }
+}
+
+mutation AddGenderToUser($input: AddGenderToUserInput!) {
+  addGenderToUser(input: $input)
+}
+
+mutation AddHeartRateZonesThresholds($input: SetHeartRateZoneThresholdsInput!) {
+  setHeartRateZoneThresholds(input: $input)
+}
+
+mutation AddOrderToOrderSchedule($input: UpdateOrderScheduleInput!) {
+  addOrderToOrderSchedule(input: $input) {
+    id
+  }
+}
+
+mutation AddUserOtherInterests($input: AddUserOtherInterestsInput!) {
+  addUserOtherInterests(input: $input)
+}
+
+mutation AddUserToMailingList($input: AddUserToMailingListInput) {
+  addUserToMailingList(input: $input) {
+    id
+    notificationSettings {
+      emailMarketing
+    }
+  }
+}
+
+mutation ApplyWeatherAdaption($input: ApplyWeatherAdaptionInput!) {
+  applyWeatherAdaption(input: $input) {
+    ... on OrderDetails {
+      id
+      status
+    }
+  }
+}
+
+mutation AssignLevelsOffersUniqueCode($input: AssignLevelsOffersUniqueCodeInput!) {
+  assignLevelsOffersUniqueCode(input: $input) {
+    __typename
+    ... on LevelsOffersUniqueCode {
+      code
+      expirationDate
+    }
+    ... on LevelsOffersError {
+      errorCode
+    }
+  }
+}
+
+mutation BlockUser($userId: ID!) {
+  blockUser(userId: $userId)
+}
+
+mutation ClearPartnerRaceAttribution {
+  clearPartnerRaceAttribution {
+    id
+  }
+}
+
+mutation CreateComment($input: CreateCommunityCommentV2Input!) {
+  createCommunityCommentV2(input: $input) {
+    ...CommunityCommentV2
+  }
+}
+
+mutation CreateCommunityLocationSpace($input: CoordinatesInput!) {
+  createCommunityLocationSpace(input: $input)
+}
+
+mutation CreateCommunitySavedPost($postId: ID!) {
+  createCommunitySavedPost(postId: $postId)
+}
+
+mutation CreateDefaultPrrPlan($input: CreateDefaultPrrPlanInput!) {
+  createDefaultPrrPlan(input: $input) {
+    orderId
+  }
+}
+
+mutation createManualActivity($input: CreateManualActivityInput!) {
+  createManualActivity(input: $input) {
+    id
+    name
+    description
+    privateNote
+    type
+    createdOn
+    recordType
+    laps {
+      distance
+      averageSpeed
+      totalTime
+    }
+    summary {
+      distance
+      averageSpeed
+      totalTime
+      startTimestamp
+    }
+  }
+}
+
+mutation CreateOrder($input: CreateOrderInput!) {
+  createOrder(input: $input) {
+    user {
+      id
+      activeOrder
+      orderSchedule
+    }
+    createdOrderId
+    createdOrderCategory
+  }
+}
+
+mutation CreatePost($input: CreateCommunityPostV2Input!) {
+  createCommunityPostV2(input: $input) {
+    ...CommunityPostV2
+  }
+}
+
+mutation CreateRace($input: CreateRaceInput!) {
+  createRace(input: $input) {
+    city
+    country
+    date
+    distance
+    enabled
+    id
+    name
+    author
+    elevationProfile
+  }
+}
+
+mutation CreateShoe($input: CreateShoeInput!) {
+  createShoe(input: $input) {
+    active
+    brand
+    color
+    createdOn
+    distance
+    id
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+  }
+}
+
+mutation CreateSubOrder($input: CreateSubOrderInputV2!) {
+  createSubOrderV2(input: $input) {
+    id
+    activeOrder
+  }
+}
+
+mutation DeleteActivity($input: DeleteActivityInput!) {
+  deleteActivity(input: $input)
+}
+
+mutation DeleteHeartRateZoneThresholds {
+  deleteHeartRateZoneThresholds
+}
+
+mutation DeleteInstantWorkout($input: DeleteInstantWorkoutInput!) {
+  deleteInstantWorkout(input: $input)
+}
+
+mutation DeletePb($input: DeletePbInput!) {
+  deletePb(input: $input)
+}
+
+mutation DeleteUserAccount {
+  deleteUser
+}
+
+mutation DisableLevels {
+  toggleUserLevelsStatus(input: {enabled: false})
+}
+
+mutation disableOrder($input: DisableOrderInput!) {
+  disableOrder(input: $input) {
+    id
+    disabled
+  }
+}
+
+mutation DiscardWeatherAdaptions($input: DiscardWeatherAdaptionsInput!) {
+  discardWeatherAdaptions(input: $input) {
+    ... on OrderDetails {
+      id
+      status
+    }
+  }
+}
+
+mutation DismissMileageInsightOffer($input: DismissMileageInsightOfferInput!) {
+  dismissMileageInsightOffer(input: $input) {
+    ...MileageInsightStateFields
+  }
+}
+
+mutation DismissPaceInsightOffer($input: DismissPaceInsightOfferInput!) {
+  dismissPaceInsightOffer(input: $input) {
+    ...PaceInsightStateFieldsWithoutNextSession
+  }
+}
+
+mutation EditPost($input: EditCommunityPostV2Input!) {
+  editCommunityPostV2(input: $input) {
+    ...CommunityPostV2
+  }
+}
+
+mutation EditWorkout($input: EditWorkoutInput!) {
+  editWorkout(input: $input) {
+    ...InstantWorkoutSummary
+  }
+}
+
+mutation EnableLevels {
+  toggleUserLevelsStatus(input: {enabled: true})
+}
+
+mutation enterGhostMode($input: EnterGhostModeInput!) {
+  enterGhostMode(input: $input)
+}
+
+mutation EnterLevelsOffersGiveaway($input: EnterLevelsOffersGiveawayInput!) {
+  enterLevelsOffersGiveaway(input: $input) {
+    __typename
+    ... on EnterLevelsOffersGiveawaySuccess {
+      success
+    }
+    ... on LevelsOffersError {
+      errorCode
+    }
+  }
+}
+
+mutation exitGhostMode {
+  exitGhostMode
+}
+
+mutation FollowManySpaces($spaceIds: [ID!]!) {
+  followManySpaces(spaceIds: $spaceIds) {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+mutation FollowSpace($spaceId: ID!) {
+  followSpace(spaceId: $spaceId) {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+mutation GenerateCommunitySignedUploadUrl($count: Int) {
+  generateCommunitySignedUploadUrl(count: $count) {
+    url
+    key
+    fields {
+      key
+      value
+    }
+  }
+}
+
+mutation GenerateHeartRateZoneSummary($input: GenerateHeartRateZoneSummaryInput!) {
+  generateHeartRateZoneSummary(input: $input) {
+    success
+    heartRateZoneSummary {
+      zone
+      minBPM
+      maxBPM
+      percentage
+      timeMs
+    }
+  }
+}
+
+mutation GenerateParkrunBarcodeAppleWalletPass {
+  generateParkrunBarcodeAppleWalletPass
+}
+
+mutation GenerateRecordingLogUploadUrl($key: String!, $md5Hash: String!) {
+  generateRecordingLogUploadUrl(input: {key: $key, md5Hash: $md5Hash}) {
+    url
+    key
+    fields {
+      key
+      value
+    }
+  }
+}
+
+mutation GenerateWorkoutBriefing($input: GenerateWorkoutBriefingInput!) {
+  generateWorkoutBriefing(input: $input) {
+    ...WorkoutBriefingFieldsFragment
+  }
+}
+
+mutation GenerateWorkoutSignedUploadUrl($input: GenerateWorkoutUploadPresignedURLInput!) {
+  generateWorkoutSignedUploadUrl(input: $input) {
+    fields {
+      key
+      value
+    }
+    url
+  }
+}
+
+mutation LinkActivity($input: LinkActivityInput!) {
+  linkActivityV2(input: $input) {
+    activity {
+      id
+      workoutId
+      linkedToWorkout
+    }
+    workout {
+      ... on Day {
+        id
+        linkedActivitiesV2 {
+          ...LinkedActivitySummaryMetadata
+        }
+      }
+      ... on DayStrength {
+        id
+        linkedActivitiesV2 {
+          ...LinkedActivitySummaryMetadata
+        }
+      }
+      ... on DayMobility {
+        id
+        linkedActivitiesV2 {
+          ...LinkedActivitySummaryMetadata
+        }
+      }
+      ... on DayPilates {
+        id
+        linkedActivitiesV2 {
+          ...LinkedActivitySummaryMetadata
+        }
+      }
+      ... on DayStretch {
+        id
+        linkedActivitiesV2 {
+          ...LinkedActivitySummaryMetadata
+        }
+      }
+    }
+  }
+}
+
+mutation LinkInstantWorkout($input: LinkInstantWorkoutInput!) {
+  linkInstantWorkout(input: $input) {
+    id
+  }
+}
+
+mutation LinkRouteToWorkout($provider: RouteProvider, $routeId: String!, $workoutId: String!) {
+  linkRouteToWorkout(
+    input: {provider: $provider, routeId: $routeId, workoutId: $workoutId}
+  ) {
+    ... on Day {
+      id
+      routeId
+      linkedRoute {
+        id
+        routeSVG
+      }
+    }
+  }
+}
+
+mutation MarkAllNotificationsAsSeen {
+  markAllNotificationsAsSeen
+}
+
+mutation MarkAllNotificationsAsSeenAndRead {
+  markAllNotificationsAsSeenAndRead
+}
+
+mutation MarkCommunityFeatureTourComplete {
+  markOnboardingTourComplete
+}
+
+mutation MarkInsightAsRead($input: MarkInsightAsReadInput!) {
+  read: markInsightAsRead(input: $input)
+}
+
+mutation MarkNotificationAsRead($id: ID!) {
+  markNotificationAsRead(notificationId: $id) {
+    ... on CommunityReplyNotification {
+      ...CommunityReplyNotification
+    }
+    ... on CommunityReactionNotification {
+      ...CommunityReactionNotification
+    }
+    ... on CommunityPostNotification {
+      ...CommunityPostNotification
+    }
+  }
+}
+
+mutation MigrateEngineVersion($input: MigrateEngineVersionInput!) {
+  migrateEngineVersion(input: $input) {
+    ... on OrderDetails {
+      id
+      status
+      availableEngineMigration {
+        ...AvailableEngineMigration
+      }
+    }
+  }
+}
+
+mutation MigrateOrdersToV2 {
+  migrateOrdersToV2V2 {
+    id
+    status
+  }
+}
+
+mutation MigrateUndatedPlan {
+  migrateUndatedPlan {
+    id
+    status
+    planId
+  }
+}
+
+mutation MintWebCheckoutToken($input: MintWebCheckoutTokenInput!) {
+  mintWebCheckoutToken(input: $input) {
+    token
+  }
+}
+
+mutation OnboardUserToCommunity {
+  onboardUserToCommunity
+}
+
+mutation OnPollVote($input: PollVoteInput!) {
+  onPollVote(input: $input) {
+    ...CommunityPoll
+  }
+}
+
+mutation OverrideSpeedTargetForWorkout($input: OverrideSpeedTargetForWorkoutInput!) {
+  overrideSpeedTargetForWorkout(input: $input)
+}
+
+mutation PinPost($postId: ID!) {
+  pinCommunityPost(postId: $postId) {
+    __typename
+    ... on PinCommunityPostSuccess {
+      success
+    }
+    ... on TooManyPinnedPostsError {
+      message
+    }
+  }
+}
+
+mutation PinSpace($spaceId: ID!) {
+  pinSpace(spaceId: $spaceId) {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+mutation ProcessCommunityFeedViewedPosts($viewedPosts: [ID!]!) {
+  processCommunityFeedViewedPosts(viewedPosts: $viewedPosts)
+}
+
+mutation ProcessCommunityFeedViewedPostsSync($viewedPosts: [ID!]!) {
+  processCommunityFeedViewedPostsSync(viewedPosts: $viewedPosts)
+}
+
+mutation ReactToContent($contentId: ID!, $contentType: CommunityContentType!, $reaction: CommunityReaction) {
+  reactToCommunityContent(
+    contentId: $contentId
+    contentType: $contentType
+    reaction: $reaction
+  )
+}
+
+mutation RealignPlan($input: RealignPlanInput!) {
+  realignPlanV2(input: $input) {
+    ...PlanAlignmentMetadataQueryFields
+  }
+}
+
+mutation RealignPlanV3($input: RealignPlanV3Input!) {
+  realignPlanV3(input: $input) {
+    id
+    runsPerWeek
+    raceDate
+    orderIsDated
+    plan {
+      id
+      coaches
+    }
+    planV2 {
+      id
+      planLength
+    }
+  }
+}
+
+mutation RedeemOfferCode($input: OfferCodeInput!) {
+  redeemOfferCodeV2(input: $input) {
+    ...UniqueOfferCodeFields
+    ... on OfferCodeError {
+      errorCode
+    }
+  }
+}
+
+mutation redeemPartnerCode($input: RedeemPartnerCodeInput!) {
+  redeemPartnerCode(input: $input)
+}
+
+mutation RegenerateWorkoutBriefing($input: RegenerateWorkoutBriefingInput!) {
+  regenerateWorkoutBriefing(input: $input) {
+    ...WorkoutBriefingFieldsFragment
+  }
+}
+
+mutation removeActiveOrder {
+  removeActiveOrder {
+    id
+    activeOrder
+  }
+}
+
+mutation RemoveAllCommunitySavedPosts {
+  removeAllCommunitySavedPosts
+}
+
+mutation RemoveCommunitySavedPost($postId: ID!) {
+  removeCommunitySavedPost(postId: $postId)
+}
+
+mutation RemoveContent($contentId: ID!) {
+  removeContent(input: {contentId: $contentId})
+}
+
+mutation RemoveOrderFromOrderSchedule($input: UpdateOrderScheduleInput!) {
+  removeOrderFromOrderSchedule(input: $input) {
+    id
+  }
+}
+
+mutation RemovePollVote($input: PollVoteInput!) {
+  removePollVote(input: $input) {
+    ...CommunityPoll
+  }
+}
+
+mutation RemoveRaceTimeOffer {
+  removeRaceTimeUpdateOfferV2 {
+    id
+    raceTimeUpdateOffer {
+      key
+      secs
+    }
+  }
+}
+
+mutation ReportContent($input: ReportContentInput!) {
+  reportContent(input: $input) {
+    ...ReportContentResult
+  }
+}
+
+mutation ReportRaceProblem($input: ReportRaceProblemInput!) {
+  reportRaceProblem(input: $input)
+}
+
+mutation ReportUser($input: ReportUserInput!) {
+  reportUser(input: $input) {
+    ...ReportContentResult
+  }
+}
+
+mutation ResetMileageState {
+  resetMileageState {
+    ...MileageInsightStateFields
+  }
+}
+
+mutation ResetReferralCode {
+  resetReferralCode {
+    id
+    referralCode
+  }
+}
+
+mutation ResetTrainingCalendar($input: ResetTrainingCalendarInput!) {
+  resetTrainingCalendar(input: $input)
+}
+
+mutation RestartCurrentPlan {
+  restartCurrentPlanV2 {
+    id
+  }
+}
+
+mutation RollbackOrder($input: RollbackOrderInput!) {
+  rollbackOrder(input: $input)
+}
+
+mutation saveBasicActivity($input: SaveBasicActivityInput!) {
+  saveBasicActivity(input: $input) {
+    id
+    workoutId
+    address
+    privateNote
+    description
+    name
+    createdOn
+    linkedToWorkout
+    summary {
+      totalTime
+      startTimestamp
+    }
+    type
+    recordType
+  }
+}
+
+mutation SaveDevicePushToken($input: SaveDevicePushTokenInput!) {
+  saveDevicePushToken(input: $input) {
+    id
+    devicePushTokens {
+      iosToken
+      androidToken
+    }
+    notificationSettings {
+      support
+      community
+      workouts
+      activities
+      whatsNew
+      emailMarketing
+    }
+  }
+}
+
+mutation SaveStrengthActivity($input: SaveStrengthActivityInput!) {
+  saveStrengthActivity(input: $input) {
+    id
+    workoutId
+    address
+    privateNote
+    description
+    name
+    createdOn
+    linkedToWorkout
+    summary {
+      totalTime
+      startTimestamp
+    }
+    type
+    recordType
+  }
+}
+
+mutation SelectWorkoutRecommendation($input: SelectWorkoutRecommendationInput!) {
+  selectWorkoutRecommendation(input: $input) {
+    ...InstantWorkoutSummary
+  }
+}
+
+mutation sendPlanFeedback($input: SendPlanFeedbackInput!) {
+  sendPlanFeedbackV2(input: $input) {
+    id
+  }
+}
+
+mutation SendPostRunSummaryEvaluation($input: SendPostRunSummaryEvaluationInput!) {
+  sendPostRunSummaryEvaluation(input: $input) {
+    id
+    postRunSummary {
+      ...PostRunSummaryMetadata
+    }
+  }
+}
+
+mutation sendWorkoutBriefingEvaluation($input: SendWorkoutBriefingEvaluationInput!) {
+  sendWorkoutBriefingEvaluation(input: $input) {
+    ...WorkoutBriefingFieldsFragment
+  }
+}
+
+mutation SendWorkoutFeedback($input: SendWorkoutFeedbackInput!) {
+  sendWorkoutFeedback(input: $input) {
+    id
+    feedback
+    detailedFeedback
+    postRunSummary {
+      ...PostRunSummaryMetadata
+    }
+  }
+}
+
+mutation SetBasicPlanFeedback($input: BasicPlanFeedbackInput!) {
+  setBasicPlanFeedback(input: $input) {
+    id
+    basicPlanFeedback
+  }
+}
+
+mutation SetWorkoutRunningEnvironmentPreference($input: SetWorkoutRunningEnvironmentPreferenceInput!) {
+  setWorkoutRunningEnvironmentPreference(input: $input)
+}
+
+mutation SkipToWeek($input: SkipToWeekInput!) {
+  skipToWeekV2(input: $input) {
+    ... on UpdateOrderEditLimit {
+      message
+    }
+    ... on UpdateOrderTimeLimit {
+      message
+    }
+    ... on OrderDetails {
+      id
+      plan {
+        id
+        activeWeekIndex
+      }
+      updateLimits {
+        timeLimit
+        runningAbility
+        schedule
+        raceTime
+      }
+    }
+  }
+}
+
+mutation SwitchOrder($input: SwitchOrderInput!) {
+  switchOrder(input: $input) {
+    id
+    activeOrder
+  }
+}
+
+mutation SyncActivityToStrava($input: SyncActivityToStravaInput!) {
+  syncActivityToStrava(input: $input)
+}
+
+mutation ToggleAiDataSharingEnabled($input: ToggleAiDataSharingEnabledInput!) {
+  toggleAiDataSharingEnabled(input: $input)
+}
+
+mutation ToggleProductImprovements($input: ToggleProductImprovementsInput!) {
+  toggleProductImprovements(input: $input) {
+    id
+    isOptedOutOfProductImprovements
+    isRunnaLabsUser
+  }
+}
+
+mutation TriggerViewCommunityUserDetails($userId: ID!, $postId: ID!) {
+  triggerViewCommunityUserDetails(userId: $userId, postId: $postId)
+}
+
+mutation UnfollowSpace($spaceId: ID!) {
+  unfollowSpace(spaceId: $spaceId) {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+mutation UnlinkActivity($input: UnlinkActivityInput!) {
+  unlinkActivityV2(input: $input) {
+    id
+    workoutId
+    linkedToWorkout
+    plannedWorkoutMetadataV2 {
+      ... on WorkoutMetadataV2 {
+        day {
+          ... on Day {
+            id
+            runType
+          }
+          ... on DayMobility {
+            id
+          }
+          ... on DayPilates {
+            id
+          }
+          ... on DayStretch {
+            id
+          }
+        }
+      }
+    }
+    instantWorkoutMetadata {
+      day {
+        ...FullDayMetadata
+      }
+    }
+  }
+}
+
+mutation UnlinkInstantWorkout($input: UnlinkInstantWorkoutInput!) {
+  unlinkInstantWorkout(input: $input) {
+    id
+  }
+}
+
+mutation UnpinPost($postId: ID!) {
+  unpinCommunityPost(postId: $postId)
+}
+
+mutation UnpinSpace($spaceId: ID!) {
+  unpinSpace(spaceId: $spaceId) {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+mutation UpdateAcceptedTermsVersion($version: String!) {
+  updateAcceptedTermsVersion(version: $version) {
+    acceptedTermsVersionHistory {
+      version
+      acceptedAt
+      effectiveStartDate
+    }
+  }
+}
+
+mutation UpdateActiveBetaFeatures($input: UpdateActiveBetaFeaturesInput!) {
+  updateActiveBetaFeatures(input: $input) {
+    id
+    isRunnaLabsUser
+  }
+}
+
+mutation UpdateActivity($input: UpdateActivityInput!) {
+  updateActivity(input: $input) {
+    id
+    name
+    description
+    privateNote
+  }
+}
+
+mutation UpdateActivityNote($input: UpdateActivityInput!) {
+  updateActivity(input: $input) {
+    id
+    privateNote
+  }
+}
+
+mutation UpdateActivityRunType($input: UpdateActivityRunTypeInput!) {
+  updateActivityRunType(input: $input) {
+    id
+    runType
+  }
+}
+
+mutation UpdateActivityShoe($input: UpdateActivityInput!) {
+  updateActivity(input: $input) {
+    id
+    shoe {
+      id
+      active
+      brand
+      color
+      createdOn
+      distance
+      model
+      name
+      runs
+      targetDistance
+      time
+      visible
+      retired
+    }
+  }
+}
+
+mutation UpdateActivityV2($input: UpdateActivityInput!) {
+  updateActivity(input: $input) {
+    id
+    name
+    description
+    privateNote
+    shoe {
+      id
+      active
+      brand
+      color
+      createdOn
+      distance
+      model
+      name
+      runs
+      targetDistance
+      time
+      visible
+      retired
+    }
+  }
+}
+
+mutation UpdateBRace($input: UpdateBRaceInput!) {
+  updateBRace(input: $input) {
+    ...BRace
+  }
+}
+
+mutation UpdateCalendarSyncingSettings($input: UpdateCalendarSyncingSettingsInput!) {
+  updateCalendarSyncingSettings(input: $input) {
+    id
+    calendarSyncing {
+      iCalendarUrl
+      completedActivitySyncMode
+    }
+  }
+}
+
+mutation UpdateCommunitySettings($input: UpdateCommunitySettingsInput!) {
+  updateCommunitySettings(input: $input) {
+    id
+    community {
+      settings {
+        enableAmbassadorNotifications
+        communityCommentNotifications
+        communityLikeNotifications
+      }
+    }
+  }
+}
+
+mutation UpdateCountdownSettings($input: UpdateRecordSettingsInput!) {
+  updateRecordSettings(input: $input) {
+    id
+    startOnMotion
+    countdownTime
+  }
+}
+
+mutation UpdateCustomPlanName($input: UpdateCustomPlanNameInput!) {
+  updateCustomPlanNameV2(input: $input) {
+    id
+    customPlanName
+  }
+}
+
+mutation UpdateEmail($input: UpdateEmailInput!) {
+  updateEmail(input: $input) {
+    ... on User {
+      id
+      email
+    }
+    ... on UpdateEmailError {
+      code
+    }
+  }
+}
+
+mutation UpdateFeatureOnboardingConfig($input: UpdateFeatureOnboardingConfigInput!) {
+  updateFeatureOnboardingConfig(input: $input) {
+    id
+    featureOnboardingConfig {
+      name
+    }
+  }
+}
+
+mutation UpdateHoliday($input: UpdateHolidayInput!) {
+  updateHoliday(input: $input) {
+    ...Holiday
+  }
+}
+
+mutation UpdateInjuryRisk($input: UpdateInjuryRiskInput!) {
+  updateInjuryRisk(input: $input) {
+    id
+    injuryRisk
+  }
+}
+
+mutation UpdateInstantWorkout($input: UpdateInstantWorkoutInput!) {
+  updateInstantWorkout(input: $input) {
+    ...InstantWorkoutSummary
+  }
+}
+
+mutation UpdateLanguageSettings($input: UpdateLanguageSettingsInput!) {
+  updateLanguageSettings(input: $input) {
+    id
+    languageSettings {
+      locale
+    }
+  }
+}
+
+mutation UpdateMobilityPilates($input: UpdateMobilityPilatesInput!) {
+  updateMobilityPilatesV2(input: $input) {
+    id
+    pilatesDay
+    mobilityDay
+    stretchDay
+  }
+}
+
+mutation UpdateName($input: UpdateNameInput!) {
+  updateName(input: $input) {
+    id
+    name
+    activeOrder
+  }
+}
+
+mutation UpdateNotificationSettings($input: UpdateNotificationSettingsInput!) {
+  updateNotificationSettings(input: $input) {
+    id
+    notificationSettings {
+      support
+      community
+      workouts
+      activities
+      whatsNew
+      emailMarketing
+      selectedWorkoutNotificationTime
+    }
+  }
+}
+
+mutation UpdateParameters($input: UpdateParametersInput!) {
+  updateParametersV2(input: $input) {
+    ... on UpdateOrderEditLimit {
+      message
+    }
+    ... on UpdateOrderTimeLimit {
+      message
+    }
+    ... on OrderDetails {
+      id
+      status
+      runningAbility
+      estimatedRaceTime
+      estimatedRaceTimeType
+      daysOfWeekRun
+      runsPerWeek
+    }
+  }
+}
+
+mutation UpdateParkrunBarcodeValue($input: UpdateParkrunBarcodeValueInput!) {
+  updateParkrunBarcodeValue(input: $input) {
+    id
+    parkrunBarcodeValue
+  }
+}
+
+mutation UpdatePb($input: UpdatePbInput!) {
+  updatePb(input: $input) {
+    id
+    activityId
+    distance
+    time
+  }
+}
+
+mutation UpdateProfilePicture($input: UpdateProfilePictureInput!) {
+  updateProfilePicture(input: $input) {
+    id
+    picture
+  }
+}
+
+mutation UpdateRecordSettings($input: UpdateRecordSettingsInput!) {
+  updateRecordSettings(input: $input) {
+    id
+    autoPause
+    startOnMotion
+    freeRunAudioSplitDistance
+    countdownTime
+    rodAudioStartStop
+    rodAudioSplits
+    rodAudioPace
+    rodAudioPauseWarning
+  }
+}
+
+mutation UpdateShoe($input: UpdateShoeInput!) {
+  updateShoe(input: $input) {
+    active
+    brand
+    createdOn
+    color
+    distance
+    id
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+  }
+}
+
+mutation UpdateStravaMediaUploadPreference($input: ToggleStravaMediaUploadEnabledInput!) {
+  toggleStravaMediaUploadEnabled(input: $input) {
+    id
+    stravaMediaUploadEnabled
+  }
+}
+
+mutation UpdateStrength($input: UpdateStrengthInput!) {
+  updateStrengthV3(input: $input) {
+    id
+    status
+    strengthAbility
+    strengthDaysAvailable
+    sessionsPerWeek
+    equipmentAvailable
+  }
+}
+
+mutation UpdateStrengthExerciseNotes($input: UpdateStrengthExerciseNotesInput!) {
+  updateStrengthExerciseNotes(input: $input) {
+    id
+    note
+  }
+}
+
+mutation UpdateTemperatureUnitOfMeasurement($input: UpdateTemperatureUnitOfMeasurementInput!) {
+  updateTemperatureUnitOfMeasurement(input: $input) {
+    id
+    temperatureUnitOfMeasurement
+  }
+}
+
+mutation UpdateToggleWatch($input: ToggleWatchInput!) {
+  toggleWatch(input: $input) {
+    id
+    garminToken {
+      accessToken
+    }
+    garminPermissions
+    appleWatch
+    appleFitness {
+      enabled
+    }
+    healthConnect {
+      enabled
+    }
+    stravaToken {
+      accessToken
+      scopes
+    }
+    corosToken {
+      accessToken
+    }
+    fitbitToken {
+      accessToken
+    }
+    suuntoToken {
+      accessToken
+    }
+    appleWorkoutsApp
+    iCalendarUrl
+    calendarSyncing {
+      iCalendarUrl
+      completedActivitySyncMode
+    }
+    stravaAccountData {
+      id
+      username
+      firstname
+      lastname
+      createdAt
+      profileUrl
+      friendCount
+      followerCount
+      totalRuns
+    }
+    googleCalendarToken {
+      accessToken
+    }
+    outlookCalendarToken {
+      accessToken
+    }
+    subscriptionStore
+    externalIntegrations
+  }
+}
+
+mutation UpdateTrainingCalendar($input: UpdateTrainingCalendarInput!) {
+  updateTrainingCalendar(input: $input) {
+    ... on Day {
+      id
+      day
+      date
+      scheduleDate
+    }
+    ... on DayStrength {
+      id
+      day
+      date
+      scheduleDate
+    }
+    ... on DayMobility {
+      id
+      day
+      date
+      scheduleDate
+    }
+    ... on DayPilates {
+      id
+      day
+      date
+      scheduleDate
+    }
+    ... on DayStretch {
+      id
+      day
+      date
+      scheduleDate
+    }
+  }
+}
+
+mutation UpdateTrainingReduction($input: UpdateTrainingReductionInput!) {
+  updateTrainingReduction(input: $input) {
+    ...TrainingReduction
+  }
+}
+
+mutation UpdateUomSpeedTarget($input: UpdateUomSpeedTargetInput!) {
+  updateUomSpeedTarget(input: $input) {
+    id
+    unitOfMeasurementV2
+    speedTarget
+  }
+}
+
+mutation UpdateUserFeatureInteractionV2($input: UpdateUserFeatureInteractionInputV2!) {
+  updateUserFeatureInteractionV2(input: $input)
+}
+
+mutation UpdateUserLastActiveV2 {
+  updateLastActiveV2 {
+    id
+    lastActive
+  }
+}
+
+mutation UpdateUserMetadata($input: UpdateUserMetadataInput!) {
+  updateUserMetadata(input: $input)
+}
+
+mutation UpdateUserYogaOptInStatus($input: UpdateUserYogaOptInStatusInput!) {
+  updateUserYogaOptInStatus(input: $input) {
+    id
+    optInYoga
+  }
+}
+
+mutation UpdateWarmCoolRoutine($input: UpdateWarmCoolRoutineInput!) {
+  updateWarmCoolRoutine(input: $input) {
+    ... on Day {
+      id
+      warmUpRoutine {
+        ...WarmCoolRoutine
+      }
+      coolDownRoutine {
+        ...WarmCoolRoutine
+      }
+    }
+    ... on DayStrength {
+      id
+    }
+    ... on DayMobility {
+      id
+    }
+    ... on DayPilates {
+      id
+    }
+    ... on DayStretch {
+      id
+    }
+    ... on Rest {
+      id
+    }
+  }
+}
+
+mutation UpdateWatchesSpeedUom($input: UpdateWatchesSpeedUomInput!) {
+  updateWatchesSpeedUom(input: $input) {
+    id
+    watchesSpeedUom {
+      garmin
+      coros
+      suunto
+      appleWorkoutsApp
+    }
+  }
+}
+
+mutation UpdateWeekWorkouts($input: UpdateWeekWorkoutsInput!) {
+  updateWeekWorkoutsV2(input: $input) {
+    ... on Week {
+      id
+      lockedV3 {
+        isLocked
+        lockedType
+        unlockedInDays
+      }
+      skipped
+      completed
+      days {
+        ... on Day {
+          id
+          completed
+          lockedV3 {
+            isLocked
+            lockedType
+            unlockedInDays
+          }
+          skipped
+        }
+        ... on DayStrength {
+          id
+          completed
+          lockedV3 {
+            isLocked
+            lockedType
+            unlockedInDays
+          }
+          skipped
+        }
+        ... on DayMobility {
+          id
+          completed
+          lockedV3 {
+            isLocked
+            lockedType
+            unlockedInDays
+          }
+          skipped
+        }
+        ... on DayPilates {
+          id
+          completed
+          lockedV3 {
+            isLocked
+            lockedType
+            unlockedInDays
+          }
+          skipped
+        }
+        ... on DayStretch {
+          id
+          completed
+          lockedV3 {
+            isLocked
+            lockedType
+            unlockedInDays
+          }
+          skipped
+        }
+        ... on Rest {
+          id
+        }
+      }
+    }
+    ... on UpdateWeekWorkoutLocked {
+      message
+    }
+  }
+}
+
+mutation UpdateWeightUom($input: UpdateWeightUomInput!) {
+  updateWeightUom(input: $input) {
+    id
+    weightUnitOfMeasurement
+  }
+}
+
+mutation UpdateWorkout($input: UpdateWorkoutInput!) {
+  updateWorkoutV2(input: $input) {
+    ... on Day {
+      id
+      completed
+      skipped
+      warmUpRoutine {
+        ...WarmCoolRoutine
+      }
+      coolDownRoutine {
+        ...WarmCoolRoutine
+      }
+    }
+    ... on DayStrength {
+      id
+      completed
+      skipped
+    }
+    ... on DayMobility {
+      id
+      completed
+      skipped
+    }
+    ... on DayPilates {
+      id
+      completed
+      skipped
+    }
+    ... on DayStretch {
+      id
+      completed
+      skipped
+    }
+    ... on Rest {
+      id
+    }
+    ... on UpdateWorkoutLocked {
+      message
+    }
+  }
+}
+
+mutation UpdateWorkoutDays($input: UpdateWorkoutDaysInput!) {
+  updateWorkoutDays(input: $input) {
+    ... on Day {
+      id
+      day
+    }
+    ... on DayStrength {
+      id
+      day
+    }
+    ... on DayMobility {
+      id
+      day
+    }
+    ... on DayPilates {
+      id
+      day
+    }
+    ... on DayStretch {
+      id
+      day
+    }
+  }
+}
+
+mutation updateWorkoutMirroring($input: UpdateWorkoutMirroringInput!) {
+  updateWorkoutMirroring(input: $input) {
+    id
+    workoutMirroring
+  }
+}
+
+mutation UpdateWorkoutNotes($input: UpdateWorkoutNotesInput!) {
+  updateWorkoutNotesV2(input: $input) {
+    ... on Day {
+      id
+      note
+    }
+    ... on DayStrength {
+      id
+      note
+    }
+    ... on DayMobility {
+      id
+      note
+    }
+    ... on DayPilates {
+      id
+      note
+    }
+    ... on DayStretch {
+      id
+      note
+    }
+    ... on Rest {
+      id
+    }
+  }
+}
+
+mutation UpdateWorkoutNotificationTime($input: UpdateNotificationSettingsInput!) {
+  updateNotificationSettings(input: $input) {
+    id
+    notificationSettings {
+      workouts
+      selectedWorkoutNotificationTime
+    }
+  }
+}
+
+mutation UpdateWorkoutScheduledTime($input: UpdateWorkoutScheduledTimeInput!) {
+  updateWorkoutScheduledTime(input: $input) {
+    ... on Day {
+      id
+      scheduled24HourTime
+      scheduledTimeIsDefault
+    }
+    ... on DayStrength {
+      id
+      scheduled24HourTime
+      scheduledTimeIsDefault
+    }
+    ... on DayMobility {
+      id
+      scheduled24HourTime
+      scheduledTimeIsDefault
+    }
+    ... on DayPilates {
+      id
+      scheduled24HourTime
+      scheduledTimeIsDefault
+    }
+    ... on DayStretch {
+      id
+      scheduled24HourTime
+      scheduledTimeIsDefault
+    }
+  }
+}
+
+mutation UpdateWorkoutSettings($input: UpdateRecordSettingsInput!) {
+  updateRecordSettings(input: $input) {
+    id
+    workoutSettings {
+      openWarmup
+      trackIntervals
+      paceTargets
+      paceTargetsEasyRun
+      upperLimitOnlyEasyRun
+    }
+  }
+}
+
+mutation UpgradeOrder($input: UpgradeOrderInput!) {
+  upgradeOrderV2(input: $input) {
+    id
+    status
+    upgradeRecommended
+  }
+}
+
+mutation UploadGPXRoute($input: UploadGpxRouteInput!) {
+  uploadGpxRoute(input: $input) {
+    routeId
+    routeName
+  }
+}
+
+mutation VerifyCode($input: VerifyCodeInput!) {
+  verifyCodeV4(input: $input) {
+    ... on ValidPartnerCodeV4 {
+      code
+      partner
+      redeemed
+      preRedemptionSubscriptionStatus
+      deferredBillingDate
+      details {
+        rcDiscountPeriod
+        durationString
+      }
+      partnerName
+      raceId
+      mobileDeeplink
+    }
+    ... on ValidReferralCode {
+      code
+      discount
+      firstName
+      lengthMonths
+      productId
+      weekFreeOrMonthly
+      mobileDeeplink
+    }
+    ... on VerifyCodeErrorV2 {
+      errorCode
+    }
+  }
+}
+
+subscription RealtimeLevelsPlanCompleted($userId: String!) {
+  onLevelsPlanCompleted(userId: $userId) {
+    completedPlanDistance
+    level
+    planColor
+    planIconText
+    planId
+    planImageId
+    raceImageUrl
+    planLength
+    planName
+    planStartDate
+    planEndDate
+    points
+  }
+}
+
+subscription RealtimePaceInsightSubscription($userId: String!) {
+  onPaceInsightUpdated(userId: $userId) {
+    paceInsightState {
+      ...PaceInsightStateFields
+    }
+    paceInsightsVisualizationDataV2 {
+      ...PaceInsightsVisualizationDataV2
+    }
+  }
+}
+
+subscription RealtimeUserFeatureInteractionCreated($userId: String!) {
+  onUserFeatureInteractionCreated(userId: $userId) {
+    ...UserFeatureInteraction
+  }
+}
+
+subscription RealtimeUserLevelsPointsChanged($userId: String!) {
+  onUserLevelsPointsChanged(userId: $userId) {
+    totalPoints
+    transactionPoints
+    trigger
+  }
+}
+
+fragment ActiveWeekAllowedUpdates on OrderPlanDetails {
+  activeWeekAllowedUpdates {
+    currentLongestRun {
+      default
+      max
+      min
+    }
+    currentWeeklyMileage {
+      default
+      max
+      min
+    }
+    mileageCaps {
+      longRun {
+        ...MileageCapBoundsFragment
+      }
+      totalWeekly {
+        ...MileageCapBoundsFragment
+      }
+    }
+    goalRaceDate {
+      min
+      max
+    }
+    planStartDate {
+      min
+      max
+    }
+    planLength {
+      min
+      max
+    }
+    runsPerWeek {
+      min
+      max
+    }
+    trainingFocus
+    runningAbility
+    terrain
+    trainingModeSettings {
+      ...TrainingModeSettings
+    }
+    weekToEndDateMapping {
+      week
+      date
+      recommended
+    }
+    weekToStartDateMapping {
+      week
+      date
+      recommended
+    }
+    firstRunBackDate {
+      min
+      max
+      default
+    }
+    targetRunsPerWeek {
+      min
+      max
+      default
+    }
+    previousRaceEffort
+    previousRaceDate {
+      min
+      max
+    }
+    currentWeeklyMileageThresholds {
+      ...RangeThresholdsFragment
+    }
+    currentLongestRunThresholds {
+      ...RangeThresholdsFragment
+    }
+    targetRunsPerWeekThresholds {
+      ...RangeThresholdsFragment
+    }
+  }
+}
+
+fragment ActivitySummary on ActivitySummary {
+  id
+  type
+  treadmillType
+  name
+  createdOn
+  tzOffset
+  feedback
+  recordType
+  deviceName
+  pbs
+  linkedToWorkout
+  summary {
+    distance
+    averageSpeed
+    movingTime
+    totalTime
+    startTimestamp
+  }
+  duplicateActivitiesInfo {
+    id
+    recordType
+    deviceName
+  }
+  routeSVG
+  runType
+  predictedRunType
+  plannedWorkoutMetadataV2 {
+    ... on WorkoutMetadataV2 {
+      day {
+        ...ActivitySummaryDayMetadata
+      }
+      planDetails {
+        id
+      }
+    }
+  }
+  instantWorkoutMetadata {
+    day {
+      ...ActivitySummaryDayMetadata
+    }
+  }
+  workoutId
+}
+
+fragment ActivitySummaryDayMetadata on WorkoutMetadataDay {
+  ... on Day {
+    id
+    runType
+    runTitle
+    isInstant
+  }
+  ... on DayMobility {
+    id
+    mobilityTitle
+    isInstant
+  }
+  ... on DayPilates {
+    id
+    pilatesTitle
+    isInstant
+  }
+  ... on DayStretch {
+    id
+    stretchTitle
+    isInstant
+  }
+  ... on DayStrength {
+    id
+    strengthTitle
+    isInstant
+  }
+}
+
+fragment AdvancedDifficultySettings on AdvancedDifficultySettingsValues {
+  numHardRuns {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  hardRunDifficulty {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  structuredLongRunDifficulty {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  structuredLongRunProportion {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+}
+
+fragment AdvancedMileageSettings on AdvancedMileageSettingsValues {
+  nonLongWorkoutMax {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  longWorkoutMax {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+}
+
+fragment AppContentFragment on AppContent {
+  id
+  value
+  type
+  source
+}
+
+fragment AppliedWeatherAdaption on AppliedWeatherAdaption {
+  adaptionType
+  feelsLikeCelsius
+  temperatureCelsius
+  humidity
+  adaptionHour
+  adaptionDate
+  violationDeltas {
+    ...ViolationDeltas
+  }
+}
+
+fragment AssignedCodeFields on AssignedOfferCode {
+  code
+  expiresAt
+}
+
+fragment AvailableEngineMigration on AvailableEngineMigration {
+  version
+  createdOn
+  releaseNotes
+  callout {
+    title
+    content
+    imageUrl
+  }
+}
+
+fragment BaseOfferCodeFields on BaseOfferCode {
+  id
+  category
+  companyName
+  description
+  imageUrl
+  termsAndConditions
+  website
+}
+
+fragment BRace on BRace {
+  id
+  name
+  status
+  raceEffort
+  race {
+    ...RaceFields
+  }
+  adjustmentInsight {
+    ...BRaceAdjustmentInsight
+  }
+  bRaceWeekIndex
+}
+
+fragment BRaceAdjustmentInsight on BRaceAdjustmentInsights {
+  coach
+  comment
+  fatigueCategory
+  adjustmentInsight
+  allowedRaceEfforts
+  failureReason
+  warning
+  estimatedRaceTimes
+  estimatedBRaceTimes
+}
+
+fragment BRaceRecommendation on BRaceRecommendation {
+  distance
+  dateRange
+  weekIndices
+}
+
+fragment BriefingFieldsFragment on Briefing {
+  checklistBrief {
+    focusPoint {
+      body
+      focus
+      title
+    }
+    planContextBrief {
+      title
+      advice
+    }
+    hydrationNutritionBrief {
+      hydrationNutritionAdvice
+      hydrationNutritionTitle
+    }
+    routeBrief {
+      routeAdvice
+      routeTitle
+    }
+    weatherBrief {
+      weatherAdvice
+      weatherTitle
+    }
+  }
+}
+
+fragment CommunityCommentBaseV2 on CommunityCommentV2 {
+  id
+  space {
+    ...CommunitySpace
+  }
+  author {
+    ...CommunityProfile
+  }
+  content
+  linkMetadata {
+    url
+    isDisabled
+    favicon
+    siteName
+    title
+    description
+    image
+  }
+  image {
+    ...CommunityImage
+  }
+  reactions {
+    ...ReactionsSummary
+  }
+  currentReaction
+  createdOn
+  parentId
+  showDate
+  parentType
+}
+
+fragment CommunityCommentReplyV2 on CommunityCommentV2 {
+  ...CommunityCommentBaseV2
+}
+
+fragment CommunityCommentReplyV2_L1 on CommunityCommentV2 {
+  ...CommunityCommentBaseV2
+}
+
+fragment CommunityCommentV2 on CommunityCommentV2 {
+  ...CommunityCommentBaseV2
+  replies {
+    comments {
+      ...CommunityCommentReplyV2_L1
+    }
+    errors {
+      message
+    }
+    nextCursor
+  }
+}
+
+fragment CommunityImage on CommunityImage {
+  s3Key
+  variants {
+    THUMBNAIL
+    ORIGINAL
+    TWO_X
+    THREE_X
+  }
+  dimensions {
+    width
+    height
+  }
+}
+
+fragment CommunityNotificationParentContent on CommunityContent {
+  __typename
+  ... on CommunityPost {
+    id
+    title
+    content
+    author {
+      ...CommunityProfile
+    }
+    createdOn
+    updatedOn
+    space {
+      ...CommunitySpace
+    }
+    images {
+      ...CommunityImage
+    }
+  }
+  ... on CommunityComment {
+    id
+    content
+    author {
+      ...CommunityProfile
+    }
+    createdOn
+    updatedOn
+    image {
+      ...CommunityImage
+    }
+    parentId
+    parentType
+  }
+}
+
+fragment CommunityNotificationPostContent on CommunityPost {
+  id
+  title
+  content
+  author {
+    ...CommunityProfile
+  }
+  createdOn
+  updatedOn
+  space {
+    ...CommunitySpace
+  }
+  images {
+    ...CommunityImage
+  }
+}
+
+fragment CommunityNotificationReplyContent on CommunityComment {
+  id
+  content
+  image {
+    ...CommunityImage
+  }
+  space {
+    ...CommunitySpace
+  }
+}
+
+fragment CommunityPoll on CommunityPoll {
+  id
+  results {
+    optionKey
+    optionLabel
+    voteCount
+  }
+  userSelectedOptionKeys
+  uniqueVotesCount
+  title
+  selectionType
+  createdAt
+}
+
+fragment CommunityPollFinishedNotification on CommunityPollFinishedNotification {
+  id
+  createdAt
+  updatedAt
+  read
+  seen
+  poll {
+    ...CommunityPoll
+  }
+}
+
+fragment CommunityPostNotification on CommunityPostNotification {
+  id
+  createdAt
+  updatedAt
+  read
+  seen
+  content {
+    ...CommunityNotificationPostContent
+  }
+  actor {
+    id
+    name
+    profileImageUrl
+  }
+}
+
+fragment CommunityPostPreviewV2 on CommunityPostV2 {
+  id
+  space {
+    ...CommunitySpace
+  }
+  author {
+    ...CommunityProfile
+  }
+  title
+  content
+  badge
+  linkMetadata {
+    url
+    isDisabled
+    favicon
+    siteName
+    title
+    description
+    image
+  }
+  images {
+    ...CommunityImage
+  }
+  poll {
+    ...CommunityPoll
+  }
+  tags
+  originalPollId
+  createdOn
+  showDate
+  commentPreview {
+    ...CommunityCommentV2
+  }
+  reactions {
+    ...ReactionsSummary
+  }
+  currentReaction
+  isSaved
+}
+
+fragment CommunityPostV2 on CommunityPostV2 {
+  ...CommunityPostPreviewV2
+  tags
+  currentReaction
+  isSaved
+  showDate
+  comments {
+    comments {
+      ...CommunityCommentV2
+    }
+    errors {
+      message
+    }
+    nextCursor
+  }
+}
+
+fragment CommunityProfile on CommunityProfile {
+  id
+  name
+  profileImageUrl
+  badges {
+    spaceId
+    badge
+    label
+  }
+}
+
+fragment CommunityReactionNotification on CommunityReactionNotification {
+  id
+  createdAt
+  updatedAt
+  read
+  seen
+  reaction
+  actors {
+    id
+    name
+    profileImageUrl
+  }
+  parentContent {
+    ...CommunityNotificationParentContent
+  }
+}
+
+fragment CommunityReplyNotification on CommunityReplyNotification {
+  id
+  createdAt
+  updatedAt
+  read
+  seen
+  content {
+    ...CommunityNotificationReplyContent
+  }
+  parentContent {
+    ...CommunityNotificationParentContent
+  }
+  actor {
+    id
+    name
+    profileImageUrl
+  }
+}
+
+fragment CommunitySpace on CommunitySpace {
+  id
+  name
+  iconUri
+  membersCount
+  backgroundImageUri
+  backgroundImageUriDark
+  type
+  hasNewContent
+}
+
+fragment CommunitySpaceFollowingStatus on CommunitySpaceFollowingStatus {
+  isFollowing
+  isPinned
+}
+
+fragment CompletedWeeksMileageStateFields on CompletedWeeksMileageState {
+  weekIndex
+  workoutStates {
+    ...CompletedWorkoutMileageStateFields
+  }
+}
+
+fragment CompletedWorkoutMileageStateFields on CompletedWorkoutMileageState {
+  id
+  runType
+  state
+  withinCurrentPeriod
+}
+
+fragment CreateOrderInputFields on DefaultPrrParams {
+  planId
+  planStartDate
+  firstRunBackDate
+  planEndDate
+  previousRaceDate
+  previousRaceDistanceKm
+  previousRaceEffort
+  terrain
+  ability
+  longRun
+  days
+  numberOfDays
+  raceTime
+  raceTimeType
+  previousRacePlanOrderId
+  previousRaceName
+  targetRunsPerWeek
+  runningModelVersion
+  engineVersion
+  baseUOM
+  uom
+  orderSeed
+  userLanguageV2
+  userLocale
+  currentLongestRun
+  currentWeeklyMileage
+  mileageCaps {
+    totalWeekly
+    longRun
+  }
+  trainingModeSettings {
+    ...OrderTrainingModeSettingsFragment
+  }
+}
+
+fragment DailyWeather on DailyWeather {
+  city
+  date
+  windSpeed
+  timestamp
+  temperature
+  sunset
+  status
+  sunrise
+  pop
+  hourlyWeatherData {
+    ...HourlyWeather
+  }
+}
+
+fragment DayDetailActiveOrderDetails on OrderDetails {
+  id
+  planId
+  customPlanName
+  engineVersion
+  uomV2
+  speedTarget
+  terrain
+  planVersion
+  planV2 {
+    id
+    iconText
+    color
+    imageId
+    shortPlanName
+    description
+    planLength
+  }
+  race {
+    id
+    image
+    imageUrl
+    communitySpaceId
+  }
+  plan {
+    id
+    activeWeekIndex
+    workoutIntroComments {
+      key
+    }
+  }
+  planReplayState {
+    shouldShowPlanReplay
+  }
+}
+
+fragment DayDetailDay on DaysResult {
+  ... on Day {
+    id
+    completed
+    runType
+    workoutFingerprint
+    durationType
+    runTitle
+    workoutName
+    day
+    weekIndex
+    originalWeekIndex
+    isFirstDayOfRunType
+    date
+    distance
+    duration
+    terrain
+    distanceFormatted
+    durationFormatted
+    coach
+    preferredSpeedTarget
+    speedTargetOverride
+    article
+    routeId
+    linkedRoute {
+      ...RouteSummary
+    }
+    lockedV3 {
+      isLocked
+      lockedType
+      unlockedInDays
+    }
+    skipped
+    note
+    garminUpdatedAt
+    corosUpdatedAt
+    suuntoUpdatedAt
+    description
+    comment
+    linkedActivities
+    warmUpRoutine {
+      ...WarmCoolRoutine
+    }
+    coolDownRoutine {
+      ...WarmCoolRoutine
+    }
+    linkedActivitiesV2 {
+      ...LinkedActivitySummaryMetadata
+    }
+    currentEst5kTimeInSecs
+    scheduled24HourTime
+    scheduledTimeIsDefault
+    outdoor {
+      ...DaySpeed
+    }
+    treadmill {
+      ...DaySpeed
+    }
+    runningEnvironmentPreference
+    sharedWorkoutDetails {
+      ...SharedWorkoutSummary
+    }
+    bRace {
+      ...BRace
+    }
+    workoutBriefingV2(mode: [OUTDOOR, TREADMILL]) {
+      ...WorkoutBriefingsFragment
+    }
+    displayLongRunDifficulty
+    isInstant
+    adaptions {
+      ...WorkoutAdaptions
+    }
+  }
+  ... on DayStrength {
+    ...DayStrengthWithExercises
+    lockedV3 {
+      isLocked
+      lockedType
+      unlockedInDays
+    }
+    linkedActivitiesV2 {
+      ...LinkedActivitySummaryMetadata
+    }
+    scheduled24HourTime
+    scheduledTimeIsDefault
+    sharedWorkoutDetails {
+      ...SharedWorkoutSummary
+    }
+  }
+  ... on DayMobility {
+    id
+    mobilityTitle
+    mobilityDescription
+    duration
+    durationFormatted
+    day
+    weekIndex
+    originalWeekIndex
+    coach
+    comment
+    sessionLevel
+    completed
+    skipped
+    date
+    note
+    videoId
+    videoPath
+    youtubeId
+    lockedV3 {
+      isLocked
+      lockedType
+      unlockedInDays
+    }
+    linkedActivitiesV2 {
+      ...LinkedActivitySummaryMetadata
+    }
+    scheduled24HourTime
+    scheduledTimeIsDefault
+    sharedWorkoutDetails {
+      ...SharedWorkoutSummary
+    }
+  }
+  ... on DayPilates {
+    id
+    pilatesTitle
+    pilatesDescription
+    duration
+    durationFormatted
+    day
+    weekIndex
+    originalWeekIndex
+    coach
+    comment
+    sessionLevel
+    completed
+    skipped
+    date
+    note
+    videoId
+    videoPath
+    youtubeId
+    lockedV3 {
+      isLocked
+      lockedType
+      unlockedInDays
+    }
+    linkedActivitiesV2 {
+      ...LinkedActivitySummaryMetadata
+    }
+    scheduled24HourTime
+    scheduledTimeIsDefault
+    sharedWorkoutDetails {
+      ...SharedWorkoutSummary
+    }
+  }
+  ... on DayStretch {
+    id
+    stretchTitle
+    stretchDescription
+    duration
+    durationFormatted
+    day
+    weekIndex
+    originalWeekIndex
+    coach
+    comment
+    sessionLevel
+    completed
+    skipped
+    date
+    note
+    videoId
+    videoPath
+    youtubeId
+    lockedV3 {
+      isLocked
+      lockedType
+      unlockedInDays
+    }
+    linkedActivitiesV2 {
+      ...LinkedActivitySummaryMetadata
+    }
+    scheduled24HourTime
+    scheduledTimeIsDefault
+    sharedWorkoutDetails {
+      ...SharedWorkoutSummary
+    }
+  }
+  ... on Rest {
+    id
+  }
+}
+
+fragment DayDetailUserProfile on User {
+  id
+  name
+  createdOn
+  unitOfMeasurementV2
+  subscriptionStatus
+  subscriptionType
+  autoPause
+  speedTarget
+  startOnMotion
+  countdownTime
+  rodAudioStartStop
+  rodAudioSplits
+  rodAudioPace
+  rodAudioPauseWarning
+  limits {
+    workoutsCompleted
+    plansCreated
+  }
+  workoutSettings {
+    trackIntervals
+  }
+  shoe {
+    active
+    brand
+    color
+    createdOn
+    distance
+    id
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+}
+
+fragment DayMobilitySummary on DayMobility {
+  id
+  mobilityTitle
+  mobilityDescription
+  duration
+  originalDay
+  durationFormatted
+  day
+  weekIndex
+  originalWeekIndex
+  completed
+  skipped
+  date
+  scheduleDate
+  scheduled24HourTime
+  lockedV3 {
+    ...LockedV3Info
+  }
+}
+
+fragment DayPilatesSummary on DayPilates {
+  id
+  pilatesTitle
+  pilatesDescription
+  duration
+  originalDay
+  durationFormatted
+  day
+  weekIndex
+  originalWeekIndex
+  completed
+  skipped
+  date
+  scheduleDate
+  scheduled24HourTime
+  lockedV3 {
+    ...LockedV3Info
+  }
+}
+
+fragment DaySpeed on Speed {
+  id
+  description
+  comment
+  durationFormatted
+  stepsV2 {
+    ...StepsRecursive
+  }
+}
+
+fragment DayStrengthParts on DayStrength {
+  id
+  parts {
+    id
+    partSets
+    partCoach
+    partComment
+    exercises {
+      ...StrengthExercise
+    }
+  }
+}
+
+fragment DayStrengthSummary on DayStrength {
+  id
+  day
+  weekIndex
+  originalWeekIndex
+  strengthType
+  strengthTypeV2
+  strengthTypeDisplay
+  strengthTitle
+  duration
+  originalDay
+  date
+  scheduleDate
+  scheduled24HourTime
+  durationFormatted
+  strengthDescription
+  completed
+  lockedV3 {
+    ...LockedV3Info
+  }
+  skipped
+}
+
+fragment DayStrengthWithExercises on DayStrength {
+  id
+  strengthTitle
+  completed
+  day
+  originalDay
+  strengthDescription
+  strengthPhase
+  strengthType
+  strengthTypeDisplay
+  strengthTypeIndex
+  strengthTypeV2
+  weekIndex
+  originalWeekIndex
+  duration
+  date
+  durationFormatted
+  skipped
+  note
+  ...DayStrengthParts
+}
+
+fragment DayStretchSummary on DayStretch {
+  id
+  stretchTitle
+  stretchDescription
+  duration
+  originalDay
+  durationFormatted
+  day
+  weekIndex
+  originalWeekIndex
+  completed
+  skipped
+  date
+  scheduleDate
+  scheduled24HourTime
+  lockedV3 {
+    ...LockedV3Info
+  }
+}
+
+fragment DaySummary on Day {
+  id
+  completed
+  runType
+  runTitle
+  day
+  weekIndex
+  originalWeekIndex
+  date
+  scheduleDate
+  scheduled24HourTime
+  distanceFormatted
+  duration
+  durationFormatted
+  originalDay
+  distance
+  lockedV3 {
+    ...LockedV3Info
+  }
+  skipped
+  description
+  comment
+  workoutName
+  adaptions {
+    ...WorkoutAdaptions
+  }
+}
+
+fragment EstimatedPaceStateFields on EstimatedPaceState {
+  speed {
+    time
+    distance
+  }
+  endurance {
+    time
+    distance
+  }
+}
+
+fragment EstimatedPaceStateOrderDetails on OrderDetails {
+  id
+  estimatedPaceState {
+    ...EstimatedPaceStateFields
+  }
+  plan {
+    estimatedActiveWeekTimes {
+      key
+      secs
+      display
+    }
+    estimatedRaceTimes
+  }
+  raceDate
+  planV2 {
+    id
+    raceDistName
+    raceDistance
+  }
+}
+
+fragment ExampleWorkoutRepsFields on ExampleWorkoutRep {
+  description
+  paceSecondsPerUom
+}
+
+fragment ExploreCommunitySpace on CommunitySpace {
+  ...CommunitySpace
+  city
+  country
+  date
+  distanceFromUser
+}
+
+fragment FeatureOnboardingConfig on FeatureOnboardingConfig {
+  name
+}
+
+fragment FullActivity on Activity {
+  id
+  type
+  treadmillType
+  name
+  description
+  privateNote
+  address
+  tzOffset
+  mapPolyline
+  routeSVG
+  createdOn
+  workoutId
+  recordType
+  deviceName
+  pbs
+  activePbs
+  predictedRunType
+  feedback
+  detailedFeedback
+  points
+  fastestTimes {
+    type
+    time
+    distance
+  }
+  linkedToWorkout
+  runType
+  duplicateActivitiesInfo {
+    id
+    recordType
+  }
+  plannedWorkoutMetadataV2 {
+    ... on WorkoutMetadataV2 {
+      day {
+        ...FullDayMetadata
+      }
+      weekIndex
+      planDetails {
+        id
+        planLength
+        shortPlanName
+      }
+    }
+  }
+  instantWorkoutMetadata {
+    day {
+      ...FullDayMetadata
+    }
+  }
+  summary {
+    startTimestamp
+    endTimestamp
+    movingTime
+    totalTime
+    distance
+    averageSpeed
+    maxSpeed
+    elevationGain
+    maxElevation
+    minElevation
+    averageHeartRate
+    maxHeartRate
+    minHeartRate
+    averageCadence
+    maxCadence
+    calories
+    averagePower
+    maxPower
+    averageGroundContactTime
+    maxGroundContactTime
+    averageStrideLength
+    maxStrideLength
+    averageVerticalOscillation
+    maxVerticalOscillation
+  }
+  streams {
+    distance
+    elevation
+    speed
+    heartRate
+  }
+  heartRateZoneSummary {
+    zone
+    minBPM
+    maxBPM
+    percentage
+    timeMs
+  }
+  laps {
+    startTimestamp
+    startCoordinate {
+      latitude
+      longitude
+    }
+    endCoordinate {
+      latitude
+      longitude
+    }
+    distance
+    movingTime
+    totalTime
+    averageSpeed
+    maxSpeed
+    elevationGain
+    maxElevation
+    minElevation
+    averageHeartRate
+    maxHeartRate
+    minHeartRate
+    averageCadence
+    maxCadence
+    calories
+  }
+  kmSplits
+  mileSplits
+  shoe {
+    id
+    active
+    brand
+    color
+    createdOn
+    distance
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+  averageGpsAccuracy
+  postRunSummary {
+    ...PostRunSummaryMetadata
+  }
+  strengthTrackedExercises {
+    exerciseId
+    sets {
+      elapsedTime
+      weightKg
+      reps
+    }
+  }
+  stravaActivities {
+    stravaActivityId
+  }
+}
+
+fragment FullDayMetadata on WorkoutMetadataDay {
+  ... on Day {
+    id
+    runType
+    runTitle
+    description
+    distanceFormatted
+    currentEst5kTimeInSecs
+    stepsV2 {
+      ...StepsRecursive
+    }
+    outdoor {
+      ...DaySpeed
+    }
+    tracking {
+      ...Tracking
+    }
+    isInstant
+    adaptions {
+      ...WorkoutAdaptions
+    }
+  }
+  ... on DayMobility {
+    id
+    mobilityTitle
+  }
+  ... on DayPilates {
+    id
+    pilatesTitle
+  }
+  ... on DayStretch {
+    id
+    stretchTitle
+  }
+  ... on DayStrength {
+    ...DayStrengthParts
+  }
+}
+
+fragment FullRoute on WorkoutRoute {
+  id
+  distance
+  elevationGain
+  routeName
+  routeSVG
+  waypoints {
+    elevation
+    latitude
+    longitude
+  }
+}
+
+fragment GenericOfferCodeFields on GenericOfferCode {
+  ...BaseOfferCodeFields
+  discountCode
+}
+
+fragment GetPlansRaceDistOrderFragment on OrderDetails {
+  id
+  planV2 {
+    id
+    raceDistance
+  }
+}
+
+fragment Holiday on Holiday {
+  id
+  name
+  capacity
+  startDate
+  endDate
+  status
+  nonRunningWorkoutsRemoved
+  runsPerWeekOverride
+  adjustmentInsights {
+    ...HolidayAdjustmentInsight
+  }
+}
+
+fragment HolidayAdjustmentInsight on HolidayAdjustmentInsights {
+  coach
+  comment
+  adjustmentInsight
+  allowedCapacities
+  previousWeeklyMileages
+  updatedWeeklyMileages
+  estimatedRaceTimeType
+  estimatedRaceTimeRange {
+    estimatedRaceTime
+  }
+  allowedRunsPerWeekOverrides
+}
+
+fragment HolidayPlanData on OrderDetails {
+  id
+  raceDate
+  plan {
+    id
+    estimatedRaceTimes
+  }
+  planV2 {
+    id
+    raceDistName
+    raceDistance
+  }
+  runsPerWeek
+  bRaces {
+    ...BRace
+  }
+}
+
+fragment HourlyWeather on HourlyWeatherData {
+  datetime
+  temp
+  feelsLike
+  humidity
+}
+
+fragment HydratedCommunitySpace on CommunitySpace {
+  ...ExploreCommunitySpace
+  info
+  createdAt
+  followingStatus {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+fragment IncompatibleRun on IncompatibleRun {
+  activityId
+  startTimestamp
+  incompatibleRunType
+}
+
+fragment InstantWorkoutMetaData on Day {
+  id
+  runType
+  runTitle
+  distanceFormatted
+  durationFormatted
+  description
+  focusType
+  comment
+  isInstant
+  weekIndex
+  day
+  distance
+  workoutName
+  coach
+  tracking {
+    ...Tracking
+  }
+  lockedV3 {
+    isLocked
+    lockedType
+    unlockedInDays
+  }
+  outdoor {
+    ...DaySpeed
+  }
+  treadmill {
+    ...DaySpeed
+  }
+}
+
+fragment InstantWorkoutSummary on Day {
+  id
+  completed
+  runType
+  runTitle
+  focusType
+  day
+  weekIndex
+  date
+  duration
+  scheduleDate
+  scheduled24HourTime
+  distanceFormatted
+  durationFormatted
+  originalDay
+  coach
+  distance
+  description
+  comment
+  workoutName
+  isInstant
+  skipped
+  note
+  routeId
+  linkedRoute {
+    ...RouteSummary
+  }
+  garminUpdatedAt
+  corosUpdatedAt
+  suuntoUpdatedAt
+  warmUpRoutine {
+    ...WarmCoolRoutine
+  }
+  coolDownRoutine {
+    ...WarmCoolRoutine
+  }
+  lockedV2 {
+    isLocked
+    lockedType
+    unlockedInDays
+  }
+  lockedV3 {
+    isLocked
+    lockedType
+    unlockedInDays
+  }
+  linkedActivitiesV2 {
+    ...LinkedActivitySummaryMetadata
+  }
+  tracking {
+    ...Tracking
+  }
+  sharedWorkoutDetails {
+    ...SharedWorkoutSummary
+  }
+}
+
+fragment LevelTierFields on LevelTier {
+  codeType
+  hubFeatured
+  introModalFeatured
+  offerCode
+  offerDetail
+  status
+  website
+  userEnteredGiveaway
+}
+
+fragment LinkedActivitySummaryMetadata on LinkedActivitySummary {
+  id
+  createdOn
+  name
+  type
+  summary {
+    distance
+    movingTime
+    averageSpeed
+    totalTime
+    startTimestamp
+  }
+  pbs
+  recordType
+  deviceName
+  routeSVG
+  tzOffset
+  workoutId
+  duplicateActivitiesInfo {
+    id
+    recordType
+  }
+  feedback
+}
+
+fragment LockedV3Info on LockedV3 {
+  isLocked
+  lockedType
+  unlockedInDays
+}
+
+fragment MileageCapBoundsFragment on MileageCapBound {
+  supportedBounds {
+    max
+    min
+  }
+  stableBounds {
+    max
+    min
+  }
+  default
+}
+
+fragment MileageInsightCompletedMileageStateFields on CompletedMileageState {
+  totalExpectedMileage
+  totalCompletedMileage
+  totalExpectedMileageInPlanWindow
+  totalCompletedMileageInPlanWindow
+  mileageStates {
+    ...MileageInsightCompletedMileageStateRunTypeFields
+  }
+}
+
+fragment MileageInsightCompletedMileageStateRunTypeFields on CompletedMileageStateRunType {
+  runType
+  expectedMileage
+  completedMileage
+  expectedMileageInPlanWindow
+  completedMileageInPlanWindow
+}
+
+fragment MileageInsightCompletedWorkoutsStateFields on CompletedMileageWorkoutsState {
+  weeks {
+    ...CompletedWeeksMileageStateFields
+  }
+  totalExpectedRuns
+  totalCompletedRuns
+  additionalRuns
+  totalExpectedRunsInPlanWindow
+  totalCompletedRunsInPlanWindow
+  additionalRunsInPlanWindow
+}
+
+fragment MileageInsightMetadataRecommendationFields on MileageInsightMetadataRecommendation {
+  variable
+  direction
+  value
+}
+
+fragment MileageInsightNotification on MileageInsightNotification {
+  id
+  createdAt
+  updatedAt
+  read
+  seen
+  mileageInsightStatus
+  suggestionType
+  mileageInsightExpiresAt
+  mileageInsightTimestamp
+}
+
+fragment MileageInsightOfferFields on MileageInsightOffer {
+  timestamp
+  suggestionType
+  atPlanLimitsType
+  originalParams {
+    ...MileageInsightSuggestionFields
+  }
+  suggestedParams {
+    ...MileageInsightSuggestionFields
+  }
+  read
+  isActionable
+}
+
+fragment MileageInsightOfferMetadataFields on MileageInsightMetadata {
+  id
+  whatWeNoticed {
+    ...MileageInsightWhatWeNoticedFields
+  }
+  planUpdates {
+    ...PlanPreviewFields
+  }
+  recommendations {
+    ...MileageInsightMetadataRecommendationFields
+  }
+}
+
+fragment MileageInsightStateFields on MileageInsightState {
+  id
+  status
+  offer {
+    ...MileageInsightOfferFields
+  }
+}
+
+fragment MileageInsightSuggestionFields on MileageInsightSuggestion {
+  runsPerWeek
+  currentLongestRun
+  currentWeeklyMileage
+  runningAbility
+}
+
+fragment MileageInsightWhatWeNoticedFields on MileageInsightWhatWeNoticed {
+  largePart {
+    number
+    symbol
+  }
+  smallPart {
+    mileageVariable
+    direction
+  }
+}
+
+fragment MileageStateFields on MileageInsightMileageState {
+  timestamp
+  resetTimestamp
+  resetMileageReason
+  completedMileageWorkoutsState {
+    ...MileageInsightCompletedWorkoutsStateFields
+  }
+  completedMileageState {
+    ...MileageInsightCompletedMileageStateFields
+  }
+}
+
+fragment OnboardingSpace on CommunitySpace {
+  id
+  iconUri
+  name
+  info
+  type
+  membersCount
+  followingStatus {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+fragment OrderDetailsUOM on OrderDetails {
+  ... on OrderDetails {
+    id
+    baseUOM
+    planId
+    plan {
+      id
+      availableSpeedUOMs
+    }
+    sessionsPerWeek
+  }
+}
+
+fragment OrderInternalUpdate on OrderInternalUpdate {
+  reason
+}
+
+fragment OrderInternalUpdates on OrderInternalUpdates {
+  mostRecentInternalUpdates {
+    ...OrderInternalUpdate
+  }
+}
+
+fragment OrderRollbackMetadata on OrderRollbackMetadata {
+  lastEngineVersionMigrationTimestamp
+}
+
+fragment OrderTrainingModeDifficultySettings on OrderTrainingModeDifficultySettings {
+  numHardRuns
+  hardRunDifficulty
+  structuredLongRunDifficulty
+  structuredLongRunProportion
+}
+
+fragment OrderTrainingModeMileageSettings on OrderTrainingModeMileageSettings {
+  nonLongWorkoutMax
+  longWorkoutMax
+}
+
+fragment OrderTrainingModeSettingsFragment on OrderTrainingModeSettings {
+  mileage
+  difficulty
+  buildRate
+  advancedMileageSettings {
+    ...OrderTrainingModeMileageSettings
+  }
+  advancedDifficultySettings {
+    ...OrderTrainingModeDifficultySettings
+  }
+}
+
+fragment OrderWeekDetail on OrderDetails {
+  id
+  planId
+  planVersion
+  customPlanName
+  sessionsPerWeek
+  upgradeRecommended
+  runningAbility
+  createdOn
+  isActive
+  raceDay
+  linked
+  longRun
+  uomV2
+  baseUOM
+  speedTarget
+  estimatedRaceTime
+  estimatedRaceTimeType
+  daysOfWeekRun
+  runsPerWeek
+  raceDate
+  raceName
+  status
+  mobilityDay
+  pilatesDay
+  stretchDay
+  terrain
+  trainingMode
+  currentLongestRun
+  currentWeeklyMileage
+  startDate
+  engineVersion
+  orderIsDated
+  planV2 {
+    id
+    introVideoYoutubeId
+    planLength
+    raceDistance
+    hasRace
+    salesline
+    description
+    iconText
+    color
+    planCategory
+    imageId
+    shortPlanName
+    veryShortPlanName
+    raceDistName
+  }
+  race {
+    ...RaceFields
+  }
+  updateLimits {
+    timeLimit
+    runningAbility
+    schedule
+    raceTime
+  }
+  raceTimeUpdateOffer {
+    key
+    secs
+  }
+  strengthAbility
+  strengthDaysAvailable
+  strengthTimeAvailable
+  strengthGoal
+  equipmentAvailable
+  runningModelVersion
+  holidays {
+    ...Holiday
+  }
+  plan {
+    id
+    completed
+    finishingAbilityV2
+    activeWeekIndex
+    ...ActiveWeekAllowedUpdates
+    estimatedFinalWeekTimes {
+      key
+      secs
+      display
+    }
+    estimatedActiveWeekTimes {
+      key
+      secs
+      display
+    }
+    availableSpeedUOMs
+    estimatedRaceTimes
+    totalPlanDistance
+    completedPlanDistance
+    introComment
+    coaches
+    pdfTemplate
+    workoutIntroComments {
+      key
+      value
+    }
+    introComments {
+      coach
+      comment
+    }
+    predictedPlanTimes {
+      key
+      value
+    }
+  }
+  sharedOrderMetrics {
+    orderSharedCount
+    sharedWithProfilePictures
+  }
+  planReplayState {
+    shouldShowPlanReplay
+  }
+}
+
+fragment PaceInsightEstimatedRaceTimeTypeTupleFields on PaceInsightEstimatedRaceTimeTypeTuple {
+  distance
+  preShiftTimeSecs
+  postShiftTimeSecs
+}
+
+fragment PaceInsightNextSessionFields on DaySummary {
+  id
+  runTitle
+  runType
+  day
+  date
+  scheduleDate
+  distanceFormatted
+}
+
+fragment PaceInsightNotification on PaceInsightNotification {
+  id
+  createdAt
+  updatedAt
+  read
+  seen
+  paceInsightStatus
+  paceInsightTimestamp
+}
+
+fragment PaceInsightOfferFields on PaceInsightOffer {
+  paceStates {
+    ...PaceInsightEstimatedRaceTimeTypeTupleFields
+  }
+  read
+}
+
+fragment PaceInsightsNextSpeedSession on Day {
+  id
+  runTitle
+  runType
+  day
+  date
+  scheduleDate
+  distanceFormatted
+}
+
+fragment PaceInsightStateFields on PaceInsightState {
+  id
+  timestamp
+  combinedStatus
+  enduranceStatus
+  speedStatus
+  nextSession {
+    ...PaceInsightNextSessionFields
+  }
+  offer {
+    ...PaceInsightOfferFields
+  }
+  adaptivitySource
+  defaultVisualizationType
+}
+
+fragment PaceInsightStateFieldsWithoutNextSession on PaceInsightState {
+  id
+  timestamp
+  combinedStatus
+  enduranceStatus
+  speedStatus
+  defaultVisualizationType
+  offer {
+    ...PaceInsightOfferFields
+  }
+  adaptivitySource
+}
+
+fragment PaceInsightsVisualizationDataV2 on PaceInsightsVisualizationDataV2 {
+  id
+  speedData {
+    ...PaceInsightsVisualizationDataV2ForComponent
+  }
+  enduranceData {
+    ...PaceInsightsVisualizationDataV2ForComponent
+  }
+}
+
+fragment PaceInsightsVisualizationDataV2ForComponent on PaceInsightsVisualizationDataV2ForComponent {
+  paceInsightVisualizationPoints {
+    ...PaceInsightsVisualizationPoint
+  }
+  incompatibleRuns {
+    ...IncompatibleRun
+  }
+  targetPaceZoneThreshold
+  yAxisMinMaxBound
+}
+
+fragment PaceInsightsVisualizationPoint on PaceInsightVisualizationPoint {
+  activityId
+  runTitle
+  timeOfRun
+  usedForSuggestion
+  fastestRepY
+  slowestRepY
+  runType
+}
+
+fragment PaceShiftRecommendationHistoryItem on PaceShiftRecommendationHistoryItem {
+  userId
+  category
+  status
+  estimatedRaceTimeType
+  displayedTimeStamp
+  preShiftRaceTime
+  postShiftRaceTime
+  revertable
+}
+
+fragment PlanAlignmentActionsV2Fields on PlanAlignmentMetadataV2 {
+  id
+  planAlignmentActionPayloads {
+    action
+    realignmentTaskPayload {
+      taskId
+      taskParameters
+      newEndDate
+    }
+  }
+}
+
+fragment PlanAlignmentMetadataQueryFields on OrderDetails {
+  id
+  planId
+  runsPerWeek
+  raceDate
+  orderIsDated
+  plan {
+    id
+    coaches
+  }
+  planV2 {
+    id
+    planLength
+  }
+  planAlignmentMetadata {
+    missedWorkouts
+    missedWeeks
+    alignmentState
+    alignmentActions
+  }
+}
+
+fragment PlanAlignmentOrderDetails on OrderDetails {
+  id
+  runsPerWeek
+  raceDate
+  startDate
+  planId
+  runningAbility
+  orderIsDated
+  plan {
+    id
+    coaches
+    activeWeekIndex
+  }
+  planV2 {
+    id
+    planLength
+  }
+}
+
+fragment PlanAlignmentStateV2Fields on PlanAlignmentMetadataV2 {
+  id
+  alignmentState
+  missedWorkouts
+  missedWeeks
+}
+
+fragment PlanFragment on Plan {
+  id
+  planLength
+  raceDistance
+  hasRace
+  cost
+  description
+  iconText
+  color
+  imageId
+  salesline
+  shortPlanName
+  raceDistName
+  enabledInApp
+  excludedAbilities
+  engineVersion
+  planId
+  planCategory
+}
+
+fragment PlanGroupFragment on PlanGroup {
+  key
+  plans {
+    ...PlanFragment
+  }
+}
+
+fragment PlanOverviewOrderDetails on OrderDetails {
+  ... on OrderDetails {
+    id
+    associatedOrderId
+    raceCompleted
+    planId
+    planVersion
+    customPlanName
+    sessionsPerWeek
+    upgradeRecommended
+    runningAbility
+    createdOn
+    isActive
+    raceDay
+    linked
+    longRun
+    uomV2
+    baseUOM
+    speedTarget
+    estimatedRaceTime
+    estimatedRaceTimeType
+    estimatedPaceState {
+      ...EstimatedPaceStateFields
+    }
+    daysOfWeekRun
+    runsPerWeek
+    raceDate
+    raceName
+    status
+    mobilityDay
+    pilatesDay
+    stretchDay
+    terrain
+    trainingMode
+    trainingFocus
+    currentLongestRun
+    currentWeeklyMileage
+    mileageCaps {
+      longRun
+      totalWeekly
+    }
+    startDate
+    orderIsDated
+    engineVersion
+    holidays {
+      ...Holiday
+    }
+    trainingReductions {
+      ...TrainingReduction
+    }
+    availableEngineMigration {
+      ...AvailableEngineMigration
+    }
+    rollbackMetadata {
+      ...OrderRollbackMetadata
+    }
+    trainingModeSettings {
+      ...OrderTrainingModeSettingsFragment
+    }
+    planV2 {
+      id
+      introVideoYoutubeId
+      introVideoMuxUrl
+      planLength
+      raceDistance
+      hasRace
+      salesline
+      description
+      iconText
+      color
+      imageId
+      shortPlanName
+      veryShortPlanName
+      raceDistName
+      planCategory
+    }
+    race {
+      ...RaceFields
+    }
+    updateLimits {
+      timeLimit
+      runningAbility
+      schedule
+      raceTime
+    }
+    raceTimeUpdateOffer {
+      key
+      secs
+    }
+    strengthAbility
+    strengthDaysAvailable
+    strengthTimeAvailable
+    strengthGoal
+    equipmentAvailable
+    runningModelVersion
+    timeTrialFrequency
+    plan {
+      id
+      completed
+      finishingAbilityV2
+      activeWeekIndex
+      availableSpeedUOMs
+      estimatedRaceTimes
+      totalPlanDistance
+      completedPlanDistance
+      estimatedFinalWeekTimes {
+        key
+        secs
+        display
+      }
+      estimatedActiveWeekTimes {
+        key
+        secs
+        display
+      }
+      ...ActiveWeekAllowedUpdates
+      introComment
+      coaches
+      pdfTemplate
+      workoutIntroComments {
+        key
+        value
+      }
+      introComments {
+        coach
+        comment
+      }
+      predictedPlanTimes {
+        key
+        value
+      }
+      nextSpeedSession {
+        ...PaceInsightsNextSpeedSession
+      }
+    }
+    sharedOrderMetrics {
+      orderSharedCount
+      sharedWithProfilePictures
+    }
+    bRaces {
+      ...BRace
+    }
+    planReplayState {
+      shouldShowPlanReplay
+    }
+    firstRunBackDate
+    previousRaceDate
+    previousRaceDistanceKm
+    previousRaceEffort
+    previousRaceName
+    previousRacePlanOrderId
+    targetRunsPerWeek
+  }
+  firstRunBackDate
+  previousRaceDate
+  previousRaceDistanceKm
+  previousRaceEffort
+  previousRaceName
+  previousRacePlanOrderId
+  targetRunsPerWeek
+  category
+}
+
+fragment PlanOverviewPDFOrderDetails on OrderDetails {
+  id
+  planOverviewPdfUrl
+  planId
+  customPlanName
+  planV2 {
+    id
+    shortPlanName
+  }
+}
+
+fragment PlanPreviewFields on PlanUpdatePreview {
+  id
+  weeks {
+    ...PlanPreviewWeekFields
+  }
+}
+
+fragment PlanPreviewWeekFields on PlanPreviewWeek {
+  weekIndex
+  workouts {
+    ...PlanPreviewWorkoutFields
+  }
+  oldDistance
+  newDistance
+  containsHoliday
+  trainingReductionReason
+}
+
+fragment PlanPreviewWorkoutFields on PlanPreviewWorkout {
+  id
+  runType
+  day
+  oldDistance
+  newDistance
+  state
+}
+
+fragment PlanRecommendationCategoryFragment on PlanRecommendationCategory {
+  isRecommended
+  coachComment
+  plans {
+    ...PlanRecommendationFragment
+  }
+}
+
+fragment PlanRecommendationFragment on PlanRecommendation {
+  id
+  isRecommended
+  coachComment
+  estimatedRaceTime
+  duration {
+    min
+    max
+  }
+  planMetadata {
+    ...PlanFragment
+  }
+}
+
+fragment PlanReplaySummary on PlanReplaySummary {
+  orderId
+  planName
+  planType
+  planStartDate
+  planEndDate
+  raceName
+  lengthOfPlanInWeeks
+  planIconText
+  planCategory
+  plannedRunWeekCompletions {
+    plannedRuns
+    completedRuns
+  }
+  totalCompletedPlannedRuns
+  averageCompletedPlannedRunsPerWeek
+  totalActivityTime
+  totalActivityDistance
+  furthestRunInPlan
+  furthestRunInPlanTime
+  estimatedRaceTimeTuple {
+    key
+    secs
+  }
+  fallbackEstimatedRaceTime
+  planPbComparisons {
+    pbType
+    planPb {
+      id
+      time
+      distance
+    }
+    previousPb {
+      id
+      time
+      distance
+    }
+  }
+  planBestEffortComparisons {
+    bestEffortTime
+    pb {
+      id
+      time
+      distance
+    }
+    pbType
+  }
+  routeSVGs
+  planFeedback
+  raceDayAchievements {
+    isPb
+    pbType
+    previousPb {
+      id
+      time
+      distance
+    }
+    finalActivity {
+      id
+      type
+      treadmillType
+      name
+      address
+      routeSVG
+      createdOn
+      workoutId
+      recordType
+      pbs
+      activePbs
+      fastestTimes {
+        type
+        time
+        distance
+        __typename
+      }
+      runType
+      summary {
+        startTimestamp
+        endTimestamp
+        movingTime
+        totalTime
+        distance
+        averageSpeed
+        elevationGain
+        averageHeartRate
+        averageCadence
+        calories
+        __typename
+      }
+      laps {
+        startTimestamp
+        distance
+        movingTime
+        totalTime
+        averageSpeed
+        maxSpeed
+        averageHeartRate
+        averageCadence
+        __typename
+      }
+      kmSplits
+      mileSplits
+      __typename
+    }
+    closeToEstimatedRaceTime
+    fasterThanEstimatedRaceTime
+  }
+  upcomingRecoveryPlanOrderId
+}
+
+fragment PlanScheduleV2 on WorkoutScheduleV2 {
+  ... on CommonWorkoutScheduleV2 {
+    id
+    date
+    completed
+    skipped
+    weekIndex
+    day
+  }
+  ... on RunScheduleV2 {
+    id
+    runType
+    completed
+    skipped
+    weekIndex
+    day
+  }
+  ... on StrengthScheduleV2 {
+    id
+    strengthType
+    completed
+    skipped
+    weekIndex
+    day
+  }
+}
+
+fragment PostRunSummaryMetadata on PostRunSummary {
+  ... on PostRunSummaryBase {
+    activityId
+    status
+  }
+  ... on PostRunSummarySuccess {
+    summary
+    evaluationScore
+    audioFileName
+  }
+  ... on PostRunSummaryFailure {
+    errorMessage
+  }
+}
+
+fragment RaceEventDetails on RaceEvent {
+  id
+  name
+  noSponsorName
+  startDate
+  endDate
+  bio {
+    long
+    short
+  }
+  location {
+    address
+    city
+    country
+    lat
+    long
+  }
+  elevation {
+    altitudeM
+  }
+  weather {
+    historic {
+      timestamp
+      temperatureKelvin
+      status
+    }
+    average {
+      temperatureKelvin
+    }
+    predicted {
+      temperatureKelvin
+      status
+    }
+    forecast {
+      temperatureKelvin
+      status
+    }
+  }
+  imageUrl
+  websiteUrl
+  keywords
+  totalSignUps
+  isPartner
+  organiser {
+    id
+    name
+  }
+  tags {
+    id
+    name
+  }
+  races {
+    id
+    name
+    date
+    bio
+    distance {
+      valueKm
+      label
+    }
+    uom
+    elevation {
+      profile
+      gainM
+    }
+    sport
+    terrain
+    weather {
+      average {
+        temperatureKelvin
+      }
+    }
+    price {
+      currency
+      lower
+      upper
+    }
+    communitySpaceId
+    signUps
+    location {
+      city
+      country
+    }
+    organiser {
+      id
+      name
+    }
+    imageUrl
+    websiteUrl
+    eventSignUps
+    keywords
+  }
+}
+
+fragment RaceFields on Race {
+  id
+  eventId
+  enabled
+  author
+  bioLong
+  bioShort
+  city
+  country
+  communitySpaceId
+  date
+  distance
+  distanceValue
+  elevationGain
+  elevationProfile
+  image
+  imageLowResUrl
+  imageUrl
+  name
+  participants
+  usersRegistered
+  website
+  raceUom
+}
+
+fragment RangeThresholdsFragment on RangeThresholds {
+  hardBounds {
+    min
+    max
+  }
+  softBounds {
+    min
+    max
+  }
+  default
+}
+
+fragment ReactionsSummary on CommunityReactionsSummary {
+  like
+  love
+  laugh
+  wow
+  sad
+  angry
+  fire
+  comments
+  totalReactions
+}
+
+fragment RecordActivityUserProfile on User {
+  id
+  name
+  createdOn
+  unitOfMeasurementV2
+  subscriptionStatus
+  subscriptionType
+  autoPause
+  speedTarget
+  startOnMotion
+  countdownTime
+  rodAudioStartStop
+  rodAudioSplits
+  rodAudioPace
+  rodAudioPauseWarning
+  limits {
+    workoutsCompleted
+    plansCreated
+  }
+  workoutSettings {
+    trackIntervals
+  }
+  shoe {
+    active
+    brand
+    color
+    createdOn
+    distance
+    id
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+}
+
+fragment ReportContentResult on ReportContentResult {
+  ... on ReportContentSuccess {
+    success
+  }
+  ... on UserHasAlreadyReportedContentError {
+    message
+  }
+}
+
+fragment RouteSummary on WorkoutRouteSummary {
+  id
+  distance
+  elevationGain
+  routeName
+  routeSVG
+}
+
+fragment SharedWorkoutSummary on SharedWorkoutDetails {
+  originalWorkoutId
+  ownerName
+  ownerPic
+}
+
+fragment StepsRecursive on StepV2 {
+  ...SubStepsFields
+  steps {
+    ...SubStepsFields
+    steps {
+      ...SubStepsFields
+    }
+  }
+}
+
+fragment StravaAccountData on StravaAccountData {
+  id
+  username
+  firstname
+  lastname
+  createdAt
+  profileUrl
+  friendCount
+  followerCount
+  totalRuns
+  dateOfBirth
+}
+
+fragment StrengthExercise on StrengthExercise {
+  id
+  exerciseId
+  exerciseTitle
+  exerciseRequires
+  exerciseRequires2
+  exerciseRequiresDisplay
+  exerciseIsUnilateral
+  exerciseDescription
+  exerciseTip
+  exerciseWeight
+  exerciseVideo
+  exerciseLottie
+  exerciseMuscleGroupBroad
+  exerciseMuscleGroupSpecific
+  exerciseGrades {
+    gradeType
+    grades
+    gradesV2
+  }
+  mostRecentSet {
+    weightKg
+  }
+  timer
+  note
+}
+
+fragment SubscribedCommunitySpace on CommunitySpace {
+  ...CommunitySpace
+  followingStatus {
+    ...CommunitySpaceFollowingStatus
+  }
+}
+
+fragment SubStepsFields on StepV2 {
+  id
+  type
+  stepOrder
+  repeatValue
+  intensity
+  description
+  durationType
+  durationValue
+  durationValueType
+  targetType
+  speedDesc
+  paces {
+    slow {
+      text
+      mps
+    }
+    fast {
+      text
+      mps
+    }
+    average {
+      text
+      mps
+    }
+    rbPace
+  }
+  treadSpeedDis
+  treadIncline
+  treadSpeedMPS
+  primaryText
+  joinString
+  secondaryText
+  additionalText
+  paceType
+}
+
+fragment TimeToDistanceTransitionFeatureInteractionsMetadata on TimeToDistanceTransitionFeatureInteractionsMetadata {
+  retrospective
+  weekIndex
+}
+
+fragment TodayHomeOrderInfo on OrderInfo {
+  id
+  completed
+  disabled
+  completedPlanFeedback {
+    questionId
+  }
+  plan {
+    id
+    iconText
+    color
+    planLength
+    shortPlanName
+    planCategory
+  }
+  race {
+    id
+    eventId
+    image
+    imageUrl
+    name
+  }
+}
+
+fragment Tracking on WorkoutTracking {
+  runType
+  longRunCategory
+}
+
+fragment TrainingModeSettings on TrainingModeSettings {
+  adaptedBy
+  mileage {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  difficulty {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  buildRate {
+    MINIMUM
+    VERY_EASY
+    EASY
+    DEFAULT
+    HARD
+  }
+  advancedMileageSettings {
+    ...AdvancedMileageSettings
+  }
+  advancedDifficultySettings {
+    ...AdvancedDifficultySettings
+  }
+  defaults {
+    ...OrderTrainingModeSettingsFragment
+  }
+}
+
+fragment TrainingReduction on TrainingReduction {
+  id
+  name
+  adjustmentInsights {
+    ...TrainingReductionAdjustmentInsight
+  }
+  status
+  activePeriodType
+  startDate
+  endDate
+  reason
+  returnRate
+  intensity
+  runsPerWeekOverride
+  otherRemovedWorkouts
+  hasEndedEarly
+  createdOn
+}
+
+fragment TrainingReductionAdjustmentInsight on TrainingReductionAdjustmentInsights {
+  coach
+  comment
+  adjustmentInsight
+  estimatedRaceTimeRange {
+    estimatedRaceTime
+  }
+  trainingImpactedPeriod {
+    ...TrainingReductionImpactedPeriod
+  }
+  warning
+  planExtensionRecommendation {
+    planExtensionDate
+    required
+  }
+}
+
+fragment TrainingReductionImpactedPeriod on TrainingReductionImpactedPeriod {
+  endDate
+  startDate
+  title
+}
+
+fragment TypeRef on __Type {
+      kind
+      name
+      ofType {
+        kind
+        name
+        ofType {
+          kind
+          name
+          ofType {
+            kind
+            name
+            ofType {
+              kind
+              name
+              ofType {
+                kind
+                name
+                ofType {
+                  kind
+                  name
+                  ofType {
+                    kind
+                    name
+                    ofType {
+                      kind
+                      name
+                      ofType {
+                        kind
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+fragment UniqueOfferCodeFields on UniqueOfferCode {
+  ...BaseOfferCodeFields
+  offerCode {
+    ...AssignedCodeFields
+  }
+  availableRedemptions
+  ttlHours
+}
+
+fragment UnlinkDayMetadata on WorkoutMetadataDay {
+  ... on Day {
+    id
+    runType
+    isInstant
+  }
+  ... on DayMobility {
+    id
+  }
+  ... on DayPilates {
+    id
+  }
+  ... on DayStrength {
+    id
+    strengthType
+    isInstant
+  }
+}
+
+fragment UserFeatureInteraction on UserFeatureInteraction {
+  id
+  feature
+  featureId
+  seenAt
+  showAfterMs
+  createdAt
+  metadataV2 {
+    ... on UserLevelledUpFeatureInteractionsMetadata {
+      ...UserLevelledUpFeatureInteractionsMetadata
+    }
+    ... on TimeToDistanceTransitionFeatureInteractionsMetadata {
+      ...TimeToDistanceTransitionFeatureInteractionsMetadata
+    }
+    ... on TrainingReductionEndingNotificationFeatureInteractionsMetadata {
+      ...TrainingReductionEndingNotificationFeatureInteractionsMetadata
+    }
+  }
+}
+
+fragment UserInfo on User {
+  id
+  email
+  name
+  picture
+  isRunnaLabsUser
+  isOptedOutOfProductImprovements
+  isLevelsEnabled
+  activeOrder
+  unitOfMeasurementV2
+  dateOfBirth
+  createdOn
+  languageSettings {
+    locale
+  }
+  subscriptionStore
+}
+
+fragment UserLevelledUpFeatureInteractionsMetadata on UserLevelledUpFeatureInteractionsMetadata {
+  previousLevel
+  newLevel
+  nextLevel
+  previousTotalPoints
+  totalPoints
+  nextLevelPoints
+}
+
+fragment UserMileageCapsFragment on MileageCapBounds {
+  totalWeekly {
+    ...MileageCapBoundsFragment
+  }
+  longRun {
+    ...MileageCapBoundsFragment
+  }
+}
+
+fragment UserOrderInfo on OrderDetails {
+  id
+  startDate
+  planId
+  planVersion
+  customPlanName
+  raceDate
+  planV2 {
+    planLength
+    shortPlanName
+    iconText
+    planCategory
+    imageId
+  }
+}
+
+fragment UserOrdersInfo on OrderInfo {
+  id
+  planStartDate
+  planEndDate
+  planLength
+  completed
+  disabled
+  associatedOrderId
+  category
+  customPlanName
+  updatedOn
+  hasStarted
+  plan {
+    id
+    iconText
+    shortPlanName
+    planCategory
+    planLength
+  }
+}
+
+fragment UserProfileWeekDetail on User {
+  id
+  picture
+  name
+  activeOrder
+  isRunnaLabsUser
+  garminToken {
+    accessToken
+  }
+  garminPermissions
+  userType
+  createdOn
+  subscriptionStatus
+  subscriptionType
+  limits {
+    workoutsCompleted
+    plansCreated
+  }
+  partnerCodeRaceAttribution
+  subscriptionLastEventType
+  referralCode
+  affiliateCode
+  lastActive
+  newProductId
+  unitOfMeasurementV2
+  speedTarget
+  justGivingDonationLink
+  appleWatch
+  autoPause
+  countdownTime
+  startOnMotion
+  notificationSettings {
+    support
+    community
+    workouts
+    activities
+    whatsNew
+    emailMarketing
+  }
+  devicePushTokens {
+    iosToken
+    androidToken
+  }
+  stravaToken {
+    accessToken
+    scopes
+  }
+  corosToken {
+    accessToken
+  }
+  fitbitToken {
+    accessToken
+  }
+  watchesSpeedUom {
+    garmin
+    coros
+    suunto
+    appleWorkoutsApp
+  }
+  appleHealthResync
+  appleFitness {
+    enabled
+  }
+  appleWorkoutsApp
+  rodAudioStartStop
+  shoe {
+    active
+    brand
+    color
+    createdOn
+    distance
+    id
+    model
+    name
+    runs
+    targetDistance
+    time
+    visible
+    retired
+  }
+  workoutSettings {
+    openWarmup
+    trackIntervals
+    paceTargets
+    paceTargetsEasyRun
+  }
+}
+
+fragment ViolationDeltas on ViolationDeltasCelsius {
+  outdoorViolation
+  qualifications {
+    adaptionType
+    delta
+  }
+}
+
+fragment WarmCoolExercise on WarmCoolExercise {
+  id
+  duration
+  order
+  exerciseDetails {
+    ...WarmCoolExerciseDetails
+  }
+}
+
+fragment WarmCoolExerciseDetails on WarmCoolExerciseDetails {
+  name
+  description
+  tip
+  videoId
+  lottieCode
+  unilateral
+}
+
+fragment WarmCoolRoutine on WarmCoolRoutine {
+  id
+  coach
+  completed
+  type
+  videoId
+  muxUrl
+  duration
+  exercises {
+    ...WarmCoolExercise
+  }
+}
+
+fragment WeatherAdaptions on WeatherAdaptionState {
+  eligibilityStatus
+  qualification {
+    ...WeatherQualificationFields
+  }
+  appliedAdaption {
+    ...AppliedWeatherAdaption
+  }
+}
+
+fragment WeatherForecast on WeatherForecastV2 {
+  timestamp
+  cityId
+  timezoneOffset
+  source
+  forecast {
+    ...DailyWeather
+  }
+  current {
+    city
+    windSpeed
+    timestamp
+    temperature
+    feelsLike
+    humidity
+    sunset
+    status
+    sunrise
+  }
+}
+
+fragment WeatherQualificationFields on WeatherQualification {
+  maxOptimalFeelsLikeCelsius
+  maxOutdoorFeelsLikeCelsius
+  adaptionQualifications {
+    ... on WeatherPaceAdaptionQualification {
+      minQualifyingFeelsLikeCelsius
+      maxQualifyingFeelsLikeCelsius
+    }
+    ... on WeatherLongRunSwapAdaptionQualification {
+      minQualifyingFeelsLikeCelsius
+      maxQualifyingFeelsLikeCelsius
+    }
+  }
+}
+
+fragment WeekSummary on Week {
+  id
+  startDate
+  endDate
+  weekIndex
+  title
+  completed
+  skipped
+  totalDistance
+  totalDistanceFormatted
+  weeklyComment
+  weeklyCommentCoach
+  weeklyArticle
+  containsHoliday
+  adaptationMetadata {
+    containsHoliday
+    trainingReductionReason
+  }
+  lockedV3 {
+    isLocked
+    lockedType
+    unlockedInDays
+  }
+  estCurrentRaceTimesV2 {
+    key
+    secs
+    display
+  }
+  days {
+    ... on Day {
+      id
+      completed
+      runType
+      runTitle
+      day
+      weekIndex
+      originalWeekIndex
+      date
+      scheduleDate
+      scheduled24HourTime
+      duration
+      durationType
+      distanceFormatted
+      durationFormatted
+      originalDay
+      coach
+      article
+      distance
+      routeId
+      workoutBriefingV2(mode: [OUTDOOR, TREADMILL]) {
+        ...WorkoutBriefingsFragment
+      }
+      lockedV3 {
+        isLocked
+        lockedType
+        unlockedInDays
+      }
+      skipped
+      note
+      linkedActivitiesV2 {
+        ...LinkedActivitySummaryMetadata
+      }
+      description
+      comment
+      workoutName
+      tracking {
+        ...Tracking
+      }
+      preferredSpeedTarget
+      speedTargetOverride
+      terrain
+      bRace {
+        ...BRace
+      }
+    }
+    ... on DayStrength {
+      id
+      day
+      weekIndex
+      originalWeekIndex
+      strengthType
+      strengthTypeV2
+      strengthTypeDisplay
+      strengthTitle
+      duration
+      originalDay
+      date
+      scheduleDate
+      scheduled24HourTime
+      durationFormatted
+      strengthDescription
+      completed
+      lockedV3 {
+        isLocked
+        lockedType
+        unlockedInDays
+      }
+      skipped
+      note
+      linkedActivitiesV2 {
+        ...LinkedActivitySummaryMetadata
+      }
+    }
+    ... on DayMobility {
+      id
+      mobilityTitle
+      mobilityDescription
+      duration
+      originalDay
+      durationFormatted
+      day
+      weekIndex
+      originalWeekIndex
+      coach
+      comment
+      sessionLevel
+      completed
+      skipped
+      date
+      scheduleDate
+      scheduled24HourTime
+      note
+      videoId
+      videoPath
+      lockedV3 {
+        isLocked
+        lockedType
+        unlockedInDays
+      }
+      linkedActivitiesV2 {
+        ...LinkedActivitySummaryMetadata
+      }
+    }
+    ... on DayPilates {
+      id
+      pilatesTitle
+      pilatesDescription
+      duration
+      originalDay
+      durationFormatted
+      day
+      weekIndex
+      originalWeekIndex
+      coach
+      comment
+      sessionLevel
+      completed
+      skipped
+      note
+      date
+      scheduleDate
+      scheduled24HourTime
+      videoId
+      videoPath
+      lockedV3 {
+        isLocked
+        lockedType
+        unlockedInDays
+      }
+      linkedActivitiesV2 {
+        ...LinkedActivitySummaryMetadata
+      }
+    }
+    ... on DayStretch {
+      id
+      stretchTitle
+      stretchDescription
+      duration
+      originalDay
+      durationFormatted
+      day
+      weekIndex
+      originalWeekIndex
+      coach
+      comment
+      sessionLevel
+      completed
+      skipped
+      date
+      scheduleDate
+      scheduled24HourTime
+      note
+      videoId
+      videoPath
+      lockedV3 {
+        isLocked
+        lockedType
+        unlockedInDays
+      }
+      linkedActivitiesV2 {
+        ...LinkedActivitySummaryMetadata
+      }
+    }
+    ... on Rest {
+      id
+      day
+      runType
+    }
+  }
+}
+
+fragment WorkoutAdaptions on WorkoutAdaptions {
+  weather {
+    ...WeatherAdaptions
+  }
+}
+
+fragment WorkoutBriefingFieldsFragment on WorkoutBriefingBase {
+  id
+  status
+  createdAt
+  ... on WorkoutBriefingNotReady {
+    readyAt
+  }
+  ... on WorkoutBriefingSuccess {
+    briefing {
+      ...BriefingFieldsFragment
+    }
+    evaluationScore
+    evaluationFeedback
+    freeFormEvaluation
+  }
+  ... on WorkoutBriefingError {
+    errorMessage
+  }
+}
+
+fragment WorkoutBriefingsFragment on WorkoutBriefingGroup {
+  id
+  outdoor {
+    ...WorkoutBriefingFieldsFragment
+  }
+  treadmill {
+    ...WorkoutBriefingFieldsFragment
+  }
+  canRegenerate
+  numGenerationsRemaining
+}
+
+fragment WorkoutPreview on WorkoutPreview {
+  id
+  outdoor {
+    ...DaySpeed
+  }
+  treadmill {
+    ...DaySpeed
+  }
+}

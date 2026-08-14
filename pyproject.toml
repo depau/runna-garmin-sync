@@ -1,0 +1,24 @@
+[project]
+name = "runna-garmin-sync"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.4.2",
+    "curl-cffi>=0.16.0",
+    "garminconnect>=0.3.10",
+]
+
+[project.scripts]
+runna-garmin-sync = "runna_garmin_sync.__main__:cli"
+
+[build-system]
+requires = ["uv_build>=0.9,<0.12"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
