@@ -53,6 +53,12 @@ class FakeGarmin:
     def delete_workout(self, workout_id):
         self.calls.append(("delete", workout_id))
 
+    def get_primary_training_device(self):
+        return {"PrimaryTrainingDevice": {"deviceId": 42}}
+
+    def push_workout_to_device(self, workout_id, device_id):
+        self.calls.append(("push", workout_id, device_id))
+
     def call_names(self):
         return [c[0] for c in self.calls]
 
@@ -65,8 +71,9 @@ def runna():
 def test_first_sync_creates_and_schedules(runna, mapping, state):
     garmin = FakeGarmin()
     stats = full_sync(runna, garmin, mapping, state)
-    assert stats == {"created": 2, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0}
-    assert garmin.call_names() == ["upload", "schedule", "upload", "schedule"]
+    assert stats == {"created": 2, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0, "pushed": 2}
+    assert garmin.call_names() == ["upload", "schedule", "upload", "schedule", "push", "push"]
+    assert garmin.calls[-1][2] == 42  # pushed to the primary training device
     tracked = state.load(SYNC_FILE)["workouts"]
     assert set(tracked) == {"r1", "r2"}
     assert tracked["r1"]["date"] == TOMORROW and tracked["r1"]["scheduleId"]
@@ -84,8 +91,8 @@ def test_content_change_updates_in_place(runna, mapping, state):
     runna.days["r1"]["parts"][1]["partSets"] = 5
     garmin = FakeGarmin()
     stats = full_sync(runna, garmin, mapping, state)
-    assert stats["updated"] == 1 and stats["rescheduled"] == 0
-    assert garmin.call_names() == ["update"]
+    assert stats["updated"] == 1 and stats["rescheduled"] == 0 and stats["pushed"] == 1
+    assert garmin.call_names() == ["update", "push"]
 
 
 def test_date_change_reschedules(runna, mapping, state):
@@ -95,7 +102,7 @@ def test_date_change_reschedules(runna, mapping, state):
     garmin = FakeGarmin()
     stats = full_sync(runna, garmin, mapping, state)
     assert stats["rescheduled"] == 1
-    assert garmin.call_names() == ["update", "unschedule", "schedule"]
+    assert garmin.call_names() == ["update", "unschedule", "schedule", "push"]
     assert state.load(SYNC_FILE)["workouts"]["r1"]["date"] == moved
 
 

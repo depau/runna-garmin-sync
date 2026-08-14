@@ -91,6 +91,24 @@ def dump(ctx, no_cache):
     json.dump(_runna(ctx).strength_days_cached(refresh=no_cache), sys.stdout, indent=2, ensure_ascii=False)
 
 
+@cli.command()
+@click.pass_context
+def push(ctx):
+    """Push all synced upcoming workouts to the primary training device."""
+    import datetime
+
+    from .sync import SYNC_FILE, push_to_device
+
+    tracked = ctx.obj["state"].load(SYNC_FILE, {}).get("workouts", {})
+    today = datetime.date.today().isoformat()
+    ids = [r["garminWorkoutId"] for r in tracked.values() if r["date"] >= today]
+    if not ids:
+        click.echo("nothing synced yet — run `sync` first")
+        return
+    pushed = push_to_device(_garmin(ctx), ids)
+    click.echo(f"pushed {pushed}/{len(ids)} workouts to the primary training device")
+
+
 @cli.command("garmin-workout")
 @click.argument("workout_id")
 @click.pass_context

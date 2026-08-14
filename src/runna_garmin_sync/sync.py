@@ -66,6 +66,25 @@ def plan_sync(runna: RunnaClient, mapping: Mapping, state: State, refresh: bool 
     return plan
 
 
+def push_to_device(garmin: Garmin, workout_ids: list) -> int:
+    """Push workouts to the primary training device. Returns how many succeeded."""
+    if not workout_ids:
+        return 0
+    try:
+        device_id = garmin.get_primary_training_device()["PrimaryTrainingDevice"]["deviceId"]
+    except Exception as e:
+        log.warning("no primary training device (%s); using last-used device", e)
+        device_id = None
+    pushed = 0
+    for wid in workout_ids:
+        try:
+            garmin.push_workout_to_device(wid, device_id)
+            pushed += 1
+        except Exception as e:
+            log.warning("device push of workout %s failed: %s", wid, e)
+    return pushed
+
+
 def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State, refresh: bool = False) -> dict:
     today = datetime.date.today().isoformat()
     st = state.load(SYNC_FILE, {})
@@ -79,7 +98,8 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
         workout = build_workout(day, mapping, link)
         desired[day["id"]] = (workout, day["date"])
 
-    stats = {"created": 0, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0}
+    stats = {"created": 0, "updated": 0, "rescheduled": 0, "deleted": 0, "unchanged": 0, "pushed": 0}
+    touched = []
 
     for rid, (workout, date) in desired.items():
         h = content_hash(workout, date)
@@ -95,10 +115,12 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
                 "hash": h,
             }
             stats["created"] += 1
+            touched.append(gid)
             log.info("created %s → garmin %s on %s", rid, gid, date)
         elif rec["hash"] != h:
             garmin.update_workout(rec["garminWorkoutId"], workout)
             stats["updated"] += 1
+            touched.append(rec["garminWorkoutId"])
             if rec["date"] != date:
                 if rec.get("scheduleId"):
                     garmin.unschedule_workout(rec["scheduleId"])
@@ -127,6 +149,8 @@ def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State
         stats["deleted"] += 1
         log.info("deleted %s (garmin %s)", rid, rec["garminWorkoutId"])
         state.save(SYNC_FILE, st)
+
+    stats["pushed"] = push_to_device(garmin, touched)
 
     st["lastSync"] = datetime.datetime.now(datetime.UTC).isoformat()
     state.save(SYNC_FILE, st)
