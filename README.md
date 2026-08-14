@@ -1,4 +1,4 @@
-# runna-garmin-strength-workout-sync
+# Runna → Garmin strength workout sync 
 
 Headless daemon that mirrors [Runna](https://runna.com) strength workouts to
 Garmin Connect as scheduled strength workouts (Runna only syncs runs). Personal
