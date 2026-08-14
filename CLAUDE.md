@@ -31,7 +31,8 @@ Runna/Garmin accounts; sessions live in `~/.config/runna-garmin-sync` (override 
 
 ## Architecture
 
-Pipeline in `src/runna_garmin_sync/` (src layout, uv_build backend):
+Pipeline in `src/runna_garmin_sync/` (src layout, hatchling backend; version comes from git tags
+via hatch-vcs — don't add a `version =` to pyproject):
 
 - `runna.py` — Cognito auth (raw HTTP, no boto3; password → cached refresh token → cached idToken
   in `runna_auth.json`), minimal GraphQL client, parallel plan-week walker (8 threads), iCal
