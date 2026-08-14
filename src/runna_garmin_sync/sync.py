@@ -34,7 +34,7 @@ def _schedule_id(response: dict, garmin: Garmin, workout_id, date: str):
     return None
 
 
-def plan_sync(runna: RunnaClient, mapping: Mapping, state: State) -> list[dict]:
+def plan_sync(runna: RunnaClient, mapping: Mapping, state: State, refresh: bool = False) -> list[dict]:
     """Compute the actions a sync would take, without touching Garmin.
 
     Returns [{action, runnaId, date, workout?}] — action ∈ create/update/
@@ -45,7 +45,7 @@ def plan_sync(runna: RunnaClient, mapping: Mapping, state: State) -> list[dict]:
     link = runna.app_link_base()
     plan = []
     seen = set()
-    for day in runna.strength_days_cached():
+    for day in runna.strength_days_cached(refresh=refresh):
         rid = day["id"]
         if (day.get("date") or "") < today or day.get("skipped"):
             continue

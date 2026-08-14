@@ -84,10 +84,11 @@ def login(ctx):
 
 
 @cli.command()
+@click.option("--no-cache", is_flag=True, help="refetch from Runna even if the calendar is unchanged")
 @click.pass_context
-def dump(ctx):
+def dump(ctx, no_cache):
     """Print all Runna strength days as JSON (cached; ETag-invalidated)."""
-    json.dump(_runna(ctx).strength_days_cached(), sys.stdout, indent=2, ensure_ascii=False)
+    json.dump(_runna(ctx).strength_days_cached(refresh=no_cache), sys.stdout, indent=2, ensure_ascii=False)
 
 
 @cli.command("garmin-workout")
@@ -108,17 +109,18 @@ def _do_sync(ctx: click.Context, refresh: bool = False) -> None:
 @cli.command()
 @click.option("--dry-run", "-n", is_flag=True, help="don't touch Garmin; show what a sync would do")
 @click.option("--json", "as_json", is_flag=True, help="with --dry-run: emit the plan (incl. Garmin DTOs) as JSON")
+@click.option("--no-cache", is_flag=True, help="refetch from Runna even if the calendar is unchanged")
 @click.pass_context
-def sync(ctx, dry_run, as_json):
+def sync(ctx, dry_run, as_json, no_cache):
     """One-shot full sync."""
     if not dry_run:
-        _do_sync(ctx)
+        _do_sync(ctx, refresh=no_cache)
         return
     from .builder import describe_workout
     from .sync import plan_sync
 
     mapping = Mapping(ctx.obj["state"], ctx.obj["mapping_csv"])
-    plan = plan_sync(_runna(ctx), mapping, ctx.obj["state"])
+    plan = plan_sync(_runna(ctx), mapping, ctx.obj["state"], refresh=no_cache)
     if as_json:
         json.dump(plan, sys.stdout, indent=2, ensure_ascii=False)
         return
