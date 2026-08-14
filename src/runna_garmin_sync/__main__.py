@@ -109,6 +109,23 @@ def push(ctx):
     click.echo(f"pushed {pushed}/{len(ids)} workouts to the primary training device")
 
 
+@cli.command()
+@click.option("--yes", is_flag=True, help="skip the confirmation prompt")
+@click.pass_context
+def purge(ctx, yes):
+    """Delete ALL Garmin workouts created by this tool (incl. past ones)."""
+    from .sync import SYNC_FILE, delete_all
+
+    tracked = ctx.obj["state"].load(SYNC_FILE, {}).get("workouts", {})
+    if not tracked:
+        click.echo("nothing tracked — nothing to delete")
+        return
+    if not yes:
+        click.confirm(f"Delete {len(tracked)} workout(s) from Garmin Connect?", abort=True)
+    deleted = delete_all(_garmin(ctx), ctx.obj["state"])
+    click.echo(f"deleted {deleted}/{len(tracked)} workouts")
+
+
 @cli.command("garmin-workout")
 @click.argument("workout_id")
 @click.pass_context

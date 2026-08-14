@@ -141,3 +141,14 @@ def test_plan_sync_reports_without_touching_garmin(runna, mapping, state):
     del runna.days["r2"]
     actions = {p["runnaId"]: p["action"] for p in plan_sync(runna, mapping, state)}
     assert actions == {"r1": "update+reschedule", "r2": "delete"}
+
+
+def test_delete_all_purges_everything(runna, mapping, state):
+    from runna_garmin_sync.sync import delete_all
+
+    full_sync(runna, FakeGarmin(), mapping, state)
+    garmin = FakeGarmin()
+    assert delete_all(garmin, state) == 2
+    assert garmin.call_names() == ["unschedule", "delete", "unschedule", "delete"]
+    assert state.load(SYNC_FILE)["workouts"] == {}
+    assert delete_all(FakeGarmin(), state) == 0  # idempotent

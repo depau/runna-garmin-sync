@@ -85,6 +85,30 @@ def push_to_device(garmin: Garmin, workout_ids: list) -> int:
     return pushed
 
 
+def delete_all(garmin: Garmin, state: State) -> int:
+    """Delete every Garmin workout this tool created (tracked in sync_state.json)."""
+    st = state.load(SYNC_FILE, {})
+    tracked = st.get("workouts", {})
+    deleted = 0
+    for rid in list(tracked):
+        rec = tracked[rid]
+        if rec.get("scheduleId"):
+            try:
+                garmin.unschedule_workout(rec["scheduleId"])
+            except Exception as e:
+                log.warning("unschedule %s failed: %s", rid, e)
+        try:
+            garmin.delete_workout(rec["garminWorkoutId"])
+        except Exception as e:
+            log.warning("delete %s (garmin %s) failed: %s", rid, rec["garminWorkoutId"], e)
+            continue
+        del tracked[rid]
+        deleted += 1
+        log.info("deleted %s (garmin %s)", rid, rec["garminWorkoutId"])
+        state.save(SYNC_FILE, st)
+    return deleted
+
+
 def full_sync(runna: RunnaClient, garmin: Garmin, mapping: Mapping, state: State, refresh: bool = False) -> dict:
     today = datetime.date.today().isoformat()
     st = state.load(SYNC_FILE, {})
