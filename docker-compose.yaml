@@ -4,7 +4,8 @@
 #   docker compose up -d
 services:
   sync:
-    build: .
+    image: ghcr.io/depau/runna-garmin-sync:edge  # or :latest / a semver tag
+    # build: .
     restart: unless-stopped
     volumes:
       - ./state:/state
