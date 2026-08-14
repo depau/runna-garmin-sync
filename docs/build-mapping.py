@@ -165,7 +165,7 @@ CURATED = {
  "BARBELL_SQUAT": ("SQUAT","BARBELL_BACK_SQUAT","high",""),
  "BANDED_HAMSTRING_CURL": ("BANDED_EXERCISES","HAMSTRING_CURLS","high",""),
  "BANDED_TOE_RAISE": ("BANDED_EXERCISES","CALF_RAISES","low","no banded toe-raise; banded lower-leg (relaxed)"),
- "HAMSTRING_WALKOUT": ("LEG_CURL","LEG_CURL","low","no walkout in Garmin; generic hamstring (relaxed)"),
+ "HAMSTRING_WALKOUT": ("LEG_CURL","SLIDING_LEG_CURL","med","heel walkout ≈ sliding leg curl"),
  "SL_ISO_HAMSTRING_HOLD": ("LEG_CURL","LEG_CURL","low","isometric hamstring; generic hamstring"),
  "HIP_DROP": ("HIP_STABILITY","HIP_STABILITY","low","running pelvic-drop; hip stability (same area)"),
  "FLOATING_HEEL_DROP": ("CALF_RAISE","CALF_RAISE","low","calf eccentric; generic calf raise"),
@@ -198,8 +198,14 @@ CURATED = {
  "SL_COPENHAGEN_PLANK": ("PLANK","SIDE_PLANK","med","Copenhagen plank; using side plank"),
  "DEADBUG": ("HIP_STABILITY","DEAD_BUG","high",""),
  "CLAM_SHELLS": ("BANDED_EXERCISES","CLAM_SHELLS","med","clam shell (Garmin lists it under banded)"),
- "POGO_JUMPS": (None,None,"low","ankle pogo hops; no equivalent"),
- "DL_SKIPPING": (None,None,"low","double-leg skipping; no jump-rope enum"),
+ "POGO_JUMPS": ("CARDIO","JUMP_ROPE","med","ankle pogo hops ≈ jump-rope bounce (no rope)"),
+ "DL_SKIPPING": ("CARDIO","JUMP_ROPE","high","double-leg rope skipping = jump rope"),
+ "KNEE_DRIVE": ("WARM_UP","WALKING_HIGH_KNEES","med","running-drill knee drive"),
+ "A_SKIP": ("WARM_UP","WALKING_HIGH_KNEES","med","A-skip running drill ≈ high-knee walk"),
+ "B_SKIP": ("WARM_UP","WALKING_HIGH_KNEES","med","B-skip running drill ≈ high-knee walk"),
+ "WALKING_A_SKIP": ("WARM_UP","WALKING_HIGH_KNEES","med","walking A-skip ≈ high-knee walk"),
+ "WALKING_B_SKIP": ("WARM_UP","WALKING_HIGH_KNEES","med","walking B-skip ≈ high-knee walk"),
+ "GLUTE_BRIDGE_HAM_WALKOUT": ("LEG_CURL","SLIDING_LEG_CURL","med","glute bridge + heel walkout ≈ sliding leg curl"),
  "HEEL_WALKS": (None,None,"low","heel walk (warmup); no equivalent"),
  "TOE_WALKS": (None,None,"low","toe walk (warmup); no equivalent"),
  "DIAGONAL_TOE_TAP": (None,None,"low","warmup drill; no close equivalent"),
@@ -219,7 +225,9 @@ def imatch(runna_int, cat, ekey):
     return "same" if runna_int == intensity_of_garmin(cat, gname_by[(cat,ekey)]) else "relaxed"
 
 rows = []
-for rid in all_ids:
+# union: ids harvested from the bundle + catalog + curated (covers ids Runna
+# added after the 261-id harvest, e.g. GLUTE_BRIDGE_HAM_WALKOUT)
+for rid in sorted(set(all_ids) | set(meta) | set(CURATED)):
     m = meta.get(rid)
     verified = "verified" if m else "inferred"
     equip = m["requires"] if (m and m.get("requires")) else infer_runna_equip(rid)

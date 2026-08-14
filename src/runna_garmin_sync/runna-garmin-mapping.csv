@@ -1,8 +1,7 @@
 runna_exerciseId,garmin_category,garmin_exercise,garmin_name,method,confidence,runna_data,intensity,runna_equip,runna_muscleBroad,intensity_match,description_hint,notes
-A_SKIP,PLYO,PLYO,Plyo,fallback,low,inferred,bodyweight,BW,,same,A Skip,no close match; generic same-muscle-group placeholder — see description
 ABDUCTOR_SIDE_LEG_RAISE,HIP_STABILITY,BAND_SIDE_LYING_LEG_RAISE,Band Side-lying Leg Raise,heuristic,high,verified,banded,BAND,GLUTES,same,Abductor Side Leg Raise,
 ANKLING,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,bodyweight,BW,,same,Ankling,no close match; generic same-muscle-group placeholder — see description
-B_SKIP,PLYO,PLYO,Plyo,fallback,low,inferred,bodyweight,BW,,same,B Skip,no close match; generic same-muscle-group placeholder — see description
+A_SKIP,WARM_UP,WALKING_HIGH_KNEES,Walking High Knees,curated,med,inferred,bodyweight,BW,,same,A Skip,A-skip running drill ≈ high-knee walk
 BACK_EXTENSION,BANDED_EXERCISES,BACK_EXTENSION,Banded Back Extension,enum-exact,med,inferred,bodyweight,BW,,relaxed,Back Extension,
 BANDED_DEADBUG,BANDED_EXERCISES,DEADBUG,Banded Deadbug,heuristic,high,verified,banded,BAND,EXTRA,same,Banded Deadbug,
 BANDED_FACE_PULLS,ROW,BANDED_FACE_PULLS,Banded Face Pulls,enum-exact,high,verified,banded,BAND,BACK,same,Banded Face Pulls,
@@ -31,6 +30,7 @@ BOX_JUMP_DOWN_TUCK_JUMP,PLYO,BOX_JUMP,Box Jump,heuristic,med,inferred,bodyweight
 BURPEE,TOTAL_BODY,BURPEE,Burpee,enum-exact,high,verified,bodyweight,BW,FULL_BODY,same,Burpee,
 BUTTERFLY_STRETCH,FLYE,FLYE,Fly,fallback,low,inferred,bodyweight,BW,,relaxed,Butterfly Stretch,no close match; generic same-muscle-group placeholder — see description
 BW_SQUATS_CALF_RAISE,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Bw Squats Calf Raise,
+B_SKIP,WARM_UP,WALKING_HIGH_KNEES,Walking High Knees,curated,med,inferred,bodyweight,BW,,same,B Skip,B-skip running drill ≈ high-knee walk
 CHILDS_POSE_TO_COBRA,WARM_UP,STRETCH_CHILDS_POSE,Child's Pose Stretch,heuristic,med,inferred,bodyweight,BW,,same,Childs Pose To Cobra,
 CLAM_SHELLS,BANDED_EXERCISES,CLAM_SHELLS,Banded Clam Shells,curated,med,verified,bodyweight,BW,WARM_UP,relaxed,Clam Shells,clam shell (Garmin lists it under banded)
 CLAM_SHELLS_1,HIP_STABILITY,HIP_STABILITY,Hip Stability,fallback,low,inferred,bodyweight,BW,,same,Clam Shells 1,no close match; generic same-muscle-group placeholder — see description
@@ -44,7 +44,7 @@ DEADLIFT_1,DEADLIFT,DEADLIFT,Deadlift,heuristic,med,inferred,bodyweight,BW,,rela
 DEADLIFT_2,DEADLIFT,DEADLIFT,Deadlift,heuristic,med,inferred,bodyweight,BW,,relaxed,Deadlift 2,
 DIAGONAL_LEG_SWING,HIP_SWING,HIP_SWING,Hip Swing,heuristic,med,inferred,bodyweight,BW,,relaxed,Diagonal Leg Swing,
 DIAGONAL_TOE_TAP,LUNGE,DIAGONAL_LUNGE,Diagonal Lunge,heuristic,med,verified,bodyweight,BW,WARM_UP,same,Diagonal Toe Tap,warmup drill; no close equivalent
-DL_SKIPPING,PLYO,PLYO,Plyo,fallback,low,verified,bodyweight,BW,PLYOS,same,Dl Skipping,double-leg skipping; no jump-rope enum
+DL_SKIPPING,CARDIO,JUMP_ROPE,Jump Rope,curated,high,verified,bodyweight,BW,PLYOS,same,Dl Skipping,double-leg rope skipping = jump rope
 DOUBLE_ARM_CLEAN,OLYMPIC_LIFT,DUMBBELL_CLEAN,Dumbbell Clean,curated,high,verified,weighted,DB,FULL_BODY,same,Double Arm Clean,
 DOUBLE_ARM_CLEAN_1,OLYMPIC_LIFT,CLEAN,Barbell Clean,heuristic,med,inferred,bodyweight,BW,,relaxed,Double Arm Clean 1,
 DOUBLE_ARM_CLEAN_2,OLYMPIC_LIFT,CLEAN,Barbell Clean,heuristic,med,inferred,bodyweight,BW,,relaxed,Double Arm Clean 2,
@@ -57,13 +57,14 @@ DOUBLE_ARM_SNATCH_2,OLYMPIC_LIFT,SINGLE_ARM_DUMBBELL_SNATCH,Single-arm Dumbbell 
 DOUBLE_LEG_CALF_RAISE_ON_STEP,CALF_RAISE,STANDING_DUMBBELL_CALF_RAISE,Standing Dumbbell Calf Raise,curated,med,verified,weighted,KB,CALVES,same,Double Leg Calf Raise On Step,double-leg weighted calf raise
 DOUBLE_LEG_CALF_RAISE_ON_STEP_1,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Double Leg Calf Raise On Step 1,
 DOUBLE_LEG_CALF_RAISE_ON_STEP_2,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Double Leg Calf Raise On Step 2,
-DOWN_DOG_CALF_STRETCH,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Down Dog Calf Stretch,
 DOWNWARD_DOG,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,bodyweight,BW,,same,Downward Dog,no close match; generic same-muscle-group placeholder — see description
 DOWNWARD_DOG_1,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,bodyweight,BW,,same,Downward Dog 1,no close match; generic same-muscle-group placeholder — see description
 DOWNWARD_DOG_INTO_PIGEON_POSE,WARM_UP,STRETCH_PIGEON_POSE,Pigeon Pose Stretch,heuristic,med,inferred,bodyweight,BW,,same,Downward Dog Into Pigeon Pose,
 DOWNWARD_DOG_TOE_TAPS,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,bodyweight,BW,,same,Downward Dog Toe Taps,no close match; generic same-muscle-group placeholder — see description
+DOWN_DOG_CALF_STRETCH,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Down Dog Calf Stretch,
 DUMBBELL_BENCH_PRESS,BENCH_PRESS,DUMBBELL_BENCH_PRESS,Dumbbell Bench Press,enum-exact,high,verified,weighted,DB,CHEST,same,Dumbbell Bench Press,
 DUMBBELL_CHEST_FLY,FLYE,DUMBBELL_FLYE,Dumbbell Fly,curated,high,verified,weighted,DB,CHEST,same,Dumbbell Chest Fly,
+FARMER'S_CARRY,CARRY,FARMERS_CARRY,Farmer's Carry,heuristic,high,verified,weighted,DB,FULL_BODY,same,Farmer'S Carry,
 FAST_FEET,PLANK,ELEVATED_FEET_PLANK,Elevated-feet Plank,heuristic,med,inferred,bodyweight,BW,,same,Fast Feet,
 FIGURE_OF_8S,CORE,CORE,Core,fallback,low,verified,bodyweight,BW,CORE,same,Figure Of 8S,no close match; generic same-muscle-group placeholder — see description
 FIRE_HYDRANTS,HIP_STABILITY,FIRE_HYDRANT_KICKS,Fire Hydrant Kicks,heuristic,med,verified,bodyweight,BW,WARM_UP,same,Fire Hydrants,
@@ -72,8 +73,8 @@ FLOATING_HEEL_DROP_1,CALF_RAISE,CALF_RAISE,Calf Raise,fallback,low,inferred,body
 FLOATING_HEEL_DROP_2,CALF_RAISE,CALF_RAISE,Calf Raise,fallback,low,inferred,bodyweight,BW,,same,Floating Heel Drop 2,no close match; generic same-muscle-group placeholder — see description
 FLOOR_BENCH_PRESS,BENCH_PRESS,BENCH_PRESS,Bench Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Floor Bench Press,
 FLOOR_BENCH_PRESS_1,BENCH_PRESS,BENCH_PRESS,Bench Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Floor Bench Press 1,
-FLOOR_SEATED_DOUBLE_ARM_SHOULDER_PRESS,SHOULDER_PRESS,FLOOR_INVERTED_SHOULDER_PRESS,Floor Inverted Shoulder Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Floor Seated Double Arm Shoulder Press,
-FLOOR_SEATED_DOUBLE_ARM_SHOULDER_PRESS_1,SHOULDER_PRESS,FLOOR_INVERTED_SHOULDER_PRESS,Floor Inverted Shoulder Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Floor Seated Double Arm Shoulder Press 1,
+FLOOR_SEATED_DOUBLE_ARM_SHOULDER_PRESS,SHOULDER_PRESS,SWISS_BALL_DUMBBELL_SHOULDER_PRESS,Swiss Ball Dumbbell Shoulder Press,heuristic,med,inferred,bodyweight,BW,,same,Floor Seated Double Arm Shoulder Press,
+FLOOR_SEATED_DOUBLE_ARM_SHOULDER_PRESS_1,SHOULDER_PRESS,SWISS_BALL_DUMBBELL_SHOULDER_PRESS,Swiss Ball Dumbbell Shoulder Press,heuristic,med,inferred,bodyweight,BW,,same,Floor Seated Double Arm Shoulder Press 1,
 FLOOR_SEATED_SINGLE_ARM_SHOULDER_PRESS,SHOULDER_PRESS,SINGLE_ARM_DUMBBELL_SHOULDER_PRESS,Single-arm Dumbbell Shoulder Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Floor Seated Single Arm Shoulder Press,
 FLOOR_SEATED_SINGLE_ARM_SHOULDER_PRESS_1,SHOULDER_PRESS,SINGLE_ARM_DUMBBELL_SHOULDER_PRESS,Single-arm Dumbbell Shoulder Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Floor Seated Single Arm Shoulder Press 1,
 FOCUSED_PRESS_UPS,PUSH_UP,CHEST_PRESS_WITH_BAND,Chest Press with Band,heuristic,med,inferred,bodyweight,BW,,relaxed,Focused Press Ups,
@@ -84,13 +85,14 @@ FRONT_SQUAT,SQUAT,BARBELL_FRONT_SQUAT,Barbell Front Squat,heuristic,high,verifie
 FULL_STAR_JUMPS,PLYO,STAR_JUMP_SQUATS,Star Jump Squats,heuristic,med,inferred,bodyweight,BW,,same,Full Star Jumps,
 GLUTE_BRIDGE,HIP_RAISE,HIP_RAISE,Hip Raise,curated,high,verified,bodyweight,BW,GLUTES,same,Glute Bridge,bodyweight glute bridge = hip raise
 GLUTE_BRIDGE_1,HIP_RAISE,CLAM_BRIDGE,Clam Bridge,heuristic,med,inferred,bodyweight,BW,,same,Glute Bridge 1,
+GLUTE_BRIDGE_HAM_WALKOUT,LEG_CURL,SLIDING_LEG_CURL,Sliding Leg Curl,curated,med,verified,bodyweight,BW,WARM_UP,relaxed,Glute Bridge Ham Walkout,glute bridge + heel walkout ≈ sliding leg curl
 GLUTE_BRIDGE_WITH_WALK_OUT,HIP_RAISE,CLAM_BRIDGE,Clam Bridge,heuristic,med,inferred,bodyweight,BW,,same,Glute Bridge With Walk Out,
 GOBLET_SQUAT,SQUAT,GOBLET_SQUAT,Goblet Squat,enum-exact,high,verified,weighted,KB,QUADS,same,Goblet Squat,
 GOBLET_SQUAT_1,SQUAT,GOBLET_SQUAT,Goblet Squat,heuristic,med,inferred,bodyweight,BW,,relaxed,Goblet Squat 1,
 GOOD_MORNINGS,LEG_CURL,BAND_GOOD_MORNING,Band Good Morning,heuristic,med,inferred,bodyweight,BW,,relaxed,Good Mornings,
 HALF_LUNGE,LUNGE,LUNGE,Lunge,heuristic,med,inferred,bodyweight,BW,,same,Half Lunge,
 HAMSTRING_SWEEPS,LEG_CURL,LEG_CURL,Leg Curl,fallback,low,inferred,bodyweight,BW,,relaxed,Hamstring Sweeps,no close match; generic same-muscle-group placeholder — see description
-HAMSTRING_WALKOUT,LEG_CURL,LEG_CURL,Leg Curl,curated,low,verified,bodyweight,BW,HAMSTRING,relaxed,Hamstring Walkout,no walkout in Garmin; generic hamstring (relaxed)
+HAMSTRING_WALKOUT,LEG_CURL,SLIDING_LEG_CURL,Sliding Leg Curl,curated,med,verified,bodyweight,BW,HAMSTRING,relaxed,Hamstring Walkout,heel walkout ≈ sliding leg curl
 HANGING_KNEE_RAISE,LEG_RAISE,HANGING_KNEE_RAISE,Hanging Knee Raise,enum-exact,med,inferred,bodyweight,BW,,same,Hanging Knee Raise,
 HANGING_LEG_RAISE,LEG_RAISE,HANGING_LEG_RAISE,Hanging Leg Raise,enum-exact,med,inferred,bodyweight,BW,,same,Hanging Leg Raise,
 HEEL_KICK_DRILL,CALF_RAISE,CALF_RAISE,Calf Raise,fallback,low,inferred,bodyweight,BW,,same,Heel Kick Drill,no close match; generic same-muscle-group placeholder — see description
@@ -115,10 +117,10 @@ KB_STRAIGHT_LEG_DEADLIFT,DEADLIFT,STRAIGHT_LEG_DEADLIFT,Straight-leg Deadlift,he
 KB_SWINGS,HIP_RAISE,KETTLEBELL_SWING,Kettlebell Swing,curated,high,verified,weighted,KB,HAMSTRING,same,Kb Swings,
 KB_WINDMILLS,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,weighted,KB,,relaxed,Kb Windmills,no close match; generic same-muscle-group placeholder — see description
 KB_WINDMILLS_1,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,weighted,KB,,relaxed,Kb Windmills 1,no close match; generic same-muscle-group placeholder — see description
-KNEE_DRIVE,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,verified,bodyweight,BW,FULL_BODY,same,Knee Drive,no close match; generic same-muscle-group placeholder — see description
 KNEELING_HAMSTRING_STRETCH,LEG_CURL,LEG_CURL,Leg Curl,fallback,low,inferred,bodyweight,BW,,relaxed,Kneeling Hamstring Stretch,no close match; generic same-muscle-group placeholder — see description
 KNEELING_HIP_FLEXOR,WARM_UP,STRETCH_HIP_FLEXOR_AND_QUAD,Hip Flexor and Quad Stretch,heuristic,med,inferred,bodyweight,BW,,same,Kneeling Hip Flexor,
 KNEELING_HIP_FLEXOR_STRETCH,WARM_UP,STRETCH_HIP_FLEXOR_AND_QUAD,Hip Flexor and Quad Stretch,heuristic,med,inferred,bodyweight,BW,,same,Kneeling Hip Flexor Stretch,
+KNEE_DRIVE,WARM_UP,WALKING_HIGH_KNEES,Walking High Knees,curated,med,verified,bodyweight,BW,FULL_BODY,same,Knee Drive,running-drill knee drive
 LATERAL_LEG_RAISE,LEG_RAISE,LEG_RAISE,Leg Raise,heuristic,med,inferred,bodyweight,BW,,same,Lateral Leg Raise,
 LATERAL_WALK,HIP_STABILITY,LATERAL_WALKS_WITH_BAND_AT_ANKLES,Lateral Walks with Band at Ankles,curated,high,verified,bodyweight,BW,GLUTES,relaxed,Lateral Walk,
 LATERAL_WALK_1,RUN,WALK,Walk,heuristic,med,inferred,bodyweight,BW,,same,Lateral Walk 1,
@@ -137,13 +139,15 @@ PLANK_ON_SWISSBALL,PLANK,PLANK,Plank,heuristic,high,verified,bodyweight,SWISSBAL
 PLANK_PULL_THROUGH,PLANK,WEIGHTED_PLANK,Weighted Plank,heuristic,med,verified,weighted,KB,CORE,same,Plank Pull Through,
 PLANK_PULL_THROUGH_1,PLANK,PLANK,Plank,heuristic,med,inferred,bodyweight,BW,,same,Plank Pull Through 1,
 PLANK_TWIST,PLANK,PLANK_KNEE_TWIST,Plank Knee Twist,heuristic,high,verified,bodyweight,BW,CORE,same,Plank Twist,
-POGO_JUMPS,PLYO,SQUAT_JUMPS_IN_AND_OUT,Squat Jumps In and Out,heuristic,med,verified,bodyweight,BW,PLYOS,same,Pogo Jumps,ankle pogo hops; no equivalent
+POGO_JUMPS,CARDIO,JUMP_ROPE,Jump Rope,curated,med,verified,bodyweight,BW,PLYOS,same,Pogo Jumps,ankle pogo hops ≈ jump-rope bounce (no rope)
+PRESS-UP_POSITION_WITH_SINGLE_ARM_EXTENSIONS,CORE,GHD_BACK_EXTENSIONS,GHD Back Extensions,heuristic,med,verified,bodyweight,BW,CORE,same,Press-Up Position With Single Arm Extensions,
 PRESS_UP,PUSH_UP,PUSH_UP,Push-up,curated,high,verified,bodyweight,BW,WARM_UP,same,Press Up,press-up = push-up
 PRESS_UP_POSITION_DIAGONAL_TOE_TAP,WARM_UP,WALKOUT_FROM_PUSH_UP_POSITION,Walkout from Push-up Position,heuristic,high,verified,bodyweight,BW,WARM_UP,same,Press Up Position Diagonal Toe Tap,warmup drill; no equivalent
 PRESS_UP_POSITION_SHOULDER_TAP,PUSH_UP,SHOULDER_PUSH_UP,Shoulder Push-up,heuristic,med,inferred,bodyweight,BW,,same,Press Up Position Shoulder Tap,
 PRESS_UP_POSITION_WALK_OUT,WARM_UP,WALKOUT_FROM_PUSH_UP_POSITION,Walkout from Push-up Position,curated,high,verified,bodyweight,BW,WARM_UP,same,Press Up Position Walk Out,
 PULL_UP,PULL_UP,PULL_UP,Pull-up,enum-exact,high,verified,bodyweight,PUB,BACK,same,Pull Up,
 PUSH_PRESS,SHOULDER_PRESS,BARBELL_PUSH_PRESS,Barbell Push Press,heuristic,high,verified,weighted,BARBELL,SHOULDERS,same,Push Press,
+RAISED_LEG_HIP_THRUST,HIP_RAISE,BARBELL_HIP_THRUST_WITH_BENCH,Barbell Hip Thrust with Bench,curated,med,verified,weighted,BARBELL,HAMSTRING,same,Raised Leg Hip Thrust,
 REAR_LEG_RAISED_LUNGE,LUNGE,LUNGE,Lunge,curated,med,verified,bodyweight,STEP,QUADS,same,Rear Leg Raised Lunge,rear-foot-elevated split squat (bodyweight); no exact match
 REVERSE_FLY,FLYE,INCLINE_REVERSE_FLYE,Incline Reverse Fly,heuristic,high,verified,weighted,DB,BACK,same,Reverse Fly,
 REVERSE_LUNGE,LUNGE,DUMBBELL_REVERSE_LUNGE,Dumbbell Reverse Lunge,curated,high,verified,weighted,DB,QUADS,same,Reverse Lunge,
@@ -154,8 +158,6 @@ ROLL_DOWN_1,SIT_UP,THREE_PART_ROLL_DOWN,Three-part Roll-down,heuristic,med,infer
 RUSSIAN_TWIST,CORE,RUSSIAN_TWIST,Russian Twist,enum-exact,high,verified,bodyweight,BW,CORE,same,Russian Twist,
 RUSSIAN_TWIST_1,CORE,RUSSIAN_TWIST,Russian Twist,heuristic,med,inferred,bodyweight,BW,,same,Russian Twist 1,
 RUSSIAN_TWIST_2,CORE,RUSSIAN_TWIST,Russian Twist,heuristic,med,inferred,bodyweight,BW,,same,Russian Twist 2,
-S_CARRY,CARRY,CARRY,Carry,heuristic,med,inferred,bodyweight,BW,,relaxed,S Carry,
-S_CARRY_1,CARRY,CARRY,Carry,heuristic,med,inferred,bodyweight,BW,,relaxed,S Carry 1,
 SEATED_BARBELL_PRESS,SHOULDER_PRESS,SEATED_BARBELL_SHOULDER_PRESS,Seated Barbell Shoulder Press,heuristic,high,verified,weighted,BARBELL,SHOULDERS,same,Seated Barbell Press,
 SEATED_CALF_RAISE,CALF_RAISE,SEATED_CALF_RAISE,Seated Calf Raise,enum-exact,high,verified,weighted,DB,CALVES,relaxed,Seated Calf Raise,
 SEATED_CALF_RAISE_1,CALF_RAISE,SEATED_CALF_RAISE,Seated Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Seated Calf Raise 1,
@@ -163,14 +165,14 @@ SEATED_GLUTE_STRETCH,WARM_UP,BICEPS_STRETCH,Biceps Stretch,heuristic,med,inferre
 SEATED_HAMSTRING_STRETCH,LEG_CURL,LEG_CURL,Leg Curl,fallback,low,inferred,bodyweight,BW,,relaxed,Seated Hamstring Stretch,no close match; generic same-muscle-group placeholder — see description
 SEATED_SPINAL_TWIST,WARM_UP,STRETCH_LUNGE_WITH_SPINAL_TWIST,Lunge with Spinal Twist Stretch,heuristic,med,inferred,bodyweight,BW,,same,Seated Spinal Twist,
 SEATED_START_BOX_JUMP,PLYO,BOX_JUMP,Box Jump,heuristic,med,inferred,bodyweight,BW,,same,Seated Start Box Jump,
+SIDEPLANK_HIP_FLEXORS,PLANK,SIDE_PLANK,Side Plank,curated,med,verified,bodyweight,BW,CORE,same,Sideplank Hip Flexors,
+SIDEPLANK_HIP_FLEXORS_1,PLANK,PLANK,Plank,fallback,low,inferred,bodyweight,BW,,same,Sideplank Hip Flexors 1,no close match; generic same-muscle-group placeholder — see description
 SIDE_BEND,CORE,SIDE_BEND,Side Bend,enum-exact,med,inferred,bodyweight,BW,,same,Side Bend,
 SIDE_LEG_SWINGS,WARM_UP,SIDE_TO_SIDE_LEG_SWINGS,Side-to-Side Leg Swings,heuristic,high,verified,bodyweight,BW,WARM_UP,same,Side Leg Swings,
 SIDE_LUNGE,LUNGE,SIDE_LUNGE,Side Lunge,enum-exact,high,verified,bodyweight,BW,WARM_UP,same,Side Lunge,
 SIDE_PLANK,PLANK,SIDE_PLANK,Side Plank,enum-exact,high,verified,bodyweight,BW,CORE,same,Side Plank,
 SIDE_PLANK_LEG_RAISE,BANDED_EXERCISES,SIDE_PLANK_LEG_LIFTS,Banded Side Plank Leg Lifts,heuristic,high,verified,banded,BAND,EXTRA,same,Side Plank Leg Raise,
 SIDE_PLANK_LEG_RAISE_1,PLANK,SIDE_PLANK_WITH_LEG_LIFT,Side Plank with Leg Lift,heuristic,med,inferred,bodyweight,BW,,same,Side Plank Leg Raise 1,
-SIDEPLANK_HIP_FLEXORS,PLANK,SIDE_PLANK,Side Plank,curated,med,verified,bodyweight,BW,CORE,same,Sideplank Hip Flexors,
-SIDEPLANK_HIP_FLEXORS_1,PLANK,PLANK,Plank,fallback,low,inferred,bodyweight,BW,,same,Sideplank Hip Flexors 1,no close match; generic same-muscle-group placeholder — see description
 SINGLE_ARM_BENCH_PRESS,BENCH_PRESS,SINGLE_ARM_DUMBBELL_BENCH_PRESS,Single-arm Dumbbell Bench Press,heuristic,high,verified,weighted,DB,CHEST,same,Single Arm Bench Press,
 SINGLE_ARM_CLEAN,OLYMPIC_LIFT,DUMBBELL_CLEAN,Dumbbell Clean,curated,med,verified,weighted,DB,FULL_BODY,same,Single Arm Clean,single-arm dumbbell clean
 SINGLE_ARM_CLEAN_1,OLYMPIC_LIFT,SINGLE_ARM_DUMBBELL_SNATCH,Single-arm Dumbbell Snatch,heuristic,med,inferred,bodyweight,BW,,relaxed,Single Arm Clean 1,
@@ -206,8 +208,8 @@ STAGGERED_RDLS_2,DEADLIFT,DEADLIFT,Deadlift,fallback,low,inferred,bodyweight,BW,
 STANDING_BARBELL_PRESS,SHOULDER_PRESS,BARBELL_SHOULDER_PRESS,Barbell Shoulder Press,curated,high,verified,weighted,BARBELL,SHOULDERS,same,Standing Barbell Press,
 STANDING_CALF_STRETCH,CALF_RAISE,STANDING_CALF_RAISE,Standing Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Standing Calf Stretch,
 STANDING_DIAGONAL_TOE_TAPS,HIP_STABILITY,STANDING_ADDUCTION,Standing Adduction,heuristic,med,inferred,bodyweight,BW,,same,Standing Diagonal Toe Taps,
-STANDING_DOUBLE_ARM_SHOULDER_PRESS,SHOULDER_PRESS,SHOULDER_PRESS,Shoulder Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Standing Double Arm Shoulder Press,
-STANDING_DOUBLE_ARM_SHOULDER_PRESS_1,SHOULDER_PRESS,SHOULDER_PRESS,Shoulder Press,heuristic,med,inferred,bodyweight,BW,,relaxed,Standing Double Arm Shoulder Press 1,
+STANDING_DOUBLE_ARM_SHOULDER_PRESS,SHOULDER_PRESS,SWISS_BALL_DUMBBELL_SHOULDER_PRESS,Swiss Ball Dumbbell Shoulder Press,heuristic,med,inferred,bodyweight,BW,,same,Standing Double Arm Shoulder Press,
+STANDING_DOUBLE_ARM_SHOULDER_PRESS_1,SHOULDER_PRESS,SWISS_BALL_DUMBBELL_SHOULDER_PRESS,Swiss Ball Dumbbell Shoulder Press,heuristic,med,inferred,bodyweight,BW,,same,Standing Double Arm Shoulder Press 1,
 STANDING_FRONT_RAISE,LATERAL_RAISE,FRONT_RAISE,Front Raise,heuristic,high,verified,weighted,DB,SHOULDERS,same,Standing Front Raise,
 STANDING_FRONT_RAISE_1,LATERAL_RAISE,FRONT_RAISE,Front Raise,heuristic,med,inferred,bodyweight,BW,,relaxed,Standing Front Raise 1,
 STANDING_HAMSTRING_STRETCH,LEG_CURL,LEG_CURL,Leg Curl,fallback,low,inferred,bodyweight,BW,,relaxed,Standing Hamstring Stretch,no close match; generic same-muscle-group placeholder — see description
@@ -232,6 +234,8 @@ SUPERMAN,HYPEREXTENSION,KNEELING_SUPERMAN,Kneeling Superman,heuristic,med,inferr
 SWISSBALL_BACK_EXTENSION,HYPEREXTENSION,SWISS_BALL_BACK_EXTENSION,Swiss Ball Back Extension,heuristic,med,inferred,bodyweight,SWISSBALL,,same,Swissball Back Extension,
 SWISSBALL_HIGH_PLANK,PLANK,PLANK,Plank,heuristic,med,inferred,bodyweight,SWISSBALL,,same,Swissball High Plank,
 SWISSBALL_STIR_POT,CORE,CORE,Core,fallback,low,verified,bodyweight,SWISSBALL,CORE,same,Swissball Stir Pot,no close match; generic same-muscle-group placeholder — see description
+S_CARRY,CARRY,CARRY,Carry,heuristic,med,inferred,bodyweight,BW,,relaxed,S Carry,
+S_CARRY_1,CARRY,CARRY,Carry,heuristic,med,inferred,bodyweight,BW,,relaxed,S Carry 1,
 THROACIC_ROTATION,WARM_UP,THORACIC_ROTATION,Thoracic Rotation,heuristic,med,inferred,bodyweight,BW,,same,Throacic Rotation,
 THRUSTER,SHOULDER_PRESS,DUMBBELL_PUSH_PRESS,Dumbbell Push Press,curated,low,verified,weighted,DB,FULL_BODY,same,Thruster,"thruster=squat+press; no exact, using push press"
 THRUSTER_1,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,bodyweight,BW,,same,Thruster 1,no close match; generic same-muscle-group placeholder — see description
@@ -243,8 +247,8 @@ TORSO_TWISTS,TOTAL_BODY,TOTAL_BODY,Total Body,fallback,low,inferred,bodyweight,B
 TRAVELLING_PRESS_UP_WALK_OUT,WARM_UP,WALKOUT_FROM_PUSH_UP_POSITION,Walkout from Push-up Position,curated,med,verified,bodyweight,BW,WARM_UP,same,Travelling Press Up Walk Out,
 TRICEP_DIP,TRICEPS_EXTENSION,BENCH_DIP,Bench Dip,curated,high,verified,bodyweight,BOX,CHEST,relaxed,Tricep Dip,box/bench dip (bodyweight)
 UP_POSITION_WITH_SINGLE_ARM_EXTENSIONS,PUSH_UP,ONE_ARM_PUSH_UP,One-arm Push-up,heuristic,med,inferred,bodyweight,BW,,same,Up Position With Single Arm Extensions,
-WALKING_A_SKIP,PLYO,PLYO,Plyo,fallback,low,inferred,bodyweight,BW,,same,Walking A Skip,no close match; generic same-muscle-group placeholder — see description
-WALKING_B_SKIP,PLYO,PLYO,Plyo,fallback,low,inferred,bodyweight,BW,,same,Walking B Skip,no close match; generic same-muscle-group placeholder — see description
+WALKING_A_SKIP,WARM_UP,WALKING_HIGH_KNEES,Walking High Knees,curated,med,inferred,bodyweight,BW,,same,Walking A Skip,walking A-skip ≈ high-knee walk
+WALKING_B_SKIP,WARM_UP,WALKING_HIGH_KNEES,Walking High Knees,curated,med,inferred,bodyweight,BW,,same,Walking B Skip,walking B-skip ≈ high-knee walk
 WALKING_CALF_RAISES,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,high,verified,bodyweight,BW,CALVES,same,Walking Calf Raises,
 WALKING_CALF_RAISES_1,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Walking Calf Raises 1,
 WALKING_GLUTE_STRETCH,LUNGE,WALKING_LUNGE,Walking Lunge,heuristic,med,inferred,bodyweight,BW,,same,Walking Glute Stretch,
@@ -256,6 +260,7 @@ WALKING_LUNGE_1,LUNGE,WALKING_LUNGE,Walking Lunge,heuristic,med,inferred,bodywei
 WALKING_LUNGE_2,LUNGE,WALKING_LUNGE,Walking Lunge,heuristic,med,inferred,bodyweight,BW,,same,Walking Lunge 2,
 WALKING_LUNGE_TWIST,LUNGE,WALKING_LUNGE,Walking Lunge,heuristic,med,inferred,bodyweight,BW,,same,Walking Lunge Twist,
 WALKING_QUAD_STRETCH,WARM_UP,STRETCH_QUAD,Quad Stretch,heuristic,med,inferred,bodyweight,BW,,same,Walking Quad Stretch,
+WEIGHTED_DEADLIFT,DEADLIFT,DEADLIFT,Deadlift,curated,med,verified,weighted,KB,QUADS,same,Weighted Deadlift,generic weighted deadlift
 WEIGHTED_TOE_TAPS,CRUNCH,WEIGHTED_CRUNCH,Weighted Crunch,heuristic,med,inferred,weighted,KB,,same,Weighted Toe Taps,
 WINDMILL_STRETCH,CORE,WINDMILL_SWITCHES,Windmill Switches,heuristic,med,inferred,bodyweight,BW,,same,Windmill Stretch,
 YWT_RAISE,CALF_RAISE,CALF_RAISE,Calf Raise,heuristic,med,inferred,bodyweight,BW,,same,Ywt Raise,

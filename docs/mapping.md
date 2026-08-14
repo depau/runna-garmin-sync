@@ -49,9 +49,9 @@ Because Garmin rejects `OTHER`/`UNASSIGNED`, we never emit those — the mapping
 real category+exercise, and the precise Runna movement rides along in the step description.
 
 ## Coverage (last run)
-- **261 rows, all mapped. 69 high · 149 med · 43 low.**
-- Intensity: **204 same · 57 relaxed** (relaxed = same muscle group but load type differs).
-- Verified (97 real exercises): 69 high · 15 med · 13 low — these are curated/high quality.
+- **266 rows (261-id universe ∪ catalog ∪ curated), all mapped. 71 high · 159 med · 36 low.**
+- Intensity: **212 same · 54 relaxed** (relaxed = same muscle group but load type differs).
+- Verified (102 real exercises): 71 high · 21 med · 10 low — these are curated/high quality.
 - Inferred (164, guessed from id text only): capped at `med`; review before trusting.
 
 ## How to use in the adapter
