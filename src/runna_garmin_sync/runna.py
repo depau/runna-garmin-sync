@@ -60,6 +60,11 @@ class RunnaError(Exception):
     pass
 
 
+class RunnaAuthInvalid(RunnaError):
+    """Cognito rejected the credential itself (NotAuthorizedException) — as opposed to a
+    transient failure. Only this warrants falling back to a password login."""
+
+
 def _jwt_exp(token: str) -> float:
     payload = token.split(".")[1]
     payload += "=" * (-len(payload) % 4)
@@ -81,18 +86,25 @@ class RunnaClient:
     # -- auth ---------------------------------------------------------------
 
     def _cognito(self, flow: str, params: dict) -> dict:
-        r = requests.post(
-            COGNITO_URL,
-            headers={
-                "content-type": "application/x-amz-json-1.1",
-                "x-amz-target": "AWSCognitoIdentityProviderService.InitiateAuth",
-            },
-            json={"ClientId": CLIENT_ID, "AuthFlow": flow, "AuthParameters": params},
-            timeout=30,
-        )
-        body = r.json()
+        try:
+            r = requests.post(
+                COGNITO_URL,
+                headers={
+                    "content-type": "application/x-amz-json-1.1",
+                    "x-amz-target": "AWSCognitoIdentityProviderService.InitiateAuth",
+                },
+                json={"ClientId": CLIENT_ID, "AuthFlow": flow, "AuthParameters": params},
+                timeout=30,
+            )
+            body = r.json()
+        except (requests.RequestException, ValueError) as e:
+            # network blip / non-JSON body: transient, not "the token is dead"
+            raise RunnaError(f"Cognito {flow} unreachable: {type(e).__name__}: {e}") from e
         if r.status_code != 200:
-            raise RunnaError(f"Cognito {flow} failed: {body.get('__type')}: {body.get('message')}")
+            msg = f"Cognito {flow} failed: {body.get('__type')}: {body.get('message')}"
+            # only NotAuthorizedException means the credential itself is bad; throttles and
+            # 5xx are transient and must not be mistaken for a dead session
+            raise (RunnaAuthInvalid if body.get("__type") == "NotAuthorizedException" else RunnaError)(msg)
         if "AuthenticationResult" not in body:
             # e.g. NEW_PASSWORD_REQUIRED / MFA challenge — needs manual handling
             raise RunnaError(f"Cognito {flow} returned challenge: {body.get('ChallengeName')}")
@@ -114,9 +126,10 @@ class RunnaClient:
                 self.state.save(AUTH_FILE, auth)
                 log.info("Runna: refreshed idToken%s", " (rotated refresh token)" if res.get("RefreshToken") else "")
                 return auth["idToken"]
-            except RunnaError as e:
+            except RunnaAuthInvalid as e:
                 reason = f"{e}, refresh token {_age(auth.get('mintedAt'))}"
                 log.warning("Runna: refresh failed (%s), falling back to password", reason)
+            # any other RunnaError is transient — propagate so the caller retries next poll
         if not self.email or not self.password:
             raise RunnaError(
                 f"no valid Runna session ({reason}) and no credentials; "
