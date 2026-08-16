@@ -66,6 +66,11 @@ def _jwt_exp(token: str) -> float:
     return json.loads(base64.urlsafe_b64decode(payload))["exp"]
 
 
+def _age(minted_at: float | None) -> str:
+    """Human age of a stored token; sessions predating mintedAt have no timestamp."""
+    return f"was {(time.time() - minted_at) / 3600:.1f}h old" if minted_at else "was of unknown age"
+
+
 class RunnaClient:
     def __init__(self, email: str, password: str, state: State):
         self.email = email
@@ -98,22 +103,27 @@ class RunnaClient:
         tok = auth.get("idToken")
         if not force and tok and _jwt_exp(tok) > time.time() + 300:
             return tok
+        reason = "no cached refresh token"
         if auth.get("refreshToken"):
             try:
                 res = self._cognito("REFRESH_TOKEN_AUTH", {"REFRESH_TOKEN": auth["refreshToken"]})
                 auth["idToken"] = res["IdToken"]
+                if res.get("RefreshToken"):  # present only when the pool rotates refresh tokens
+                    auth["refreshToken"] = res["RefreshToken"]
+                    auth["mintedAt"] = time.time()
                 self.state.save(AUTH_FILE, auth)
-                log.info("Runna: refreshed idToken")
+                log.info("Runna: refreshed idToken%s", " (rotated refresh token)" if res.get("RefreshToken") else "")
                 return auth["idToken"]
             except RunnaError as e:
-                log.warning("Runna: refresh failed (%s), falling back to password", e)
+                reason = f"{e}, refresh token {_age(auth.get('mintedAt'))}"
+                log.warning("Runna: refresh failed (%s), falling back to password", reason)
         if not self.email or not self.password:
             raise RunnaError(
-                "no valid Runna session and no credentials; run `runna-garmin-sync login` "
-                "or set RUNNA_EMAIL/RUNNA_PASSWORD"
+                f"no valid Runna session ({reason}) and no credentials; "
+                "run `runna-garmin-sync login` or set RUNNA_EMAIL/RUNNA_PASSWORD"
             )
         res = self._cognito("USER_PASSWORD_AUTH", {"USERNAME": self.email, "PASSWORD": self.password})
-        auth = {"idToken": res["IdToken"], "refreshToken": res["RefreshToken"]}
+        auth |= {"idToken": res["IdToken"], "refreshToken": res["RefreshToken"], "mintedAt": time.time()}
         self.state.save(AUTH_FILE, auth)
         log.info("Runna: logged in with password")
         return auth["idToken"]
