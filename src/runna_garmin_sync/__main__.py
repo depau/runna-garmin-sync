@@ -222,11 +222,12 @@ def daemon(ctx, poll_interval, force_sync_hours, notify_url, notify_error_url):
 
     state = ctx.obj["state"]
     runna = _runna(ctx)
-    ical = runna.ical_url()
+    ical = None  # resolved lazily: it authenticates, so a failure must go through _notify
     last_forced = 0.0
     last_error = None
     while True:
         try:
+            ical = ical or runna.ical_url()
             # read-only peek at the plan cache's ETag; the sync refreshes it
             changed, _ = runna.ical_changed(ical, state.load(CACHE_FILE, {}).get("etag"))
             force = time.monotonic() - last_forced > force_sync_hours * 3600
