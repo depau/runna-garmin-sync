@@ -1,4 +1,4 @@
-"""Auth state machine: refresh-token rotation, token-age reporting, and telling a dead
+"""Auth state machine: refresh-token rotation, mint-time reporting, and telling a dead
 refresh token apart from a transient Cognito failure."""
 
 import base64
@@ -16,6 +16,7 @@ def jwt(exp: float) -> str:
 
 
 EXPIRED, VALID = jwt(time.time() - 1), jwt(time.time() + 86400)
+real_time = time.time
 APP_LINK = "https://club.runna.com/n9Tx/workout"
 
 
@@ -64,24 +65,41 @@ def test_refresh_without_rotation_keeps_the_stored_token(state):
     assert "mintedAt" not in saved  # no rotation happened, so nothing was re-minted
 
 
-def test_dead_refresh_token_without_credentials_reports_reason_and_age(state):
+def test_dead_refresh_token_without_credentials_reports_reason_and_mint_time(state):
+    minted = time.time() - 30 * 3600
     c, _ = client(
         state,
-        {"idToken": EXPIRED, "refreshToken": "r0", "mintedAt": time.time() - 30 * 3600},
+        {"idToken": EXPIRED, "refreshToken": "r0", "mintedAt": minted},
         [RunnaAuthInvalid("Cognito REFRESH_TOKEN_AUTH failed: NotAuthorizedException: Refresh Token has expired")],
     )
     with pytest.raises(RunnaError) as e:
         c._authenticate()
     msg = str(e.value)
     assert "Refresh Token has expired" in msg
-    assert "was 30.0h old" in msg
+    assert "minted " + time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(minted)) in msg
     assert "runna-garmin-sync login" in msg
 
 
-def test_age_is_reported_as_unknown_for_sessions_predating_minted_at(state):
+def test_mint_time_is_reported_as_unknown_for_sessions_predating_minted_at(state):
     c, _ = client(state, {"idToken": EXPIRED, "refreshToken": "r0"}, [RunnaAuthInvalid("NotAuthorizedException")])
-    with pytest.raises(RunnaError, match="was of unknown age"):
+    with pytest.raises(RunnaError, match="mint time unknown"):
         c._authenticate()
+
+
+def test_error_message_is_stable_over_time_so_the_daemon_can_dedup_it(state, monkeypatch):
+    """The daemon dedups error notifications on the message text (__main__.py); a message
+    carrying a relative age re-notified on every poll."""
+    import runna_garmin_sync.runna as mod
+
+    auth = {"idToken": EXPIRED, "refreshToken": "r0", "mintedAt": time.time() - 30 * 3600}
+    seen = []
+    for offset in (0, 7200):  # same failure, two hours apart
+        monkeypatch.setattr(mod.time, "time", lambda o=offset: real_time() + o)
+        c, _ = client(state, dict(auth), [RunnaAuthInvalid("NotAuthorizedException")])
+        with pytest.raises(RunnaError) as e:
+            c._authenticate()
+        seen.append(str(e.value))
+    assert seen[0] == seen[1]
 
 
 def test_transient_cognito_failure_propagates_instead_of_looking_like_a_dead_session(state):

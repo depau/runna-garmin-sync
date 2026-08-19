@@ -71,9 +71,13 @@ def _jwt_exp(token: str) -> float:
     return json.loads(base64.urlsafe_b64decode(payload))["exp"]
 
 
-def _age(minted_at: float | None) -> str:
-    """Human age of a stored token; sessions predating mintedAt have no timestamp."""
-    return f"was {(time.time() - minted_at) / 3600:.1f}h old" if minted_at else "was of unknown age"
+def _minted(minted_at: float | None) -> str:
+    """When a stored token was minted. Absolute, not a relative age: the daemon dedups error
+    notifications on the message text, so a value that drifts with the clock would re-notify
+    on every poll. The log line's own timestamp still gives the age by subtraction."""
+    if not minted_at:
+        return "mint time unknown"
+    return "minted " + time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(minted_at))
 
 
 class RunnaClient:
@@ -127,7 +131,7 @@ class RunnaClient:
                 log.info("Runna: refreshed idToken%s", " (rotated refresh token)" if res.get("RefreshToken") else "")
                 return auth["idToken"]
             except RunnaAuthInvalid as e:
-                reason = f"{e}, refresh token {_age(auth.get('mintedAt'))}"
+                reason = f"{e}, refresh token {_minted(auth.get('mintedAt'))}"
                 log.warning("Runna: refresh failed (%s), falling back to password", reason)
             # any other RunnaError is transient — propagate so the caller retries next poll
         if not self.email or not self.password:
