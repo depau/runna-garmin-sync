@@ -38,9 +38,48 @@ def client(state, auth, responses, email=None, password=None):
 
 
 def test_cached_token_is_reused_without_hitting_cognito(state):
-    c, calls = client(state, {"idToken": VALID, "refreshToken": "r0"}, [])
+    c, calls = client(state, {"idToken": VALID, "refreshToken": "r0", "refreshedAt": time.time()}, [])
     assert c._authenticate() == VALID
     assert calls == []
+
+
+def test_valid_token_is_refreshed_early_once_the_refresh_token_is_due(state):
+    """The whole point: exercise the refresh token on its own ~24h clock, not the idToken's."""
+    c, calls = client(
+        state,
+        {"idToken": VALID, "refreshToken": "r0", "refreshedAt": time.time() - 13 * 3600},
+        [{"IdToken": VALID, "RefreshToken": "r1"}],
+    )
+    assert c._authenticate() == VALID
+    assert calls == ["REFRESH_TOKEN_AUTH"]
+    assert state.load(AUTH_FILE)["refreshToken"] == "r1"
+
+
+def test_every_successful_refresh_records_refreshed_at_even_without_rotation(state):
+    c, _ = client(state, {"idToken": EXPIRED, "refreshToken": "r0"}, [{"IdToken": VALID}])
+    assert c._authenticate() == VALID
+    saved = state.load(AUTH_FILE)
+    assert saved["refreshedAt"] > 0  # so a non-rotating pool is not re-asked on every call
+    assert "mintedAt" not in saved  # but the refresh token itself was never re-minted
+
+
+def test_early_refresh_failure_falls_back_to_the_still_valid_cached_token(state):
+    """A due-but-failed refresh must not throw away a session that still works."""
+    for failure in (RunnaAuthInvalid("NotAuthorizedException"), RunnaError("TooManyRequestsException")):
+        c, calls = client(
+            state,
+            {"idToken": VALID, "refreshToken": "r0", "refreshedAt": time.time() - 13 * 3600},
+            [failure],
+        )
+        assert c._authenticate() == VALID
+        assert calls == ["REFRESH_TOKEN_AUTH"]
+
+
+def test_legacy_state_without_timestamps_still_works(state):
+    """Pre-mintedAt state files are due immediately; a failed refresh must not break them."""
+    c, calls = client(state, {"idToken": VALID, "refreshToken": "r0"}, [RunnaAuthInvalid("NotAuthorizedException")])
+    assert c._authenticate() == VALID
+    assert calls == ["REFRESH_TOKEN_AUTH"]
 
 
 def test_rotated_refresh_token_is_persisted(state):

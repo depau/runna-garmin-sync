@@ -23,6 +23,9 @@ CLIENT_ID = "3ge3jbid1uosi52ki4kjhrp747"
 GRAPHQL_URL = "https://hydra.platform.runna.com/graphql"
 
 AUTH_FILE = "runna_auth.json"
+# Runna's refresh token lives ~24h, so refreshing only when the 24h idToken expires means
+# always asking after it is already dead. Exercise it on its own clock, with margin.
+REFRESH_EVERY = 12 * 3600
 
 WEEK_QUERY = """query W($weekIndex: Int!) {
   getActiveOrderWeek(input: { weekIndex: $weekIndex }) {
@@ -117,13 +120,18 @@ class RunnaClient:
     def _authenticate(self, force: bool = False) -> str:
         auth = self.state.load(AUTH_FILE, {})
         tok = auth.get("idToken")
-        if not force and tok and _jwt_exp(tok) > time.time() + 300:
+        usable = not force and bool(tok) and _jwt_exp(tok) > time.time() + 300
+        # refreshedAt tracks every successful refresh; mintedAt only advances when Cognito
+        # hands back a new refresh token, so it still dates the refresh token itself.
+        due = time.time() - auth.get("refreshedAt", auth.get("mintedAt", 0)) > REFRESH_EVERY
+        if usable and not due:
             return tok
         reason = "no cached refresh token"
         if auth.get("refreshToken"):
             try:
                 res = self._cognito("REFRESH_TOKEN_AUTH", {"REFRESH_TOKEN": auth["refreshToken"]})
                 auth["idToken"] = res["IdToken"]
+                auth["refreshedAt"] = time.time()
                 if res.get("RefreshToken"):  # present only when the pool rotates refresh tokens
                     auth["refreshToken"] = res["RefreshToken"]
                     auth["mintedAt"] = time.time()
@@ -133,7 +141,12 @@ class RunnaClient:
             except RunnaAuthInvalid as e:
                 reason = f"{e}, refresh token {_minted(auth.get('mintedAt'))}"
                 log.warning("Runna: refresh failed (%s), falling back to password", reason)
-            # any other RunnaError is transient — propagate so the caller retries next poll
+            except RunnaError as e:
+                if not usable:
+                    raise  # transient, and no fallback session — let the caller retry next poll
+                log.warning("Runna: early refresh failed (%s); cached idToken still valid", e)
+        if usable:
+            return tok  # the early refresh did not work out, but the cached token has life left
         if not self.email or not self.password:
             raise RunnaError(
                 f"no valid Runna session ({reason}) and no credentials; "
