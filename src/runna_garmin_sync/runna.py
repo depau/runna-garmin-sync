@@ -19,12 +19,15 @@ log = logging.getLogger(__name__)
 CACHE_FILE = "runna_cache.json"
 
 COGNITO_URL = "https://cognito-idp.eu-west-1.amazonaws.com/"
-CLIENT_ID = "3ge3jbid1uosi52ki4kjhrp747"
+# Mobile app client. The web SPA client (3ge3jbid1uosi52ki4kjhrp747) mints refresh tokens
+# that live only ~24h and are never rotated, so a headless daemon dies daily; the mobile
+# client is what the phone app relies on to stay logged in.
+CLIENT_ID = "2lfq5ub9movh0sfr47g1dff0nd"
 GRAPHQL_URL = "https://hydra.platform.runna.com/graphql"
 
 AUTH_FILE = "runna_auth.json"
-# Runna's refresh token lives ~24h, so refreshing only when the 24h idToken expires means
-# always asking after it is already dead. Exercise it on its own clock, with margin.
+# Refresh the idToken on its own clock, not only when it expires: if the pool rotates
+# refresh tokens, each early refresh persists the rotated one and extends the session.
 REFRESH_EVERY = 12 * 3600
 
 WEEK_QUERY = """query W($weekIndex: Int!) {
@@ -157,6 +160,10 @@ class RunnaClient:
         self.state.save(AUTH_FILE, auth)
         log.info("Runna: logged in with password")
         return auth["idToken"]
+
+    def ensure_auth(self, force: bool = False) -> None:
+        """Authenticate now; force=True mints a fresh idToken even if the cached one is valid."""
+        self._id_token = self._authenticate(force)
 
     # -- GraphQL ------------------------------------------------------------
 

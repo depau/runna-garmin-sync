@@ -62,6 +62,8 @@ State is plain JSON files in one directory, written atomically; there is deliber
 
 ## Hard-won API facts (don't rediscover)
 
+- Cognito: the web SPA client's refresh tokens live ~24h and are never rotated (headless
+  sessions die daily) — authenticate against the mobile app client instead.
 - Runna GraphQL: raw idToken in `authorization` (no "Bearer"), `x-rb-platform-source: rb-web`;
   out-of-range weeks return `"week": null` (not missing); the workout-time field is
   `scheduled24HourTime`; localized strings can't be forced to English — map via the stable

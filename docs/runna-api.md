@@ -113,6 +113,7 @@ Cognito **idToken** JWT (`token_use: "id"`), **no `Bearer` prefix**.
 | App Client ID (`aud`) | `3ge3jbid1uosi52ki4kjhrp747` (public SPA client, **no** client secret) |
 | Federated IdP | Strava (OIDC); email/password is the base login |
 | idToken lifetime (observed) | **24h** (`exp − iat = 86400`) |
+| Refresh-token lifetime (observed) | **web client: ~24h, never rotated** by `REFRESH_TOKEN_AUTH` — a headless session dies ~24h after the last password auth no matter how often the idToken is refreshed. Lifetimes are per app client: use the **mobile client** `2lfq5ub9movh0sfr47g1dff0nd` headlessly (the phone app relies on it to stay logged in; exact lifetime/rotation not yet measured). |
 
 **Token storage on `web.runna.com`** (Amplify v6 cookieStorage — cookies, not
 localStorage):
@@ -142,13 +143,13 @@ returns `NotAuthorizedException: Incorrect username or password` for bad creds (
 import boto3
 c = boto3.client("cognito-idp", region_name="eu-west-1")          # no AWS creds needed
 r = c.initiate_auth(
-    ClientId="3ge3jbid1uosi52ki4kjhrp747",                        # web client (also validated vs AppSync)
+    ClientId="2lfq5ub9movh0sfr47g1dff0nd",                        # mobile client — the web client's refresh token dies in ~24h
     AuthFlow="USER_PASSWORD_AUTH",
     AuthParameters={"USERNAME": EMAIL, "PASSWORD": PASSWORD})
 tok = r["AuthenticationResult"]
 id_token, refresh_token = tok["IdToken"], tok["RefreshToken"]     # IdToken -> AppSync authorization header
 # later, headless refresh (no password):
-r = c.initiate_auth(ClientId="3ge3jbid1uosi52ki4kjhrp747", AuthFlow="REFRESH_TOKEN_AUTH",
+r = c.initiate_auth(ClientId="2lfq5ub9movh0sfr47g1dff0nd", AuthFlow="REFRESH_TOKEN_AUTH",
                     AuthParameters={"REFRESH_TOKEN": refresh_token})
 id_token = r["AuthenticationResult"]["IdToken"]
 ```

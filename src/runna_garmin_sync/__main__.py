@@ -67,19 +67,32 @@ def cli(ctx, state_dir, runna_email, runna_password, garmin_email, garmin_passwo
 
 
 @cli.command()
+@click.option(
+    "--refresh",
+    "-r",
+    is_flag=True,
+    help="mint a fresh Runna idToken now instead of reusing the cached one "
+    "(falls back to a password prompt if the refresh token is rejected)",
+)
 @click.pass_context
-def login(ctx):
+def login(ctx, refresh):
     """Interactive first-time login: Garmin (with MFA prompt) + Runna. Prompts
     for credentials only when there is no reusable session."""
     from .runna import RunnaError
 
     garmin = _garmin(ctx, interactive=True)
     click.echo(f"Garmin: logged in as {garmin.display_name}; tokens saved to {ctx.obj['state'].path('garmin_tokens')}")
+
+    def _runna_url() -> str:
+        runna = _runna(ctx)
+        runna.ensure_auth(force=refresh)
+        return runna.ical_url()
+
     try:
-        url = _runna(ctx).ical_url()
+        url = _runna_url()
     except RunnaError:
         _prompt_creds(ctx, "runna")
-        url = _runna(ctx).ical_url()
+        url = _runna_url()
     click.echo(f"Runna: authenticated; calendar {url}")
 
 
